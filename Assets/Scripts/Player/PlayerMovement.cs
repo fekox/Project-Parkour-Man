@@ -20,11 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpBufferTime = 0.25f;
 
-
     private Vector3 _currentMovement;
+    
     private Coroutine _jumpCoroutine;
 
     private bool _isJumpInput;
+
     [SerializeField] private float coyoteTime;
 
     private void OnValidate()
@@ -38,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
         {
             enabled = false;
         }
-
     }
 
     private void FixedUpdate()
