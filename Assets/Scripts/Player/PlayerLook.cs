@@ -8,13 +8,11 @@ public class PlayerLook : MonoBehaviour
 {
     [Header("Setup")]
 
-    [SerializeField]
-    private Transform playerBody;
+    [SerializeField] private Transform playerBody;
 
     [Header("Movement")]
 
-    [SerializeField]
-    private float mouseSensitivity = 100f;
+    [SerializeField] private float mouseSensitivity = 100f;
 
     private Vector2 mouseRot;
 

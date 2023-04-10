@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661821755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.69, z: -8.24}
+  m_LocalPosition: {x: 0, y: 1.16, z: -8.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 661821761}
   feetPivot: {fileID: 317696680}
+  controller: {fileID: 0}
+  playerCamera: {fileID: 963194228}
   movementSpeed: 10
   jumpForce: 6
   minJumpDistance: 0.25
@@ -510,10 +512,9 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
+  - component: {fileID: 963194230}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194231}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -596,20 +597,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f538b3dd84128a42a437e996ed63f70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBody: {fileID: 661821759}
-  mouseSensitivity: 100
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -631,7 +618,7 @@ MonoBehaviour:
   m_DefaultActionMap: World
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &963194231
+--- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

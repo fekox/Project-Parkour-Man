@@ -8,11 +8,17 @@ public class PlayerMovement : MonoBehaviour
 {
     private const int MaxFloorDistance = 10;
 
-    [Header("Setup")][SerializeField] private Rigidbody rigidBody;
+    [Header("Setup")]
+    
+    [SerializeField] private Rigidbody rigidBody;
 
     [SerializeField] private Transform feetPivot;
 
-    [Header("Movement")][SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private Transform playerCamera;
+
+    [Header("Movement")]
+    
+    [SerializeField] private float movementSpeed = 10f;
 
     [SerializeField] private float jumpForce = 10f;
 
@@ -21,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBufferTime = 0.25f;
 
     private Vector3 _currentMovement;
+
+    private Vector3 _velocity;
     
     private Coroutine _jumpCoroutine;
 
@@ -43,7 +51,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = _currentMovement * movementSpeed + Vector3.up * rigidBody.velocity.y;
+        if(_currentMovement.magnitude >= 1f) 
+        {
+            float targetAngle = Mathf.Atan2(_currentMovement.x, _currentMovement.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
+        }
+
+        else 
+        {
+            rigidBody.velocity = new Vector3(0f, rigidBody.velocity.y, 0f);
+        }
     }
 
     public void OnMove(InputValue value)
