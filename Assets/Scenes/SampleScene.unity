@@ -288,12 +288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 661821761}
   feetPivot: {fileID: 317696680}
-  controller: {fileID: 0}
   playerCamera: {fileID: 963194228}
   movementSpeed: 10
   jumpForce: 6
   minJumpDistance: 0.25
   jumpBufferTime: 0.25
+  sprintTimer: 8
   coyoteTime: 0.1
 --- !u!114 &661821763
 MonoBehaviour:

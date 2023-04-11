@@ -26,6 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpBufferTime = 0.25f;
 
+    [SerializeField] private float sprintTimer;
+
+    private float actualSprintTimer;
+
+    private float actualMovementSpeed;
+
     private Vector3 _currentMovement;
 
     private Vector3 _velocity;
@@ -33,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine _jumpCoroutine;
 
     private bool _isJumpInput;
+
+    private bool _isSprintInput;
 
     [SerializeField] private float coyoteTime;
 
@@ -48,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             enabled = false;
         }
     }
-
     private void FixedUpdate()
     {
         if(_currentMovement.magnitude >= 1f) 
@@ -57,6 +64,24 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
+
+            if (_isSprintInput == true)
+            {
+                movementSpeed *= 1.1f;
+            }
+
+            if (movementSpeed >= 15)  
+            {
+                movementSpeed = 15;
+                sprintTimer -= Time.deltaTime;
+
+                if (sprintTimer <= 0) 
+                {
+                    sprintTimer = actualSprintTimer;
+                    _isSprintInput = false;
+                    movementSpeed = actualMovementSpeed;
+                }
+            }
         }
 
         else 
@@ -76,6 +101,14 @@ public class PlayerMovement : MonoBehaviour
         if (_jumpCoroutine != null)
             StopCoroutine(_jumpCoroutine);
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
+    }
+
+    public void OnSprint(InputValue value) 
+    {
+        actualMovementSpeed = movementSpeed;
+        actualSprintTimer = sprintTimer;
+        var sprintInput = value.Get<float>();
+        _isSprintInput = true;
     }
 
     private IEnumerator JumpCoroutine()
