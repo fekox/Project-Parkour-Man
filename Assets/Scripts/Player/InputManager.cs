@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputs : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     private PlayerMovement plMov;
     private PlayerLook plLook;
@@ -24,9 +25,14 @@ public class PlayerInputs : MonoBehaviour
         plMov.Movement(value);
     }
 
-    public void OnSprint(InputValue value)
+    public void OnSprintStart(InputValue value)
     {
-        plMov.SprintLogic(value);
+        plMov.SprintStartLogic(value);
+    }
+
+    public void OnSprintFinish(InputValue value)
+    {
+        plMov.SprintFinishLogic(value);
     }
 
     public void OnLook(InputValue inputValue)

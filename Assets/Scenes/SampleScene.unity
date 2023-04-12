@@ -294,8 +294,8 @@ MonoBehaviour:
   jumpForce: 6
   minJumpDistance: 0.25
   jumpBufferTime: 0.25
-  sprintTimer: 8
   coyoteTime: 0.1
+  _isSprinting: 0
 --- !u!114 &661821763
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     
-    [SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private float movementSpeed;
+    
+    [SerializeField] private float SprintSpeed;
 
     [SerializeField] private float jumpForce = 10f;
 
@@ -27,11 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpBufferTime = 0.25f;
 
-    [SerializeField] private float sprintTimer;
+    [SerializeField] private float coyoteTime;
 
-    private float actualSprintTimer;
+    [SerializeField] private bool _isSprinting;
 
-    private float actualMovementSpeed;
+    private float actualSpeed;
+
+    private float maxSpeed;
 
     private Vector3 _currentMovement;
 
@@ -40,10 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine _jumpCoroutine;
 
     private bool _isJumpInput;
-
-    private bool _isSprintInput;
-
-    [SerializeField] private float coyoteTime;
 
     private void OnValidate()
     {
@@ -56,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
         {
             enabled = false;
         }
+
+        actualSpeed = movementSpeed;
+
+        maxSpeed = actualSpeed + movementSpeed;
     }
     private void FixedUpdate()
     {
@@ -66,23 +72,21 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
-            if (_isSprintInput == true)
+            if(_isSprinting == true) 
             {
-                movementSpeed *= 1.1f;
-            }
+                movementSpeed += SprintSpeed * Time.deltaTime;
 
-            if (movementSpeed >= 15)  
-            {
-                movementSpeed = 15;
-                sprintTimer -= Time.deltaTime;
-
-                if (sprintTimer <= 0) 
+                if(movementSpeed > maxSpeed) 
                 {
-                    sprintTimer = actualSprintTimer;
-                    _isSprintInput = false;
-                    movementSpeed = actualMovementSpeed;
+                    movementSpeed = actualSpeed;
                 }
             }
+
+            else 
+            {
+                movementSpeed = actualSpeed;
+            }
+
         }
 
         else 
@@ -104,12 +108,26 @@ public class PlayerMovement : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
     }
 
-    public void SprintLogic(InputValue value)
+    public void SprintStartLogic(InputValue value)
     {
-        actualMovementSpeed = movementSpeed;
-        actualSprintTimer = sprintTimer;
         var sprintInput = value.Get<float>();
-        _isSprintInput = true;
+        SprintPressed();
+    }
+
+    public void SprintFinishLogic(InputValue value)
+    {
+        var sprintInput = value.Get<float>();
+        SprintReleased();
+    }
+
+    private void SprintPressed() 
+    {
+        _isSprinting = true;
+    }
+
+    private void SprintReleased()
+    {
+        _isSprinting = false;
     }
 
     private IEnumerator JumpCoroutine()
