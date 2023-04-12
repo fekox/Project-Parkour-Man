@@ -22,18 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     
     [SerializeField] private float movementSpeed;
-    
-    [SerializeField] private float SprintSpeed;
-
-    [SerializeField] private float jumpForce = 10f;
-
-    [SerializeField] private float minJumpDistance = 0.25f;
-
-    [SerializeField] private float jumpBufferTime = 0.25f;
 
     [SerializeField] private float coyoteTime = 0.2f;
-
-    [SerializeField] private bool _isSprinting;
 
     private float normalSpeed;
 
@@ -42,11 +32,25 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _currentMovement;
 
     private Vector3 _velocity;
-    
+
+    [SerializeField] private float SprintSpeed;
+
+    [SerializeField] private float jumpForce = 10f;
+
+    [SerializeField] private float minJumpDistance = 0.25f;
+
+    [SerializeField] private float jumpBufferTime = 0.25f;
+
     private Coroutine _jumpCoroutine;
 
     private bool _isJumpInput;
 
+    [SerializeField] private bool _isSprinting;
+
+    [SerializeField] private float wallRunningSpeed;
+
+    public bool _isWallRunning;
+    
     private void OnValidate()
     {
         rigidBody ??= GetComponent<Rigidbody>();
@@ -62,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         normalSpeed = movementSpeed;
 
         maxSpeed = normalSpeed + movementSpeed;
+
+        movementSpeed = wallRunningSpeed;
     }
     private void FixedUpdate()
     {
