@@ -31,11 +31,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpBufferTime = 0.25f;
 
-    [SerializeField] private float coyoteTime;
+    [SerializeField] private float coyoteTime = 0.2f;
 
     [SerializeField] private bool _isSprinting;
 
-    private float actualSpeed;
+    private float normalSpeed;
 
     private float maxSpeed;
 
@@ -59,9 +59,9 @@ public class PlayerMovement : MonoBehaviour
             enabled = false;
         }
 
-        actualSpeed = movementSpeed;
+        normalSpeed = movementSpeed;
 
-        maxSpeed = actualSpeed + movementSpeed;
+        maxSpeed = normalSpeed + movementSpeed;
     }
     private void FixedUpdate()
     {
@@ -78,13 +78,13 @@ public class PlayerMovement : MonoBehaviour
 
                 if(movementSpeed > maxSpeed) 
                 {
-                    movementSpeed = actualSpeed;
+                    movementSpeed = normalSpeed;
                 }
             }
 
             else 
             {
-                movementSpeed = actualSpeed;
+                movementSpeed = normalSpeed;
             }
 
         }
