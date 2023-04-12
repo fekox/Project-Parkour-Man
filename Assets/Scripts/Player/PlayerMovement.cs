@@ -90,20 +90,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnMove(InputValue value)
+    public void Movement(InputValue value)
     {
         var movementInput = value.Get<Vector2>();
         _currentMovement = new Vector3(movementInput.x, 0, movementInput.y);
     }
 
-    public void OnJump()
+    public void JumpLogic()
     {
         if (_jumpCoroutine != null)
             StopCoroutine(_jumpCoroutine);
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
     }
 
-    public void OnSprint(InputValue value) 
+    public void SprintLogic(InputValue value)
     {
         actualMovementSpeed = movementSpeed;
         actualSprintTimer = sprintTimer;
