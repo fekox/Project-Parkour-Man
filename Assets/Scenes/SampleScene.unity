@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 119284886}
   - component: {fileID: 119284885}
   - component: {fileID: 119284884}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119284883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.79, y: 3.03, z: -0.15799046}
-  m_LocalScale: {x: 0.49732584, y: 6.2269173, z: 9.495628}
+  m_LocalPosition: {x: -3.79, y: 3.03, z: -2.44}
+  m_LocalScale: {x: 0.49732584, y: 6.2269173, z: 22.298584}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 140650575}
   - component: {fileID: 140650574}
   - component: {fileID: 140650573}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140650572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 3.03, z: -0.15799046}
+  m_LocalPosition: {x: 1.7, y: 3.03, z: 1.03}
   m_LocalScale: {x: 0.49732584, y: 6.2269173, z: 9.495628}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661821755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.16, z: -8.24}
+  m_LocalPosition: {x: 0, y: 1.16, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -488,7 +488,7 @@ MonoBehaviour:
   movementSpeed: 8
   coyoteTime: 0.1
   SprintSpeed: 10
-  jumpForce: 8
+  jumpForce: 6
   minJumpDistance: 0.25
   jumpBufferTime: 0.25
   _isSprinting: 0
@@ -550,16 +550,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   wallRunForce: 200
+  wallJumpUpForce: 6
+  wallJumpSideForce: 7
   wallClimbSpeed: 3
-  maxWallRunTime: 1.5
+  maxWallRunTime: 0.7
+  jumpKey: 32
   upwardsRunKey: 304
   wallCheckDistance: 0.7
   minJumpHeight: 2
+  exitWallTime: 0.2
+  useGravity: 1
+  gravityCounterForce: 2
   orientation: {fileID: 661821759}
 --- !u!1 &705507993
 GameObject:
@@ -867,7 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 661821759}
-  mouseSensitivity: 100
+  mouseSensitivity: 50
 --- !u!1 &1979837653
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +966,7 @@ Transform:
   m_GameObject: {fileID: 1979837653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
