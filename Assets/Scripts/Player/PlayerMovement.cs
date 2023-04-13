@@ -45,9 +45,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isJumpInput;
 
-    [SerializeField] private bool _isSprinting;
-
     [SerializeField] private float wallRunningSpeed;
+
+    [SerializeField] private bool _isSprinting;
 
     public bool _isWallRunning;
     
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(_isSprinting == true) 
             {
-                movementSpeed += SprintSpeed * Time.deltaTime;
+                movementSpeed = SprintSpeed;
 
                 if(movementSpeed > maxSpeed) 
                 {
