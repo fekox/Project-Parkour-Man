@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WallRunning : MonoBehaviour
 {
@@ -25,10 +26,6 @@ public class WallRunning : MonoBehaviour
 
    
     [Header("Input")]
-
-    public KeyCode jumpKey = KeyCode.Space;
-
-    public KeyCode upwardsRunKey = KeyCode.LeftShift;
 
     private bool upwardsRunning;
 
@@ -87,7 +84,7 @@ public class WallRunning : MonoBehaviour
     private void Update()
     {
         CheckForWall();
-        StateMachine();
+        WallRunLogic();
     }
 
     private void FixedUpdate()
@@ -97,7 +94,7 @@ public class WallRunning : MonoBehaviour
             WallRunnningMovement();
         }
     }
-    private void CheckForWall() 
+    public void CheckForWall() 
     {                               //Start point        //Direction       //Store hit info      //Distance
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, whatIsWall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, whatIsWall);
@@ -108,15 +105,13 @@ public class WallRunning : MonoBehaviour
         return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, whatIsGround);
     }
 
-    private void StateMachine() 
+    public void WallRunLogic() 
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        upwardsRunning = Input.GetKey(upwardsRunKey);
-
         //Wallrunnig
-        if((wallLeft || wallRight) && verticalInput > 0 && AboveGround() && !exitingWall) 
+        if ((wallLeft || wallRight) && verticalInput > 0 && AboveGround() && !exitingWall) 
         {
             if (!pm._isWallRunning)
             {
@@ -132,11 +127,6 @@ public class WallRunning : MonoBehaviour
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
-            }
-
-            if (Input.GetKeyDown(jumpKey))
-            {
-                WallJump();
             }
         }
 
@@ -160,7 +150,7 @@ public class WallRunning : MonoBehaviour
         }
 
     }
-    private void StartWallRun() 
+    public void StartWallRun() 
     {
         pm._isWallRunning = true;
 
@@ -168,16 +158,14 @@ public class WallRunning : MonoBehaviour
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        //cam.DoFov(90f);
-
-        if (wallLeft) 
+        if (wallLeft)
         {
-            cam.DoTilt(-10f);
+            cam.DoTilt(-5f);
         }
 
         if (wallRight)
         {
-            cam.DoTilt(10f);
+            cam.DoTilt(5f);
         }
     }
     private void WallRunnningMovement()
@@ -213,12 +201,9 @@ public class WallRunning : MonoBehaviour
     private void StopWallRun() 
     {
         pm._isWallRunning = false;
-
-        cam.DoFov(80f);
-        cam.DoTilt(0f);
     }
 
-    private void WallJump() 
+    public void WallJump() 
     {
         exitingWall = true;
 

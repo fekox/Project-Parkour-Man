@@ -559,8 +559,6 @@ MonoBehaviour:
   wallJumpSideForce: 7
   wallClimbSpeed: 3
   maxWallRunTime: 0.7
-  jumpKey: 32
-  upwardsRunKey: 304
   wallCheckDistance: 0.7
   minJumpHeight: 2
   exitWallTime: 0.2

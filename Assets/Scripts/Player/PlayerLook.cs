@@ -26,7 +26,6 @@ public class PlayerLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
        var mouseX = mouseRot.x * mouseSensitivity * Time.deltaTime;
@@ -44,13 +43,8 @@ public class PlayerLook : MonoBehaviour
         mouseRot = inputValue.Get<Vector2>();
     }
 
-    public void DoFov(float endValue) 
-    {
-        GetComponent<Camera>().DOFieldOfView(endValue, 0.25f);
-    }
-
     public void DoTilt(float zTilt) 
     {
-        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
+        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.35f);
     }
 }

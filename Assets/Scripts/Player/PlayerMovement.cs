@@ -31,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _currentMovement;
 
-    private Vector3 _velocity;
-
     [SerializeField] private float SprintSpeed;
 
     [SerializeField] private float jumpForce = 10f;
@@ -42,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBufferTime = 0.25f;
 
     private Coroutine _jumpCoroutine;
-
-    private bool _isJumpInput;
 
     [SerializeField] private float wallRunningSpeed;
 

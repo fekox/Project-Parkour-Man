@@ -8,21 +8,29 @@ public class InputManager : MonoBehaviour
 {
     private PlayerMovement plMov;
     private PlayerLook plLook;
+    private WallRunning plWallrun;
+    private WallRunning plWallJump;
 
     void Start()
     {
         plMov = GetComponent<PlayerMovement>();
         plLook = GetComponentInChildren<PlayerLook>();
+        plWallrun = GetComponent<WallRunning>();
+        plWallJump = GetComponent<WallRunning>();
+
     }
 
     public void OnJump()
     {
         plMov.JumpLogic();
+        plWallJump.WallJump();
     }
 
     public void OnMove(InputValue value)
     {
         plMov.Movement(value);
+        plWallrun.CheckForWall();
+        plWallrun.WallRunLogic();
     }
 
     public void OnSprintStart(InputValue value)
