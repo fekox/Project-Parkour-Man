@@ -123,15 +123,13 @@ public class PlayerMovement : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
     }
 
-    public void SprintStartLogic(InputValue value)
+    public void SprintStartLogic()
     {
-        var sprintInput = value.Get<float>();
         SprintPressed();
     }
 
-    public void SprintFinishLogic(InputValue value)
+    public void SprintFinishLogic()
     {
-        var sprintInput = value.Get<float>();
         SprintReleased();
     }
 

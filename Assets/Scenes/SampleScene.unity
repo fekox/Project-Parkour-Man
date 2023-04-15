@@ -593,7 +593,7 @@ MonoBehaviour:
   wallRunningSpeed: 20
   _isSprinting: 0
   _isWallRunning: 0
-  _isGrounded: 0
+  climbing: 0
 --- !u!114 &661821763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,10 +648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127277322608d4241a046603e263d11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsWall:
+  wallR:
     serializedVersion: 2
     m_Bits: 128
-  whatIsGround:
+  ground:
     serializedVersion: 2
     m_Bits: 64
   wallRunForce: 200
@@ -681,12 +681,11 @@ MonoBehaviour:
   orientation: {fileID: 661821759}
   rb: {fileID: 661821761}
   pm: {fileID: 661821762}
-  whatIsClimbingWall:
+  ClimbingWall:
     serializedVersion: 2
     m_Bits: 256
   climbSpeed: 4
   maxClimbTime: 0.75
-  climbing: 0
   detectionLength: 0.7
   sphereCastRdius: 0.25
   maxWallLookAngle: 30

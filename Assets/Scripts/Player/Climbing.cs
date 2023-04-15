@@ -12,7 +12,7 @@ public class Climbing : MonoBehaviour
 
     public PlayerMovement pm;
 
-    public LayerMask whatIsClimbingWall;
+    public LayerMask ClimbingWall;
 
 
     [Header("Climbing")]
@@ -79,7 +79,7 @@ public class Climbing : MonoBehaviour
 
     private void WallCheck() 
     {
-        wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, whatIsClimbingWall);
+        wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, ClimbingWall);
 
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
 

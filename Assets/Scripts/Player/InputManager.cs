@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     private WallRunning plWallrun;
     private WallRunning plWallJump;
 
+    private Climbing plClimbing;
+
     void Start()
     {
         plMov = GetComponent<PlayerMovement>();
@@ -37,14 +39,14 @@ public class InputManager : MonoBehaviour
         plWallrun.WallRunLogic();
     }
 
-    public void OnSprintStart(InputValue value)
+    public void OnSprintStart()
     {
-        plMov.SprintStartLogic(value);
+        plMov.SprintStartLogic();
     }
 
-    public void OnSprintFinish(InputValue value)
+    public void OnSprintFinish()
     {
-        plMov.SprintFinishLogic(value);
+        plMov.SprintFinishLogic();
     }
 
     public void OnLook(InputValue inputValue)

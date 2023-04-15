@@ -8,9 +8,9 @@ public class WallRunning : MonoBehaviour
 {
     [Header("Wall Running")]
 
-    public LayerMask whatIsWall;
+    public LayerMask wallR;
     
-    public LayerMask whatIsGround;
+    public LayerMask ground;
 
     public float wallRunForce;
 
@@ -94,13 +94,13 @@ public class WallRunning : MonoBehaviour
     }
     public void CheckForWall() 
     {                               //Start point        //Direction       //Store hit info      //Distance
-        wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, whatIsWall);
-        wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, whatIsWall);
+        wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wallR);
+        wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wallR);
     }
 
     private bool AboveGround() 
     {
-        return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, whatIsGround);
+        return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
     }
 
     public void WallRunLogic() 
