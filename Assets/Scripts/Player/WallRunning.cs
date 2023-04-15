@@ -27,8 +27,6 @@ public class WallRunning : MonoBehaviour
    
     [Header("Input")]
 
-    private bool upwardsRunning;
-
     private float horizontalInput;
     
     private float verticalInput;
@@ -182,11 +180,6 @@ public class WallRunning : MonoBehaviour
         }
 
         rb.AddForce(wallFoward * wallRunForce, ForceMode.Force);
-
-        if (upwardsRunning) 
-        {
-            rb.velocity = new Vector3(rb.velocity.x, wallClimbSpeed, rb.velocity.z);
-        }
 
         if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0)) 
         {

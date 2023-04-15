@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool _isSprinting;
 
     public bool _isWallRunning;
+
+    public bool _isGrounded;
     
     private void OnValidate()
     {

@@ -23,7 +23,11 @@ public class InputManager : MonoBehaviour
     public void OnJump()
     {
         plMov.JumpLogic();
-        plWallJump.WallJump();
+
+        if(plMov._isWallRunning == true)
+        {
+            plWallJump.WallJump();
+        }
     }
 
     public void OnMove(InputValue value)
