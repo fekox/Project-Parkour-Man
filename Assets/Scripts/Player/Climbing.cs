@@ -23,9 +23,6 @@ public class Climbing : MonoBehaviour
 
     private float climbTimer;
 
-    public bool climbing;
-
-
     [Header("Detection")]
 
     public float detectionLength;
@@ -45,7 +42,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         ClimbingLogic();
 
-        if (climbing) 
+        if (pm.climbing) 
         {
             ClimbingMovement();
         }
@@ -55,7 +52,7 @@ public class Climbing : MonoBehaviour
     {
         if (wallFront && wallLookAngle < maxWallLookAngle)
         {
-            if (!climbing && climbTimer > 0) 
+            if (!pm.climbing && climbTimer > 0) 
             {
                 StartClimbing();       
             }
@@ -73,7 +70,7 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (climbing)
+            if (pm.climbing)
             {
                 StopClimbing();
             }
@@ -91,7 +88,7 @@ public class Climbing : MonoBehaviour
 
     private void StartClimbing() 
     {
-        climbing = true;
+        pm.climbing = true;
     }
 
     private void ClimbingMovement() 
@@ -101,7 +98,7 @@ public class Climbing : MonoBehaviour
 
     private void StopClimbing() 
     {
-        climbing = false;
+        pm.climbing = false;
     }
 
 }

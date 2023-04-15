@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool _isWallRunning;
 
-    public bool _isGrounded;
-    
+    public bool climbing;
+
     private void OnValidate()
     {
         rigidBody ??= GetComponent<Rigidbody>();
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
             
-            if(plClimbing.climbing == true) 
+            if(climbing == true) 
             {
                 _isSprinting = false;
             }
