@@ -583,6 +583,7 @@ MonoBehaviour:
   rigidBody: {fileID: 661821761}
   feetPivot: {fileID: 317696680}
   playerCamera: {fileID: 963194228}
+  plClimbing: {fileID: 661821766}
   movementSpeed: 5
   coyoteTime: 0.1
   SprintSpeed: 10
@@ -685,6 +686,7 @@ MonoBehaviour:
     m_Bits: 256
   climbSpeed: 4
   maxClimbTime: 0.75
+  climbing: 0
   detectionLength: 0.7
   sphereCastRdius: 0.25
   maxWallLookAngle: 30

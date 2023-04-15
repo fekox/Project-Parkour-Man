@@ -23,7 +23,7 @@ public class Climbing : MonoBehaviour
 
     private float climbTimer;
 
-    private bool climbing;
+    public bool climbing;
 
 
     [Header("Detection")]
@@ -40,7 +40,6 @@ public class Climbing : MonoBehaviour
 
     private bool wallFront;
 
-
     private void Update()
     {
         WallCheck();
@@ -54,7 +53,7 @@ public class Climbing : MonoBehaviour
 
     private void ClimbingLogic() 
     {
-        if (wallFront && Input.GetKey(KeyCode.W) && wallLookAngle < maxWallLookAngle)
+        if (wallFront && wallLookAngle < maxWallLookAngle)
         {
             if (!climbing && climbTimer > 0) 
             {

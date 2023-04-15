@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform playerCamera;
 
+    [SerializeField] private Climbing plClimbing;
+
+
     [Header("Movement")]
     
     [SerializeField] private float movementSpeed;
@@ -65,7 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
         maxSpeed = normalSpeed + movementSpeed;
 
-        movementSpeed = wallRunningSpeed;
+        if(_isWallRunning == true) 
+        {
+            movementSpeed = wallRunningSpeed;
+        }
     }
     private void FixedUpdate()
     {
@@ -75,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
+            
+            if(plClimbing.climbing == true) 
+            {
+                _isSprinting = false;
+            }
 
             if(_isSprinting == true) 
             {
