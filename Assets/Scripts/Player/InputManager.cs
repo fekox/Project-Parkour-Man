@@ -11,8 +11,6 @@ public class InputManager : MonoBehaviour
     private WallRunning plWallrun;
     private WallRunning plWallJump;
 
-    private Climbing plClimbing;
-
     void Start()
     {
         plMov = GetComponent<PlayerMovement>();

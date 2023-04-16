@@ -6,30 +6,30 @@ public class Climbing : MonoBehaviour
 {
     [Header("References")]
 
-    public Transform orientation;
+    [SerializeField] private Transform orientation;
 
-    public Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
 
-    public PlayerMovement pm;
+    [SerializeField]private PlayerMovement pm;
 
-    public LayerMask ClimbingWall;
+    [SerializeField] private LayerMask ClimbingWall;
 
 
     [Header("Climbing")]
 
-    public float climbSpeed;
+    [SerializeField] private float climbSpeed;
 
-    public float maxClimbTime;
+    [SerializeField] private float maxClimbTime;
 
     private float climbTimer;
 
     [Header("Detection")]
 
-    public float detectionLength;
+    [SerializeField] private float detectionLength;
 
-    public float sphereCastRdius;
+    [SerializeField] private float sphereCastRdius;
 
-    public float maxWallLookAngle;
+    [SerializeField] private float maxWallLookAngle;
 
     private float wallLookAngle;
 
@@ -42,7 +42,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         ClimbingLogic();
 
-        if (pm.climbing) 
+        if (pm.climbing == true) 
         {
             ClimbingMovement();
         }
@@ -50,9 +50,9 @@ public class Climbing : MonoBehaviour
 
     private void ClimbingLogic() 
     {
-        if (wallFront && wallLookAngle < maxWallLookAngle)
+        if (wallFront == true && wallLookAngle < maxWallLookAngle)
         {
-            if (!pm.climbing && climbTimer > 0) 
+            if (pm.climbing == false && climbTimer > 0) 
             {
                 StartClimbing();       
             }
@@ -70,7 +70,7 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (pm.climbing)
+            if (pm.climbing == true)
             {
                 StopClimbing();
             }
@@ -100,5 +100,4 @@ public class Climbing : MonoBehaviour
     {
         pm.climbing = false;
     }
-
 }

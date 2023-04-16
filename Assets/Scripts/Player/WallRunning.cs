@@ -8,19 +8,19 @@ public class WallRunning : MonoBehaviour
 {
     [Header("Wall Running")]
 
-    public LayerMask wallR;
+    [SerializeField] private LayerMask wallR;
     
-    public LayerMask ground;
+    [SerializeField] private LayerMask ground;
 
-    public float wallRunForce;
+    [SerializeField] private float wallRunForce;
 
-    public float wallJumpUpForce;
+    [SerializeField] private float wallJumpUpForce;
 
-    public float wallJumpSideForce;
+    [SerializeField] private float wallJumpSideForce;
 
-    public float wallClimbSpeed;
+    [SerializeField] private float wallClimbSpeed;
 
-    public float maxWallRunTime;
+    [SerializeField] private float maxWallRunTime;
 
     private float wallRunTimer;
 
@@ -34,9 +34,9 @@ public class WallRunning : MonoBehaviour
     
     [Header("Detection")]
 
-    public float wallCheckDistance;
+    [SerializeField] private float wallCheckDistance;
     
-    public float minJumpHeight;
+    [SerializeField] private float minJumpHeight;
 
     private RaycastHit leftWallHit;
 
@@ -51,16 +51,16 @@ public class WallRunning : MonoBehaviour
     
     private bool exitingWall;
 
-    public float exitWallTime;
+    [SerializeField] private float exitWallTime;
 
     private float exitWallTimer;
 
     
     [Header("Gravity")]
 
-    public bool useGravity;
+    [SerializeField] private bool useGravity;
 
-    public float gravityCounterForce;
+    [SerializeField] private float gravityCounterForce;
 
     
     [Header("References")]
@@ -109,9 +109,9 @@ public class WallRunning : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Wallrunnig
-        if ((wallLeft || wallRight) && verticalInput > 0 && AboveGround() && !exitingWall) 
+        if ((wallLeft == true || wallRight == true) && verticalInput > 0 && AboveGround() && exitingWall == false) 
         {
-            if (!pm._isWallRunning)
+            if (pm._isWallRunning == false)
             {
                 StartWallRun();
             }
@@ -121,7 +121,7 @@ public class WallRunning : MonoBehaviour
                 wallRunTimer -= Time.deltaTime;
             }
 
-            if(wallRunTimer <= 0 && pm._isWallRunning) 
+            if(wallRunTimer <= 0 && pm._isWallRunning == true) 
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
@@ -129,7 +129,7 @@ public class WallRunning : MonoBehaviour
         }
 
         //Exiting
-        else if (exitingWall) 
+        else if (exitingWall == true) 
         {
             if (pm._isWallRunning) 
             {
@@ -156,12 +156,12 @@ public class WallRunning : MonoBehaviour
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if (wallLeft)
+        if (wallLeft == true)
         {
             cam.DoTilt(-5f);
         }
 
-        if (wallRight)
+        if (wallRight == true)
         {
             cam.DoTilt(5f);
         }
@@ -181,12 +181,12 @@ public class WallRunning : MonoBehaviour
 
         rb.AddForce(wallFoward * wallRunForce, ForceMode.Force);
 
-        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0)) 
+        if ((wallLeft == false && horizontalInput > 0) && (wallRight == false && horizontalInput < 0)) 
         {
             rb.AddForce(-wallNormal * 100, ForceMode.Force);
         }
 
-        if (useGravity) 
+        if (useGravity == true) 
         {
             rb.AddForce(transform.up * gravityCounterForce, ForceMode.Force);
         }
