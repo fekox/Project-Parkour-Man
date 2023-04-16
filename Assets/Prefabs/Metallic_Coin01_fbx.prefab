@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1106228302045206323}
   - component: {fileID: 4104405793941248150}
   - component: {fileID: 2238623383308512348}
+  - component: {fileID: 4568615992449435415}
+  - component: {fileID: 4734253760693967835}
   m_Layer: 0
   m_Name: Metallic_Coin01_fbx
   m_TagString: Untagged
@@ -83,3 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4568615992449435415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293240210912906633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2425, y: 0.2425, z: 0.02379296}
+  m_Center: {x: -0.000000037252903, y: 0.121262684, z: 0.0000014384277}
+--- !u!114 &4734253760693967835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293240210912906633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91384512e0c65946be4643756a23831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
