@@ -82,8 +82,6 @@ public class Climbing : MonoBehaviour
         wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, ClimbingWall);
 
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
-
-        climbTimer = maxClimbTime;
     }
 
     private void StartClimbing() 
@@ -99,5 +97,13 @@ public class Climbing : MonoBehaviour
     private void StopClimbing() 
     {
         pm.climbing = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            climbTimer = maxClimbTime;
+        }
     }
 }
