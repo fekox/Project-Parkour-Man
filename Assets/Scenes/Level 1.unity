@@ -978,6 +978,7 @@ MonoBehaviour:
   plClimbing: {fileID: 661821766}
   movementSpeed: 5
   coyoteTime: 0.1
+  _currentMovement: {x: 0, y: 0, z: 0}
   SprintSpeed: 10
   jumpForce: 6
   minJumpDistance: 0.25
@@ -1393,7 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 661821759}
   camHolder: {fileID: 963194228}
-  mouseSensitivity: 50
+  mouseSensitivity: 100
 --- !u!1 &1042451454
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float maxSpeed;
 
-    private Vector3 _currentMovement;
+    public Vector3 _currentMovement;
 
     [SerializeField] private float SprintSpeed;
 

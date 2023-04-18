@@ -24,14 +24,7 @@ public class WallRunning : MonoBehaviour
 
     private float wallRunTimer;
 
-   
-    [Header("Input")]
 
-    private float horizontalInput;
-    
-    private float verticalInput;
-
-    
     [Header("Detection")]
 
     [SerializeField] private float wallCheckDistance;
@@ -105,23 +98,20 @@ public class WallRunning : MonoBehaviour
 
     public void WallRunLogic() 
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
         //Wallrunnig
-        if ((wallLeft == true || wallRight == true) && verticalInput > 0 && AboveGround() && exitingWall == false) 
+        if ((wallLeft == true || wallRight == true) && pm._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
             if (pm._isWallRunning == false)
             {
                 StartWallRun();
             }
 
-            if (wallRunTimer > 0) 
+            if (wallRunTimer > 0)
             {
                 wallRunTimer -= Time.deltaTime;
             }
 
-            if(wallRunTimer <= 0 && pm._isWallRunning == true) 
+            if (wallRunTimer <= 0 && pm._isWallRunning == true)
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
@@ -181,7 +171,7 @@ public class WallRunning : MonoBehaviour
 
         rb.AddForce(wallFoward * wallRunForce, ForceMode.Force);
 
-        if ((wallLeft == false && horizontalInput > 0) && (wallRight == false && horizontalInput < 0)) 
+        if ((wallLeft == false && pm._currentMovement.x > 0) && (wallRight == false && pm._currentMovement.x < 0))
         {
             rb.AddForce(-wallNormal * 100, ForceMode.Force);
         }
