@@ -80,7 +80,7 @@ public class WallRunning : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (pm._isWallRunning == true)
+        if (pm._isWallRunButtonPress == true)
         {
             WallRunnningMovement();
         }
@@ -101,7 +101,7 @@ public class WallRunning : MonoBehaviour
         //Wallrunnig
         if ((wallLeft == true || wallRight == true) && pm._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
-            if (pm._isWallRunning == false)
+            if (pm._isWallRunButtonPress == false)
             {
                 StartWallRun();
             }
@@ -111,7 +111,7 @@ public class WallRunning : MonoBehaviour
                 wallRunTimer -= Time.deltaTime;
             }
 
-            if (wallRunTimer <= 0 && pm._isWallRunning == true)
+            if (wallRunTimer <= 0 && pm._isWallRunButtonPress == true)
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
@@ -121,7 +121,7 @@ public class WallRunning : MonoBehaviour
         //Exiting
         else if (exitingWall == true) 
         {
-            if (pm._isWallRunning) 
+            if (pm._isWallRunButtonPress) 
             {
                 StopWallRun();
             }
@@ -140,7 +140,7 @@ public class WallRunning : MonoBehaviour
     }
     public void StartWallRun() 
     {
-        pm._isWallRunning = true;
+        pm._isWallRunButtonPress = true;
 
         wallRunTimer = maxWallRunTime;
 
@@ -183,7 +183,7 @@ public class WallRunning : MonoBehaviour
     }
     private void StopWallRun() 
     {
-        pm._isWallRunning = false;
+        pm._isWallRunButtonPress = false;
     }
 
     public void WallJump() 

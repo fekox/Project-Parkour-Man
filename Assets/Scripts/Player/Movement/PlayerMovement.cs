@@ -46,9 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float wallRunningSpeed;
 
-    [SerializeField] private bool _isSprinting;
+    public bool _isWalkButtonPress;
 
-    public bool _isWallRunning;
+    public bool _isSprintButtonPress;
+
+    public bool _isWallRunButtonPress;
 
     public bool climbing;
 
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         maxSpeed = normalSpeed + movementSpeed;
 
-        if(_isWallRunning == true) 
+        if(_isWallRunButtonPress == true) 
         {
             movementSpeed = wallRunningSpeed;
         }
@@ -81,13 +83,15 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
+
+            _isWalkButtonPress = true;
             
             if(climbing == true) 
             {
-                _isSprinting = false;
+                _isSprintButtonPress = false;
             }
 
-            if(_isSprinting == true) 
+            if(_isSprintButtonPress == true) 
             {
                 movementSpeed = SprintSpeed;
 
@@ -107,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         else 
         {
             rigidBody.velocity = new Vector3(0f, rigidBody.velocity.y, 0f);
+
+            _isWalkButtonPress = false;
         }
     }
 
@@ -125,7 +131,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void SprintStartLogic()
     {
-        SprintPressed();
+        if (_isWalkButtonPress == true)
+        {
+            SprintPressed();
+        }
     }
 
     public void SprintFinishLogic()
@@ -135,12 +144,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void SprintPressed() 
     {
-        _isSprinting = true;
+        _isSprintButtonPress = true;
     }
 
     private void SprintReleased()
     {
-        _isSprinting = false;
+        _isSprintButtonPress = false;
     }
 
     private IEnumerator JumpCoroutine()

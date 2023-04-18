@@ -984,6 +984,7 @@ MonoBehaviour:
   minJumpDistance: 0.25
   jumpBufferTime: 0.25
   wallRunningSpeed: 20
+  _isWalking: 0
   _isSprinting: 0
   _isWallRunning: 0
   climbing: 0
@@ -1448,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 95d46e8156b4df643957d3bff3f25717, type: 3}
       propertyPath: m_Name
-      value: Ch44_nonPBR@Idle
+      value: Player Texture
       objectReference: {fileID: 0}
     - target: {fileID: 1172324090021531726, guid: 95d46e8156b4df643957d3bff3f25717, type: 3}
       propertyPath: m_DynamicOccludee
@@ -1874,6 +1875,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1955988462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955988458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95be66878400c5141a4573b3e0495ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1955988460}
+  pm: {fileID: 661821762}
 --- !u!1 &1979837653
 GameObject:
   m_ObjectHideFlags: 0

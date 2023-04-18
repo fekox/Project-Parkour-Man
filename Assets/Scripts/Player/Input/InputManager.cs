@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [Header("References")]
     private PlayerMovement plMov;
     private PlayerLook plLook;
     private WallRunning plWallrun;
@@ -24,7 +25,7 @@ public class InputManager : MonoBehaviour
     {
         plMov.JumpLogic();
 
-        if(plMov._isWallRunning == true)
+        if(plMov._isWallRunButtonPress == true)
         {
             plWallJump.WallJump();
         }
@@ -39,7 +40,7 @@ public class InputManager : MonoBehaviour
 
     public void OnSprintStart()
     {
-        plMov.SprintStartLogic();
+        plMov.SprintStartLogic();   
     }
 
     public void OnSprintFinish()

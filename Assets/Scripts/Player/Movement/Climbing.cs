@@ -10,7 +10,7 @@ public class Climbing : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
 
-    [SerializeField]private PlayerMovement pm;
+    [SerializeField] private PlayerMovement pm;
 
     [SerializeField] private LayerMask ClimbingWall;
 
