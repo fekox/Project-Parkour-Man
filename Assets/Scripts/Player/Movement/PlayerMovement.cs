@@ -46,11 +46,16 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float wallRunningSpeed;
 
+
+    [Header("Input")]
+
     public bool _isWalkButtonPress;
 
     public bool _isSprintButtonPress;
 
     public bool _isWallRunButtonPress;
+
+    public bool _isJumpingButtonPress;
 
     public bool climbing;
 
@@ -124,8 +129,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpLogic()
     {
-        if (_jumpCoroutine != null)
+        if (_jumpCoroutine != null) 
+        {
             StopCoroutine(_jumpCoroutine);
+        }
+
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
     }
 
@@ -154,12 +162,15 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator JumpCoroutine()
     {
-        if (!feetPivot)
+        if (!feetPivot) 
+        {
             yield break;
+        }
 
         for (var timeElapsed = 0.0f; timeElapsed <= jumpBufferTime; timeElapsed += Time.fixedDeltaTime)
         {
             yield return new WaitForFixedUpdate();
+
             var isFalling = rigidBody.velocity.y <= 0;
             var currentFeetPosition = feetPivot.position;
 
@@ -175,6 +186,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (canNormalJump || canCoyoteJump)
             {
+                _isJumpingButtonPress = true;
+
                 var jumpForceVector = Vector3.up * jumpForce;
 
                 if (rigidBody.velocity.y < 0)

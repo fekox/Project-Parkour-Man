@@ -39,5 +39,25 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool("IsRunning", false);
         }
+
+        if (pm._isJumpingButtonPress == true)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+
+        if (pm._isJumpingButtonPress == false)
+        {
+            animator.SetBool("IsJumping", false);
+        }
+
+        if (pm.climbing == true)
+        {
+            animator.SetBool("IsClimbing", true);
+        }
+
+        if (pm.climbing == false)
+        {
+            animator.SetBool("IsClimbing", false);
+        }
     }
 }

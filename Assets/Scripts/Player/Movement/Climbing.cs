@@ -104,6 +104,8 @@ public class Climbing : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             climbTimer = maxClimbTime;
+
+            pm._isJumpingButtonPress = false;
         }
     }
 }
