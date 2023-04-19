@@ -53,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool _isSprintButtonPress;
 
-    public bool _isWallRunButtonPress;
-
     public bool _isJumpingButtonPress;
+
+    public bool _isWallrunning;
 
     public bool climbing;
 
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
         maxSpeed = normalSpeed + movementSpeed;
 
-        if(_isWallRunButtonPress == true) 
+        if(_isWallrunning == true) 
         {
             movementSpeed = wallRunningSpeed;
         }

@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
     {
         plMov.JumpLogic();
 
-        if(plMov._isWallRunButtonPress == true)
+        if(plMov._isWallrunning == true)
         {
             plWallJump.WallJump();
         }
