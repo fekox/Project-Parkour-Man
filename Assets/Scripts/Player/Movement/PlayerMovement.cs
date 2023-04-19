@@ -118,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.velocity = new Vector3(0f, rigidBody.velocity.y, 0f);
 
             _isWalkButtonPress = false;
+            SprintReleased();
         }
     }
 

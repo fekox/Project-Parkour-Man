@@ -35,9 +35,9 @@ public class WallRunning : MonoBehaviour
 
     private RaycastHit rightWallHit;
 
-    private bool wallLeft;
+    public bool wallLeft;
 
-    private bool wallRight;
+    public bool wallRight;
 
    
     [Header("Exiting")]

@@ -12,6 +12,8 @@ public class AnimationStateController : MonoBehaviour
 
     [SerializeField] private PlayerMovement pm;
 
+    [SerializeField] private WallRunning wl;
+
 
     void Start()
     {
@@ -20,6 +22,8 @@ public class AnimationStateController : MonoBehaviour
 
     void Update()
     {
+        //Walking
+
         if (pm._isWalkButtonPress == true) 
         {
             animator.SetBool("IsWalking", true);
@@ -29,6 +33,8 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
+
+        //Running
 
         if (pm._isWalkButtonPress == true && pm._isSprintButtonPress == true) 
         {
@@ -40,6 +46,8 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool("IsRunning", false);
         }
 
+        //Jumping
+
         if (pm._isJumpingButtonPress == true)
         {
             animator.SetBool("IsJumping", true);
@@ -50,6 +58,8 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
 
+        //Climbing
+
         if (pm.climbing == true)
         {
             animator.SetBool("IsClimbing", true);
@@ -59,5 +69,30 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool("IsClimbing", false);
         }
+
+        ////Wallrunning Left
+
+        //if (pm._isWallRunButtonPress == true && wl.wallLeft == true) 
+        //{
+        //    animator.SetBool("IsWallrunningLeft", true);
+        //}
+
+        //if (pm._isWallRunButtonPress == false && wl.wallLeft == false)
+        //{
+        //    animator.SetBool("IsWallrunningLeft", false);
+        //}
+
+        ////Wallrunning Right
+
+        //if (pm._isWallRunButtonPress == true && wl.wallRight == true)
+        //{
+        //    animator.SetBool("IsWallrunningRight", true);
+        //}
+
+        //if (pm._isWallRunButtonPress == false && wl.wallRight == false)
+        //{
+        //    animator.SetBool("IsWallrunningRight", false);
+        //}
+
     }
 }
