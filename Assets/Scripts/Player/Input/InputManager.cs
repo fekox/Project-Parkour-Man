@@ -12,18 +12,20 @@ public class InputManager : MonoBehaviour
     private WallRunning plWallrun;
     private WallRunning plWallJump;
 
+    private Jumping plJump;
+
     void Start()
     {
         plMov = GetComponent<PlayerMovement>();
         plLook = GetComponentInChildren<PlayerLook>();
         plWallrun = GetComponent<WallRunning>();
         plWallJump = GetComponent<WallRunning>();
-
+        plJump = GetComponent<Jumping>();
     }
 
     public void OnJump()
     {
-        plMov.JumpLogic();
+        plJump.JumpLogic();
 
         if(plMov._isWallrunning == true)
         {

@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,13 +8,10 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const int MaxFloorDistance = 10;
 
     [Header("Setup")]
     
     [SerializeField] private Rigidbody rigidBody;
-
-    [SerializeField] private Transform feetPivot;
 
     [SerializeField] private Transform playerCamera;
 
@@ -26,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float movementSpeed;
 
-    [SerializeField] private float coyoteTime = 0.2f;
-
     private float normalSpeed;
 
     private float maxSpeed;
@@ -35,14 +29,6 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 _currentMovement;
 
     [SerializeField] private float SprintSpeed;
-
-    [SerializeField] private float jumpForce = 10f;
-
-    [SerializeField] private float minJumpDistance = 0.25f;
-
-    [SerializeField] private float jumpBufferTime = 0.25f;
-
-    private Coroutine _jumpCoroutine;
 
     [SerializeField] private float wallRunningSpeed;
 
@@ -128,16 +114,6 @@ public class PlayerMovement : MonoBehaviour
         _currentMovement = new Vector3(movementInput.x, 0, movementInput.y);
     }
 
-    public void JumpLogic()
-    {
-        if (_jumpCoroutine != null) 
-        {
-            StopCoroutine(_jumpCoroutine);
-        }
-
-        _jumpCoroutine = StartCoroutine(JumpCoroutine());
-    }
-
     public void SprintStartLogic()
     {
         if (_isWalkButtonPress == true)
@@ -159,59 +135,5 @@ public class PlayerMovement : MonoBehaviour
     private void SprintReleased()
     {
         _isSprintButtonPress = false;
-    }
-
-    private IEnumerator JumpCoroutine()
-    {
-        if (!feetPivot) 
-        {
-            yield break;
-        }
-
-        for (var timeElapsed = 0.0f; timeElapsed <= jumpBufferTime; timeElapsed += Time.fixedDeltaTime)
-        {
-            yield return new WaitForFixedUpdate();
-
-            var isFalling = rigidBody.velocity.y <= 0;
-            var currentFeetPosition = feetPivot.position;
-
-            var canNormalJump = isFalling && CanJumpInPosition(currentFeetPosition);
-
-            var coyoteTimeFeetPosition = currentFeetPosition - rigidBody.velocity * coyoteTime;
-            var canCoyoteJump = isFalling && CanJumpInPosition(coyoteTimeFeetPosition);
-
-            if (!canNormalJump && canCoyoteJump)
-            {
-                Debug.DrawLine(currentFeetPosition, coyoteTimeFeetPosition, Color.green, 5f);
-            }
-
-            if (canNormalJump || canCoyoteJump)
-            {
-                _isJumpingButtonPress = true;
-
-                var jumpForceVector = Vector3.up * jumpForce;
-
-                if (rigidBody.velocity.y < 0)
-                    jumpForceVector.y -= rigidBody.velocity.y;
-
-                rigidBody.AddForce(jumpForceVector, ForceMode.Impulse);
-
-                yield break;
-            }
-        }
-    }
-
-    private bool CanJumpInPosition(Vector3 currentFeetPosition)
-    {
-        return Physics.Raycast(currentFeetPosition, Vector3.down, out var hit, MaxFloorDistance)
-               && hit.distance <= minJumpDistance;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (!feetPivot)
-            return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(feetPivot.position, feetPivot.position + Vector3.down * minJumpDistance);
     }
 }
