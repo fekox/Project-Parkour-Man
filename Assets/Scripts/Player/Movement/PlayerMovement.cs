@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool _isWallrunning;
 
+    public bool _isFalling;
+
     public bool climbing;
 
     private void OnValidate()
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
             movementSpeed = wallRunningSpeed;
         }
     }
+
     private void FixedUpdate()
     {
         if(_currentMovement.magnitude >= 1f) 
@@ -75,14 +78,22 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
-            _isWalkButtonPress = true;
-            
-            if(climbing == true) 
+            if (_isFalling == false)
+            {
+                _isWalkButtonPress = true;
+            }
+
+            if(_isFalling == true) 
+            {
+                _isWalkButtonPress = false;
+            }
+
+            if (climbing == true) 
             {
                 _isSprintButtonPress = false;
             }
 
-            if(_isSprintButtonPress == true) 
+            if(_isSprintButtonPress == true || _isFalling == true) 
             {
                 movementSpeed = SprintSpeed;
 
@@ -135,5 +146,21 @@ public class PlayerMovement : MonoBehaviour
     private void SprintReleased()
     {
         _isSprintButtonPress = false;
+    }
+
+    private void OnTriggerEnter(Collider player)
+    {
+        if (player.gameObject.CompareTag("Ground"))
+        {
+            _isFalling = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider player)
+    {
+        if (player.gameObject.CompareTag("Ground"))
+        {
+            _isFalling = true;
+        }
     }
 }

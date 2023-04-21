@@ -58,6 +58,18 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
 
+        //Falling
+
+        if (pm._isFalling == true) 
+        {
+            animator.SetBool("IsFalling", true);
+        }
+
+        if (pm._isFalling == false)
+        {
+            animator.SetBool("IsFalling", false);
+        }
+
         //Climbing
 
         if (pm.climbing == true)
@@ -69,30 +81,5 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool("IsClimbing", false);
         }
-
-        ////Wallrunning Left
-
-        //if (pm._isWallRunButtonPress == true && wl.wallLeft == true) 
-        //{
-        //    animator.SetBool("IsWallrunningLeft", true);
-        //}
-
-        //if (pm._isWallRunButtonPress == false && wl.wallLeft == false)
-        //{
-        //    animator.SetBool("IsWallrunningLeft", false);
-        //}
-
-        ////Wallrunning Right
-
-        //if (pm._isWallRunButtonPress == true && wl.wallRight == true)
-        //{
-        //    animator.SetBool("IsWallrunningRight", true);
-        //}
-
-        //if (pm._isWallRunButtonPress == false && wl.wallRight == false)
-        //{
-        //    animator.SetBool("IsWallrunningRight", false);
-        //}
-
     }
 }

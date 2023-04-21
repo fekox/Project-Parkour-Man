@@ -70,8 +70,6 @@ public class Jumping : MonoBehaviour
         if (pm._isJumpingButtonPress == true) 
         {
             jumpAnimationTimer -= Time.deltaTime;
-
-            Debug.Log(jumpAnimationTimer);
         }
 
         if(jumpAnimationTimer <= 0) 

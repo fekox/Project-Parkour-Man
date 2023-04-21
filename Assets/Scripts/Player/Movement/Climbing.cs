@@ -70,7 +70,7 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (pm.climbing == true)
+            if (pm.climbing == true || pm._isFalling == false)
             {
                 StopClimbing();
             }
@@ -87,6 +87,7 @@ public class Climbing : MonoBehaviour
     private void StartClimbing() 
     {
         pm.climbing = true;
+        pm._isFalling = false;
     }
 
     private void ClimbingMovement() 
@@ -99,9 +100,9 @@ public class Climbing : MonoBehaviour
         pm.climbing = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider player)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (player.gameObject.CompareTag("Ground"))
         {
             climbTimer = maxClimbTime;
         }
