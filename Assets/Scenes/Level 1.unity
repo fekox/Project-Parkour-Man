@@ -1091,6 +1091,7 @@ MonoBehaviour:
   minJumpDistance: 0.25
   jumpBufferTime: 0.25
   coyoteTime: 0.2
+  maxJumpAnimationTime: 0.8
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

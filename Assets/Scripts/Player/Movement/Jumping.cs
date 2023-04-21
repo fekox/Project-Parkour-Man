@@ -26,7 +26,12 @@ public class Jumping : MonoBehaviour
 
     private Coroutine _jumpCoroutine;
 
-    
+    [SerializeField] private float maxJumpAnimation = 0.5f;
+
+    private float jumpAnimationTimer;
+
+
+
     [Header("References")]
 
     private PlayerMovement pm;
@@ -37,7 +42,6 @@ public class Jumping : MonoBehaviour
         rigidBody ??= GetComponent<Rigidbody>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (!rigidBody)
@@ -46,12 +50,8 @@ public class Jumping : MonoBehaviour
         }
 
         pm = GetComponent<PlayerMovement>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        jumpAnimationTimer = maxJumpAnimation;
     }
 
     public void JumpLogic()
@@ -62,6 +62,23 @@ public class Jumping : MonoBehaviour
         }
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
+        pm._isJumpingButtonPress = true;
+    }
+
+    private void Update()
+    {
+        if (pm._isJumpingButtonPress == true) 
+        {
+            jumpAnimationTimer -= Time.deltaTime;
+
+            Debug.Log(jumpAnimationTimer);
+        }
+
+        if(jumpAnimationTimer <= 0) 
+        {
+            pm._isJumpingButtonPress = false;
+            jumpAnimationTimer = maxJumpAnimation;
+        }
     }
 
     private IEnumerator JumpCoroutine()
@@ -90,8 +107,6 @@ public class Jumping : MonoBehaviour
 
             if (canNormalJump || canCoyoteJump)
             {
-                pm._isJumpingButtonPress = true;
-
                 var jumpForceVector = Vector3.up * jumpForce;
 
                 if (rigidBody.velocity.y < 0)
