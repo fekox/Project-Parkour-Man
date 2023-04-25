@@ -28,24 +28,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
             ""id"": ""edaf9b70-dcbf-4dfa-9ed3-ecba882daec0"",
             ""actions"": [
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""2c198f3c-0eea-45d3-baee-77e94f3d7cbf"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Select"",
-                    ""type"": ""Button"",
-                    ""id"": ""91450433-72dc-4117-be95-29e062153323"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""a6c0b9ee-c495-416d-9e35-156fc1537879"",
@@ -56,50 +38,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""0eab5eb8-9ed9-432d-baaa-bb686ad5c67c"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f33226fb-9f3b-4307-adac-4917111d7128"",
-                    ""path"": ""<DualShockGamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": ""AxisDeadzone(min=0.2,max=0.8)"",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5b5c11cc-3066-449c-81d4-5c7422544d19"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9557bc35-8ee5-4ef9-a8ce-356f2fe80819"",
-                    ""path"": ""<DualShockGamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""359aad9a-cb3d-49a4-a023-29f7f6ee854a"",
@@ -140,8 +78,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
 }");
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Look = m_UI.FindAction("Look", throwIfNotFound: true);
-        m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
@@ -204,15 +140,11 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Look;
-    private readonly InputAction m_UI_Select;
     private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private @UIInputs m_Wrapper;
         public UIActions(@UIInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Look => m_Wrapper.m_UI_Look;
-        public InputAction @Select => m_Wrapper.m_UI_Select;
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
@@ -223,12 +155,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @Select.started += instance.OnSelect;
-            @Select.performed += instance.OnSelect;
-            @Select.canceled += instance.OnSelect;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -236,12 +162,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @Select.started -= instance.OnSelect;
-            @Select.performed -= instance.OnSelect;
-            @Select.canceled -= instance.OnSelect;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -264,8 +184,6 @@ public partial class @UIInputs: IInputActionCollection2, IDisposable
     public UIActions @UI => new UIActions(this);
     public interface IUIActions
     {
-        void OnLook(InputAction.CallbackContext context);
-        void OnSelect(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
 }

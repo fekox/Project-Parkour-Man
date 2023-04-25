@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class UIInputManger : MonoBehaviour
 {
     [Header("References")]
 
     [SerializeField] private PauseMenu pauseMenu;
+
+    [SerializeField] private GameObject resumeButton;
 
     UIInputs action;
 
@@ -29,22 +32,14 @@ public class UIInputManger : MonoBehaviour
         if (pauseMenu.gamePause == true) 
         {
             ResumeGame();
+            EventSystem.current.SetSelectedGameObject(null);
         }
 
         else 
         {
             PauseGame();
+            EventSystem.current.SetSelectedGameObject(resumeButton);
         }
-    }
-
-    public void OnLook(InputValue inputValue) 
-    {
-    
-    }
-
-    public void OnSelect() 
-    {
-        
     }
 
     public void OnEnable() 
@@ -66,5 +61,4 @@ public class UIInputManger : MonoBehaviour
     {
         pauseMenu.Resume();
     }
-
 }

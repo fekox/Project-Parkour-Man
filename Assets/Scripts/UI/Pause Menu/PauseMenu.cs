@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Tuqui..., Menu");
     }
 
-    public void QuitGmae() 
+    public void QuitGame() 
     {
         Debug.Log("Tuqui..., Quit");
         Application.Quit();
