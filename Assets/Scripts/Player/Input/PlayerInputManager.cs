@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class PlayerInputManager : MonoBehaviour
 {
     [Header("References")]
     private PlayerMovement plMov;
