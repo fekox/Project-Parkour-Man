@@ -14,9 +14,14 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstSelected);
     }
 
-    public void Play()
+    public void PlayLevel()
     {
         SceneManager.LoadScene("Level 1");
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Credits() 

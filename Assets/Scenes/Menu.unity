@@ -357,7 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58399a66d9699714f8a915eba1a32dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 252215803}
   firstSelected: {fileID: 1412410856}
 --- !u!1 &486099990
 GameObject:
@@ -1404,7 +1403,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 252215805}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: Tutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
