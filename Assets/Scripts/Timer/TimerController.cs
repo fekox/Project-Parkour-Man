@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-
     [SerializeField] private TMP_Text timerText;
 
     private float timerSeg;
@@ -16,6 +15,5 @@ public class TimerController : MonoBehaviour
         timerSeg += Time.deltaTime;
 
         timerText.text = string.Format("{00:00}", timerSeg);
-
     }
 }

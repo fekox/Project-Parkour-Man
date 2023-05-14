@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PlayerDie
+  - PlayerWin
   layers:
   - Default
   - TransparentFX
