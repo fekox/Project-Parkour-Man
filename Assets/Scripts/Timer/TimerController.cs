@@ -10,10 +10,21 @@ public class TimerController : MonoBehaviour
 
     private float timerSeg;
 
+    private float saveTimerSeg;
+
+    private int segs;
+    private int mins;
+
     void Update()
     {
         timerSeg += Time.deltaTime;
+        
+        saveTimerSeg = timerSeg;
 
-        timerText.text = string.Format("{00:00}", timerSeg);
+        segs = (int)timerSeg % 60;
+        mins = (int)timerSeg / 60;
+
+        timerText.text = string.Format("{00:00}:{1:00}", mins, segs);
+        PlayerPrefs.SetFloat("Time", saveTimerSeg);
     }
 }

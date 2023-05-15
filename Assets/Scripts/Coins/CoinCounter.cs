@@ -11,6 +11,8 @@ public class CoinCounter : MonoBehaviour
 
     public int currentCoins = 0;
 
+    private int saveCoins = 0;
+
     void Awake()
     {
         instance = this;
@@ -24,6 +26,9 @@ public class CoinCounter : MonoBehaviour
     public void IncreaseCoins(int value) 
     {
         currentCoins += value;
+        saveCoins = currentCoins;
         coinText.text = currentCoins.ToString();
+
+        PlayerPrefs.SetInt("Score", saveCoins);
     }
 }
