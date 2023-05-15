@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float wallRunningSpeed;
 
+    [SerializeField] private float gravityModifier;
+
 
     [Header("Input")]
 
@@ -86,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
             if(_isFalling == true) 
             {
                 _isWalkButtonPress = false;
+
+                rigidBody.AddForce(Vector3.down * gravityModifier, ForceMode.Acceleration);
             }
 
             if (climbing == true) 

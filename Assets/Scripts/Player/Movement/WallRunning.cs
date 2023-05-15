@@ -141,6 +141,7 @@ public class WallRunning : MonoBehaviour
     public void StartWallRun() 
     {
         pm._isWallrunning = true;
+        pm._isFalling = false;
 
         wallRunTimer = maxWallRunTime;
 
