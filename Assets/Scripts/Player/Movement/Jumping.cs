@@ -63,6 +63,7 @@ public class Jumping : MonoBehaviour
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         pm._isJumpingButtonPress = true;
+        FindAnyObjectByType<AudioManager>().Play("Jump");
     }
 
     private void Update()

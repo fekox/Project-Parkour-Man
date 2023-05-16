@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
         {
             Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
+            FindAnyObjectByType<AudioManager>().Play("Coin");
         }
     }
 }

@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume() 
     {
+        FindAnyObjectByType<AudioManager>().Play("Button");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         gamePause = false;
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        FindAnyObjectByType<AudioManager>().Play("Button");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         gamePause = true;
@@ -26,13 +28,14 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        FindAnyObjectByType<AudioManager>().Play("Button");
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame() 
     {
-        Debug.Log("Tuqui..., Quit");
+        FindAnyObjectByType<AudioManager>().Play("Button");
         Application.Quit();
     }
 }

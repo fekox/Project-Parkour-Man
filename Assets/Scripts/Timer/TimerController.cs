@@ -8,7 +8,7 @@ public class TimerController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
 
-    private float timerSeg;
+    public float timerSeg;
 
     private float saveTimerSeg;
 
