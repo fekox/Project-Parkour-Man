@@ -9,6 +9,7 @@ public class OpenLinks : MonoBehaviour
         Application.OpenURL("https://feco-games.itch.io/");
     }
 
+    //Assets
     public void OpenWhiteTigerArtLink() 
     {
         Application.OpenURL("https://assetstore.unity.com/packages/3d/props/metallic-coin-free-trial-241879");
@@ -42,5 +43,31 @@ public class OpenLinks : MonoBehaviour
     public void OpenDigitalKonstruktLink() 
     {
         Application.OpenURL("https://assetstore.unity.com/packages/3d/prototyping-pack-free-94277");
+    }
+
+    //Music
+
+    public void OpenAleXZavesaLink() 
+    {
+        Application.OpenURL("https://pixabay.com/music/electronic-cyberpunk-2099-10701/");
+    }
+
+    public void OpenComaMediaLink() 
+    {
+        Application.OpenURL("https://pixabay.com/music/upbeat-rock-it-21275/");
+    }
+
+    //Narrator
+
+    public void OpenlingojamLink() 
+    {
+        Application.OpenURL("https://lingojam.com/RobotVoiceGenerator");
+    }
+
+    //SFX
+
+    public void OpenPixabayLink() 
+    {
+        Application.OpenURL("https://pixabay.com/es/");
     }
 }
