@@ -12525,7 +12525,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Music Level 1
     clip: {fileID: 8300000, guid: c646f36b18dd1274083b2928c09efa8f, type: 3}
-    volume: 0.3
+    volume: 0.25
     pitch: 1
     loop: 1
     source: {fileID: 0}
