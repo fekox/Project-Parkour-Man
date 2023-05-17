@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour
     public bool gamePause = false;
 
     public GameObject pauseMenuUI;
-
     public void Resume() 
     {
         FindAnyObjectByType<AudioManager>().Play("Button");
