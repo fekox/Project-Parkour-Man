@@ -207,16 +207,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenDeveloperLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://feco-games.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &53037836
@@ -476,16 +476,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenALIyerEdonLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/3d/environments/urban/white-city-76766
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &82301430
@@ -745,16 +745,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenDigitalKonstruktLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/3d/prototyping-pack-free-94277
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &341756287
@@ -952,16 +952,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenThatWitchDesignLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/2d/gui/icons/simple-button-set-01-153979
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &440628115
@@ -1377,16 +1377,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenDemigiantLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &691943609
@@ -1436,6 +1436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723282800}
+  - component: {fileID: 723282801}
   m_Layer: 5
   m_Name: LinksButtons
   m_TagString: Untagged
@@ -1475,6 +1476,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &723282801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723282799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310d5c8ed2465c945876074ebe9f65f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &761317773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,16 +1572,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenBOXOPHOBICLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/vfx/shaders/free-skybox-extended-shader-107400
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &761317776
@@ -3400,7 +3413,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1798534168}
   - component: {fileID: 1798534169}
-  - component: {fileID: 1798534170}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -3437,18 +3449,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 53037833}
---- !u!114 &1798534170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798534167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecfa1ad37f613c449a7997fa4cb9c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1808766983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3824,16 +3824,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenlingojamLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://lingojam.com/RobotVoiceGenerator
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1838326574
@@ -3979,16 +3979,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenAleXZavesaLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://pixabay.com/music/electronic-cyberpunk-2099-10701/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1875461801
@@ -4446,16 +4446,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenComaMediaLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://pixabay.com/music/upbeat-rock-it-21275/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2023903400
@@ -4618,16 +4618,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenPixabayLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://pixabay.com/es/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2093680510
@@ -4817,16 +4817,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenPurpleSkyLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/3d/environments/hq-hangar-free-212795
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2106281013
@@ -5065,16 +5065,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798534170}
-        m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: OpenWhiteTigerArtLink
-        m_Mode: 1
+      - m_Target: {fileID: 723282801}
+        m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
+        m_MethodName: getLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://assetstore.unity.com/packages/3d/props/metallic-coin-free-trial-241879
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2145850501
