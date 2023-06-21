@@ -6512,6 +6512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92c9f29c418eb4aa940c3854eb6cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxM: {fileID: 1123438068}
+  musicM: {fileID: 1123438069}
 --- !u!114 &567520325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7266,6 +7268,7 @@ MonoBehaviour:
   jumpBufferTime: 0.25
   coyoteTime: 0.2
   maxJumpAnimation: 0.5
+  sfxM: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12464,6 +12467,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1123438066}
   - component: {fileID: 1123438067}
+  - component: {fileID: 1123438069}
+  - component: {fileID: 1123438068}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -12577,6 +12582,32 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+--- !u!114 &1123438068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 1123438067}
+--- !u!114 &1123438069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 1123438067}
 --- !u!1001 &1137282828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13376,6 +13407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePause: 0
   pauseMenuUI: {fileID: 29404049}
+  sfxM: {fileID: 1123438068}
 --- !u!114 &1194458215
 MonoBehaviour:
   m_ObjectHideFlags: 0

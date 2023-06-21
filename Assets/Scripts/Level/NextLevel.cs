@@ -14,5 +14,4 @@ public class NextLevel : MonoBehaviour
             SceneManager.LoadScene(LevelName);
         }
     }
-
 }

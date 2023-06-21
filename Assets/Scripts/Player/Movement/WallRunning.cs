@@ -86,7 +86,7 @@ public class WallRunning : MonoBehaviour
         }
     }
     public void CheckForWall() 
-    {                               //Start point        //Direction       //Store hit info      //Distance
+    {                               
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wallR);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wallR);
     }
@@ -98,7 +98,6 @@ public class WallRunning : MonoBehaviour
 
     public void WallRunLogic() 
     {
-        //Wallrunnig
         if ((wallLeft == true || wallRight == true) && pm._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
             if (pm._isWallrunning == false)
@@ -118,7 +117,6 @@ public class WallRunning : MonoBehaviour
             }
         }
 
-        //Exiting
         else if (exitingWall == true) 
         {
             if (pm._isWallrunning) 

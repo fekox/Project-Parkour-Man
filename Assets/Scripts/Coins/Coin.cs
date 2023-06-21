@@ -6,13 +6,18 @@ public class Coin : MonoBehaviour
 {
     public int value;
 
+    public SFXManager sfxM;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) 
         {
             Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
-            FindAnyObjectByType<AudioManager>().Play("Coin");
+
+            sfxM.PlaySFX("Coin");
+
+            //FindAnyObjectByType<AudioManager>().Play("Coin");
         }
     }
 }

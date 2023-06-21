@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayMenuSound : MonoBehaviour
 {
+    public MusicManager musicM;
+
     void Start()
     {
-        FindAnyObjectByType<AudioManager>().Play("Menu Music");
+        musicM.PlayMusic("Menu Music");
+
+        //FindAnyObjectByType<AudioManager>().Play("Menu Music");
     }
 }

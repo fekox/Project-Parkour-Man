@@ -31,11 +31,14 @@ public class Jumping : MonoBehaviour
     private float jumpAnimationTimer;
 
 
-
     [Header("References")]
 
     private PlayerMovement pm;
 
+
+    [Header("SFX")]
+
+    public SFXManager sfxM;
 
     private void OnValidate()
     {
@@ -63,7 +66,10 @@ public class Jumping : MonoBehaviour
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         pm._isJumpingButtonPress = true;
-        FindAnyObjectByType<AudioManager>().Play("Jump");
+
+        sfxM.PlaySFX("Jump");
+
+        //FindAnyObjectByType<AudioManager>().Play("Jump");
     }
 
     private void Update()
