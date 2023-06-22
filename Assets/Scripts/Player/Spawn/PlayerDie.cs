@@ -24,7 +24,6 @@ public class PlayerDie : MonoBehaviour
 
             sfxPlayer.PlaySFX("Player Die");
 
-            //FindAnyObjectByType<AudioManager>().Play("Player Die");
             player.transform.position = playerSpawn.transform.position;
         }
     }

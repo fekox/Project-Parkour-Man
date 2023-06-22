@@ -11,10 +11,6 @@ public class PlayTutorialSound : MonoBehaviour
     {
         musicPlayer.PlayMusic("Tutorial Music");
 
-        //FindAnyObjectByType<AudioManager>().Play("Tutorial Music");
-
         sfxPlayer.PlaySFX("Tutorial Narrator");
-
-        //FindAnyObjectByType<AudioManager>().Play("Tutorial Narrator");
     }
 }

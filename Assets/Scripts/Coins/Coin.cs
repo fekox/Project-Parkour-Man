@@ -16,8 +16,6 @@ public class Coin : MonoBehaviour
             CoinCounter.instance.IncreaseCoins(value);
 
             sfxPlayer.PlaySFX("Coin");
-
-            //FindAnyObjectByType<AudioManager>().Play("Coin");
         }
     }
 }

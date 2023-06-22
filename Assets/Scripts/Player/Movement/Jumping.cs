@@ -68,8 +68,6 @@ public class Jumping : MonoBehaviour
         pm._isJumpingButtonPress = true;
 
         sfxPlayer.PlaySFX("Jump");
-
-        //FindAnyObjectByType<AudioManager>().Play("Jump");
     }
 
     private void Update()

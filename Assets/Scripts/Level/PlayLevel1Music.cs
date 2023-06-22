@@ -11,10 +11,6 @@ public class PlayLevel1Music : MonoBehaviour
     {
         sfxPlayer.PlaySFX("Narrator Level 1");
 
-        //FindAnyObjectByType<AudioManager>().Play("Narrator Level 1");
-
         musicPlayer.PlayMusic("Music Level 1");
-        
-        //FindAnyObjectByType<AudioManager>().Play("Music Level 1");
     }
 }

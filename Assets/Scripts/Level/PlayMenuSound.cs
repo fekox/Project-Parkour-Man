@@ -9,7 +9,5 @@ public class PlayMenuSound : MonoBehaviour
     void Start()
     {
         musicPlayer.PlayMusic("Menu Music");
-
-        //FindAnyObjectByType<AudioManager>().Play("Menu Music");
     }
 }
