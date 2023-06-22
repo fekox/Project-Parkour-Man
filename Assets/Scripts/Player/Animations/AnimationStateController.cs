@@ -10,10 +10,7 @@ public class AnimationStateController : MonoBehaviour
 
     [Header("References")]
 
-    [SerializeField] private PlayerMovement pm;
-
-    [SerializeField] private WallRunning wl;
-
+    [SerializeField] private PlayerMovement playerMovement;
 
     void Start()
     {
@@ -24,60 +21,60 @@ public class AnimationStateController : MonoBehaviour
     {
         //Walking
 
-        if (pm._isWalkButtonPress == true) 
+        if (playerMovement._isWalkButtonPress == true) 
         {
             animator.SetBool("IsWalking", true);
         }
 
-        if (pm._isWalkButtonPress == false)
+        if (playerMovement._isWalkButtonPress == false)
         {
             animator.SetBool("IsWalking", false);
         }
 
         //Running
 
-        if (pm._isWalkButtonPress == true && pm._isSprintButtonPress == true) 
+        if (playerMovement._isWalkButtonPress == true && playerMovement._isSprintButtonPress == true) 
         {
             animator.SetBool("IsRunning", true);
         }
 
-        if (pm._isSprintButtonPress == false)
+        if (playerMovement._isSprintButtonPress == false)
         {
             animator.SetBool("IsRunning", false);
         }
 
         //Jumping
 
-        if (pm._isJumpingButtonPress == true)
+        if (playerMovement._isJumpingButtonPress == true)
         {
             animator.SetBool("IsJumping", true);
         }
 
-        if (pm._isJumpingButtonPress == false)
+        if (playerMovement._isJumpingButtonPress == false)
         {
             animator.SetBool("IsJumping", false);
         }
 
         //Falling
 
-        if (pm._isFalling == true) 
+        if (playerMovement._isFalling == true) 
         {
             animator.SetBool("IsFalling", true);
         }
 
-        if (pm._isFalling == false)
+        if (playerMovement._isFalling == false)
         {
             animator.SetBool("IsFalling", false);
         }
 
         //Climbing
 
-        if (pm.climbing == true)
+        if (playerMovement.climbing == true)
         {
             animator.SetBool("IsClimbing", true);
         }
 
-        if (pm.climbing == false)
+        if (playerMovement.climbing == false)
         {
             animator.SetBool("IsClimbing", false);
         }

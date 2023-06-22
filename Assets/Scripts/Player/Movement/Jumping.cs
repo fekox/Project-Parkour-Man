@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumping : MonoBehaviour
 {
-    private const int MaxFloorDistance = 10;
+    private const int maxFloorDistance = 10;
 
     
     [Header("Setup")]
@@ -33,7 +33,7 @@ public class Jumping : MonoBehaviour
 
     [Header("References")]
 
-    private PlayerMovement pm;
+    private PlayerMovement playerMovement;
 
 
     [Header("SFX")]
@@ -52,7 +52,7 @@ public class Jumping : MonoBehaviour
             enabled = false;
         }
 
-        pm = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         jumpAnimationTimer = maxJumpAnimation;
     }
@@ -65,21 +65,21 @@ public class Jumping : MonoBehaviour
         }
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
-        pm._isJumpingButtonPress = true;
+        playerMovement._isJumpingButtonPress = true;
 
         sfxPlayer.PlaySFX("Jump");
     }
 
     private void Update()
     {
-        if (pm._isJumpingButtonPress == true) 
+        if (playerMovement._isJumpingButtonPress == true) 
         {
             jumpAnimationTimer -= Time.deltaTime;
         }
 
         if(jumpAnimationTimer <= 0) 
         {
-            pm._isJumpingButtonPress = false;
+            playerMovement._isJumpingButtonPress = false;
             jumpAnimationTimer = maxJumpAnimation;
         }
     }
@@ -124,7 +124,7 @@ public class Jumping : MonoBehaviour
 
     private bool CanJumpInPosition(Vector3 currentFeetPosition)
     {
-        return Physics.Raycast(currentFeetPosition, Vector3.down, out var hit, MaxFloorDistance)
+        return Physics.Raycast(currentFeetPosition, Vector3.down, out var hit, maxFloorDistance)
                && hit.distance <= minJumpDistance;
     }
 

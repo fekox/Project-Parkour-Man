@@ -10,17 +10,17 @@ public class PlayerDie : MonoBehaviour
 
     [SerializeField] private GameObject playerSpawn;
 
-    [SerializeField] private NarratorSounds Ns;
+    [SerializeField] private NarratorSounds narratorSound;
 
     [Header("SFX Sounds")]
 
     public SFXPlayer sfxPlayer; 
 
-    private void OnTriggerEnter(Collider p)
+    private void OnTriggerEnter(Collider pl)
     {
-        if (p.gameObject.CompareTag("PlayerDie"))
+        if (pl.gameObject.CompareTag("PlayerDie"))
         {
-            Ns.StartSound();
+            narratorSound.StartSound();
 
             sfxPlayer.PlaySFX("Player Die");
 

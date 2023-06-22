@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerWin : MonoBehaviour
 {
-    [SerializeField] private WinMenu wM;
+    [SerializeField] private WinMenu winMenu;
 
     [SerializeField] private float winTimer;
 
-    [SerializeField] NarratorSounds nS;
+    [SerializeField] NarratorSounds narratorSound;
 
 
     private bool startTimer = false;
@@ -24,7 +24,7 @@ public class PlayerWin : MonoBehaviour
     {
         if (p.gameObject.CompareTag("PlayerWin"))
         {
-            nS.WinSounds();
+            narratorSound.WinSounds();
             startTimer = true;
         }
     }
@@ -38,7 +38,7 @@ public class PlayerWin : MonoBehaviour
 
         if (winTimer <= 0) 
         {
-            wM.WinMenuOn();
+            winMenu.WinMenuOn();
         }
     }
 }

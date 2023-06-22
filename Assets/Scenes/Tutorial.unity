@@ -6182,8 +6182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1226735564}
-  pm: {fileID: 2140734988}
-  wl: {fileID: 2140734986}
+  playerMovement: {fileID: 2140734988}
 --- !u!95 &1226735564
 Animator:
   serializedVersion: 5
@@ -9819,9 +9818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 2140734992}
-  rb: {fileID: 2140734989}
-  pm: {fileID: 2140734988}
-  ClimbingWall:
+  playerRigidbody: {fileID: 2140734989}
+  playerMovement: {fileID: 2140734988}
+  climbingWall:
     serializedVersion: 2
     m_Bits: 256
   climbSpeed: 4
@@ -9860,7 +9859,7 @@ MonoBehaviour:
   useGravity: 1
   gravityCounterForce: 2
   orientation: {fileID: 2140734992}
-  cam: {fileID: 2062337805}
+  playerLook: {fileID: 2062337805}
 --- !u!114 &2140734987
 MonoBehaviour:
   m_ObjectHideFlags: 0

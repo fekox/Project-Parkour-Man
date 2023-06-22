@@ -8,11 +8,11 @@ public class Climbing : MonoBehaviour
 
     [SerializeField] private Transform orientation;
 
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody playerRigidbody;
 
-    [SerializeField] private PlayerMovement pm;
+    [SerializeField] private PlayerMovement playerMovement;
 
-    [SerializeField] private LayerMask ClimbingWall;
+    [SerializeField] private LayerMask climbingWall;
 
 
     [Header("Climbing")]
@@ -42,7 +42,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         ClimbingLogic();
 
-        if (pm.climbing == true) 
+        if (playerMovement.climbing == true) 
         {
             ClimbingMovement();
         }
@@ -52,7 +52,7 @@ public class Climbing : MonoBehaviour
     {
         if (wallFront == true && wallLookAngle < maxWallLookAngle)
         {
-            if (pm.climbing == false && climbTimer > 0) 
+            if (playerMovement.climbing == false && climbTimer > 0) 
             {
                 StartClimbing();       
             }
@@ -70,7 +70,7 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (pm.climbing == true || pm._isFalling == false)
+            if (playerMovement.climbing == true || playerMovement._isFalling == false)
             {
                 StopClimbing();
             }
@@ -79,25 +79,25 @@ public class Climbing : MonoBehaviour
 
     private void WallCheck() 
     {
-        wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, ClimbingWall);
+        wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, climbingWall);
 
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
     }
 
     private void StartClimbing() 
     {
-        pm.climbing = true;
-        pm._isFalling = false;
+        playerMovement.climbing = true;
+        playerMovement._isFalling = false;
     }
 
     private void ClimbingMovement() 
     {
-        rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);       
+        playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, climbSpeed, playerRigidbody.velocity.z);       
     }
 
     private void StopClimbing() 
     {
-        pm.climbing = false;
+        playerMovement.climbing = false;
     }
 
     private void OnTriggerEnter(Collider player)

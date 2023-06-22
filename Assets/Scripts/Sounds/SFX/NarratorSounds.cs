@@ -5,7 +5,7 @@ using UnityEngine;
 public class NarratorSounds : MonoBehaviour
 {
 
-    [SerializeField] private TimerController tM;
+    [SerializeField] private TimerController timerController;
 
     public SFXPlayer sfxPlayer;
     public void StartSound()
@@ -44,7 +44,7 @@ public class NarratorSounds : MonoBehaviour
 
     public void WinSounds() 
     {
-        if (tM.timerSeg <= 360f) 
+        if (timerController.timerSeg <= 360f) 
         {
             sfxPlayer.PlaySFX("Win in 5 mins");
         }
