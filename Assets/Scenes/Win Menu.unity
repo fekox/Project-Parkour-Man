@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58399a66d9699714f8a915eba1a32dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxM: {fileID: 1314247429}
+  sfxPlayer: {fileID: 1314247429}
   firstSelected: {fileID: 1412410856}
 --- !u!114 &252215806
 MonoBehaviour:

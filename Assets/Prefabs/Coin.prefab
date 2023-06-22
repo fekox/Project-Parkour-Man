@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  sfxM: {fileID: 7942527857587347920}
+  sfxPlayer: {fileID: 305736869632288470}
 --- !u!1 &6945969826022865867
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,17 +325,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Button
-    clip: {fileID: 8300000, guid: 32c532cf19068224f8c84898cb93d7fc, type: 3}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 6472699b637251144bf42f27aae9bbcc, type: 3}
     volume: 1
     pitch: 1
     loop: 0
-    source: {fileID: 0}
-  - name: Menu Music
-    clip: {fileID: 8300000, guid: ab4af6b192405f8418ca83e8805777ab, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
     source: {fileID: 0}
 --- !u!114 &305736869632288470
 MonoBehaviour:

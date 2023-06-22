@@ -7,11 +7,11 @@ public class OpenLink : MonoBehaviour
 {
     private String linkName;
 
-    public SFXManager sfxM;
+    public SFXPlayer sfxPlayer;
 
     public void getLink(String linkName) 
     {
-        sfxM.PlaySFX("Button");
+        sfxPlayer.PlaySFX("Button");
 
         Application.OpenURL(linkName);
     }

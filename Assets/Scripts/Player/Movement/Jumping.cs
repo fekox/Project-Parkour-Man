@@ -38,7 +38,7 @@ public class Jumping : MonoBehaviour
 
     [Header("SFX")]
 
-    public SFXManager sfxM;
+    public SFXPlayer sfxPlayer;
 
     private void OnValidate()
     {
@@ -67,7 +67,7 @@ public class Jumping : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         pm._isJumpingButtonPress = true;
 
-        sfxM.PlaySFX("Jump");
+        sfxPlayer.PlaySFX("Jump");
 
         //FindAnyObjectByType<AudioManager>().Play("Jump");
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXManager : MonoBehaviour
+public class SFXPlayer : MonoBehaviour
 {
     [SerializeField] private AudioManager audioManager;
 

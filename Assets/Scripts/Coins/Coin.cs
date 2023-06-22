@@ -6,7 +6,7 @@ public class Coin : MonoBehaviour
 {
     public int value;
 
-    public SFXManager sfxM;
+    public SFXPlayer sfxPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
 
-            sfxM.PlaySFX("Coin");
+            sfxPlayer.PlaySFX("Coin");
 
             //FindAnyObjectByType<AudioManager>().Play("Coin");
         }

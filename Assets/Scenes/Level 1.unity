@@ -6512,8 +6512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af92c9f29c418eb4aa940c3854eb6cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxM: {fileID: 1123438068}
-  musicM: {fileID: 1123438069}
+  sfxPlayer: {fileID: 1123438068}
+  musicPlayer: {fileID: 1123438069}
 --- !u!114 &567520325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6527,6 +6527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tM: {fileID: 33453535}
+  sfxPlayer: {fileID: 1123438068}
 --- !u!114 &567520326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7100,7 +7101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661821755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.13, y: 44.56, z: -17.61}
+  m_LocalPosition: {x: 2.313, y: 44.734, z: -10.349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7268,7 +7269,7 @@ MonoBehaviour:
   jumpBufferTime: 0.25
   coyoteTime: 0.2
   maxJumpAnimation: 0.5
-  sfxM: {fileID: 1123438068}
+  sfxPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7284,6 +7285,7 @@ MonoBehaviour:
   player: {fileID: 661821755}
   playerSpawn: {fileID: 1470437962}
   Ns: {fileID: 567520325}
+  sfxPlayer: {fileID: 1123438068}
 --- !u!114 &661821769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12516,12 +12518,6 @@ MonoBehaviour:
     pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Coin
-    clip: {fileID: 8300000, guid: 6472699b637251144bf42f27aae9bbcc, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Button
     clip: {fileID: 8300000, guid: 32c532cf19068224f8c84898cb93d7fc, type: 3}
     volume: 1
@@ -13407,7 +13403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePause: 0
   pauseMenuUI: {fileID: 29404049}
-  sfxM: {fileID: 1123438068}
+  sfxPlayer: {fileID: 1123438068}
 --- !u!114 &1194458215
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayTutorialSound : MonoBehaviour
 {
-    public SFXManager sfxM;    
-    public MusicManager musicM;
+    public SFXPlayer sfxPlayer;    
+    public MusicPlayer musicPlayer;
 
     void Start()
     {
-        musicM.PlayMusic("Tutorial Music");
+        musicPlayer.PlayMusic("Tutorial Music");
 
         //FindAnyObjectByType<AudioManager>().Play("Tutorial Music");
 
-        sfxM.PlaySFX("Tutorial Narrator");
+        sfxPlayer.PlaySFX("Tutorial Narrator");
 
         //FindAnyObjectByType<AudioManager>().Play("Tutorial Narrator");
     }

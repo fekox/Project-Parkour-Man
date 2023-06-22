@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePause: 0
   pauseMenuUI: {fileID: 782697758}
-  sfxM: {fileID: 304135072}
+  sfxPlayer: {fileID: 304135072}
 --- !u!114 &36251935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,12 +1935,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Coin
-    clip: {fileID: 8300000, guid: 6472699b637251144bf42f27aae9bbcc, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
 --- !u!4 &304135071
 Transform:
   m_ObjectHideFlags: 0
@@ -2850,8 +2844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0dc77e23276ac46a11529cd048913b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxM: {fileID: 304135072}
-  musicM: {fileID: 304135073}
+  sfxPlayer: {fileID: 304135072}
+  musicPlayer: {fileID: 304135073}
 --- !u!82 &567520324
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9811,7 +9805,7 @@ MonoBehaviour:
   jumpBufferTime: 0.25
   coyoteTime: 0.2
   maxJumpAnimation: 0.5
-  sfxM: {fileID: 304135072}
+  sfxPlayer: {fileID: 304135072}
 --- !u!114 &2140734985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10214,5 +10208,45 @@ PrefabInstance:
       propertyPath: sfxM
       value: 
       objectReference: {fileID: 304135072}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6472699b637251144bf42f27aae9bbcc, type: 3}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ab4af6b192405f8418ca83e8805777ab, type: 3}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Menu Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
