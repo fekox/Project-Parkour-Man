@@ -10,7 +10,7 @@ public class Climbing : MonoBehaviour
 
     [SerializeField] private Rigidbody playerRigidbody;
 
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerInputManager playerInput;
 
     [SerializeField] private LayerMask climbingWall;
 
@@ -42,7 +42,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         ClimbingLogic();
 
-        if (playerMovement.climbing == true) 
+        if (playerInput.climbing == true) 
         {
             ClimbingMovement();
         }
@@ -52,7 +52,7 @@ public class Climbing : MonoBehaviour
     {
         if (wallFront == true && wallLookAngle < maxWallLookAngle)
         {
-            if (playerMovement.climbing == false && climbTimer > 0) 
+            if (playerInput.climbing == false && climbTimer > 0) 
             {
                 StartClimbing();       
             }
@@ -70,7 +70,7 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (playerMovement.climbing == true || playerMovement._isFalling == false)
+            if (playerInput.climbing == true || playerInput._isFalling == false)
             {
                 StopClimbing();
             }
@@ -86,8 +86,8 @@ public class Climbing : MonoBehaviour
 
     private void StartClimbing() 
     {
-        playerMovement.climbing = true;
-        playerMovement._isFalling = false;
+        playerInput.climbing = true;
+        playerInput._isFalling = false;
     }
 
     private void ClimbingMovement() 
@@ -97,7 +97,7 @@ public class Climbing : MonoBehaviour
 
     private void StopClimbing() 
     {
-        playerMovement.climbing = false;
+        playerInput.climbing = false;
     }
 
     private void OnTriggerEnter(Collider player)

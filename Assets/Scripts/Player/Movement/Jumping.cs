@@ -24,21 +24,23 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private float coyoteTime = 0.2f;
 
-    private Coroutine _jumpCoroutine;
-
     [SerializeField] private float maxJumpAnimation = 0.5f;
+
+    private Coroutine _jumpCoroutine;
 
     private float jumpAnimationTimer;
 
 
     [Header("References")]
 
-    private PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private PlayerInputManager playerInput;
 
 
     [Header("SFX")]
 
-    public SFXPlayer sfxPlayer;
+    [SerializeField] private SFXPlayer sfxPlayer;
 
     private void OnValidate()
     {
@@ -52,8 +54,6 @@ public class Jumping : MonoBehaviour
             enabled = false;
         }
 
-        playerMovement = GetComponent<PlayerMovement>();
-
         jumpAnimationTimer = maxJumpAnimation;
     }
 
@@ -65,21 +65,21 @@ public class Jumping : MonoBehaviour
         }
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
-        playerMovement._isJumpingButtonPress = true;
+        playerInput._isJumpingButtonPress = true;
 
         sfxPlayer.PlaySFX("Jump");
     }
 
     private void Update()
     {
-        if (playerMovement._isJumpingButtonPress == true) 
+        if (playerInput._isJumpingButtonPress == true) 
         {
             jumpAnimationTimer -= Time.deltaTime;
         }
 
         if(jumpAnimationTimer <= 0) 
         {
-            playerMovement._isJumpingButtonPress = false;
+            playerInput._isJumpingButtonPress = false;
             jumpAnimationTimer = maxJumpAnimation;
         }
     }

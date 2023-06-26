@@ -5,11 +5,11 @@ using TMPro;
 
 public class CoinCounter : MonoBehaviour
 {
+    [SerializeField] private TMP_Text coinText;
+
+    [SerializeField] private int currentCoins = 0;
+
     public static CoinCounter instance;
-
-    public TMP_Text coinText;
-
-    public int currentCoins = 0;
 
     private int saveCoins = 0;
 

@@ -6182,7 +6182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1226735564}
-  playerMovement: {fileID: 2140734988}
+  playerInput: {fileID: 2140734987}
 --- !u!95 &1226735564
 Animator:
   serializedVersion: 5
@@ -9804,6 +9804,8 @@ MonoBehaviour:
   jumpBufferTime: 0.25
   coyoteTime: 0.2
   maxJumpAnimation: 0.5
+  playerMovement: {fileID: 2140734988}
+  playerInput: {fileID: 2140734987}
   sfxPlayer: {fileID: 304135072}
 --- !u!114 &2140734985
 MonoBehaviour:
@@ -9819,7 +9821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 2140734992}
   playerRigidbody: {fileID: 2140734989}
-  playerMovement: {fileID: 2140734988}
+  playerInput: {fileID: 2140734987}
   climbingWall:
     serializedVersion: 2
     m_Bits: 256
@@ -9858,6 +9860,8 @@ MonoBehaviour:
   exitWallTime: 0.2
   useGravity: 1
   gravityCounterForce: 2
+  playerIntput: {fileID: 2140734987}
+  playerMovement: {fileID: 2140734988}
   orientation: {fileID: 2140734992}
   playerLook: {fileID: 2062337805}
 --- !u!114 &2140734987
@@ -9872,6 +9876,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd37d06ad881e341ab9dd9dc3bbc75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isWalkButtonPress: 0
+  _isSprintButtonPress: 0
+  _isJumpingButtonPress: 0
+  _isWallrunning: 0
+  _isFalling: 0
+  climbing: 0
 --- !u!114 &2140734988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9886,18 +9896,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2140734989}
   playerCamera: {fileID: 2062337806}
-  plClimbing: {fileID: 2140734985}
+  playerIntput: {fileID: 2140734987}
   movementSpeed: 5
-  _currentMovement: {x: 0, y: 0, z: 0}
   SprintSpeed: 10
   wallRunningSpeed: 20
   gravityModifier: 1.5
-  _isWalkButtonPress: 0
-  _isSprintButtonPress: 0
-  _isJumpingButtonPress: 0
-  _isWallrunning: 0
-  _isFalling: 0
-  climbing: 0
+  _currentMovement: {x: 0, y: 0, z: 0}
 --- !u!54 &2140734989
 Rigidbody:
   m_ObjectHideFlags: 0

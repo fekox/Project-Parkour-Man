@@ -15,18 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform playerCamera;
 
-    [SerializeField] private Climbing plClimbing;
+    [SerializeField] private PlayerInputManager playerIntput;
 
 
     [Header("Movement")]
     
     [SerializeField] private float movementSpeed;
-
-    private float normalSpeed;
-
-    private float maxSpeed;
-
-    public Vector3 _currentMovement;
 
     [SerializeField] private float SprintSpeed;
 
@@ -34,20 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float gravityModifier;
 
+    public Vector3 _currentMovement;
 
-    [Header("Input")]
+    private float normalSpeed;
 
-    public bool _isWalkButtonPress;
+    private float maxSpeed;
 
-    public bool _isSprintButtonPress;
-
-    public bool _isJumpingButtonPress;
-
-    public bool _isWallrunning;
-
-    public bool _isFalling;
-
-    public bool climbing;
 
     private void OnValidate()
     {
@@ -65,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         maxSpeed = normalSpeed + movementSpeed;
 
-        if(_isWallrunning == true) 
+        if(playerIntput._isWallrunning == true) 
         {
             movementSpeed = wallRunningSpeed;
         }
@@ -80,24 +66,24 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
-            if (_isFalling == false)
+            if (playerIntput._isFalling == false)
             {
-                _isWalkButtonPress = true;
+                playerIntput._isWalkButtonPress = true;
             }
 
-            if(_isFalling == true) 
+            if(playerIntput._isFalling == true) 
             {
-                _isWalkButtonPress = false;
+                playerIntput._isWalkButtonPress = false;
 
                 rigidBody.AddForce(Vector3.down * gravityModifier, ForceMode.Acceleration);
             }
 
-            if (climbing == true) 
+            if (playerIntput.climbing == true) 
             {
-                _isSprintButtonPress = false;
+                playerIntput._isSprintButtonPress = false;
             }
 
-            if(_isSprintButtonPress == true || _isFalling == true) 
+            if(playerIntput._isSprintButtonPress == true || playerIntput._isFalling == true) 
             {
                 movementSpeed = SprintSpeed;
 
@@ -118,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(0f, rigidBody.velocity.y, 0f);
 
-            _isWalkButtonPress = false;
+            playerIntput._isWalkButtonPress = false;
             SprintReleased();
         }
     }
@@ -131,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SprintStartLogic()
     {
-        if (_isWalkButtonPress == true)
+        if (playerIntput._isWalkButtonPress == true)
         {
             SprintPressed();
         }
@@ -144,19 +130,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void SprintPressed() 
     {
-        _isSprintButtonPress = true;
+        playerIntput._isSprintButtonPress = true;
     }
 
     private void SprintReleased()
     {
-        _isSprintButtonPress = false;
+        playerIntput._isSprintButtonPress = false;
     }
 
     private void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.CompareTag("Ground"))
         {
-            _isFalling = false;
+            playerIntput._isFalling = false;
         }
     }
 
@@ -164,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (player.gameObject.CompareTag("Ground"))
         {
-            _isFalling = true;
+            playerIntput._isFalling = true;
         }
     }
 }

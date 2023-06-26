@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayTutorialSound : MonoBehaviour
 {
-    public SFXPlayer sfxPlayer;    
-    public MusicPlayer musicPlayer;
+    [SerializeField] private SFXPlayer sfxPlayer;    
+    [SerializeField] private MusicPlayer musicPlayer;
 
     void Start()
     {

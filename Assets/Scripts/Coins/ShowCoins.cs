@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShowCoins : MonoBehaviour
 {
-    public TMP_Text coinText;
+    [SerializeField] private TMP_Text coinText;
 
     private int saveCoins;
 

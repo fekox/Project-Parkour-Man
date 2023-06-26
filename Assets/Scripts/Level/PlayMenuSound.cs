@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayMenuSound : MonoBehaviour
 {
-    public MusicPlayer musicPlayer;
+    [SerializeField] private MusicPlayer musicPlayer;
 
     void Start()
     {

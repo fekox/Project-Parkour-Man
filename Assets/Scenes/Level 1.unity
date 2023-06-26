@@ -7141,18 +7141,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 661821761}
   playerCamera: {fileID: 963194228}
-  plClimbing: {fileID: 661821766}
+  playerIntput: {fileID: 661821764}
   movementSpeed: 5
-  _currentMovement: {x: 0, y: 0, z: 0}
   SprintSpeed: 10
   wallRunningSpeed: 20
   gravityModifier: 1.5
-  _isWalkButtonPress: 0
-  _isSprintButtonPress: 0
-  _isJumpingButtonPress: 0
-  _isWallrunning: 0
-  _isFalling: 0
-  climbing: 0
+  _currentMovement: {x: 0, y: 0, z: 0}
 --- !u!114 &661821763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7195,6 +7189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd37d06ad881e341ab9dd9dc3bbc75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isWalkButtonPress: 0
+  _isSprintButtonPress: 0
+  _isJumpingButtonPress: 0
+  _isWallrunning: 0
+  _isFalling: 0
+  climbing: 0
 --- !u!114 &661821765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7225,6 +7225,8 @@ MonoBehaviour:
   exitWallTime: 0.2
   useGravity: 1
   gravityCounterForce: 2
+  playerIntput: {fileID: 661821764}
+  playerMovement: {fileID: 661821762}
   orientation: {fileID: 661821759}
   playerLook: {fileID: 963194230}
 --- !u!114 &661821766
@@ -7241,7 +7243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 661821759}
   playerRigidbody: {fileID: 661821761}
-  playerMovement: {fileID: 661821762}
+  playerInput: {fileID: 661821764}
   climbingWall:
     serializedVersion: 2
     m_Bits: 256
@@ -7269,6 +7271,8 @@ MonoBehaviour:
   jumpBufferTime: 0.25
   coyoteTime: 0.2
   maxJumpAnimation: 0.5
+  playerMovement: {fileID: 661821762}
+  playerInput: {fileID: 661821764}
   sfxPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
@@ -21569,7 +21573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1955988460}
-  playerMovement: {fileID: 661821762}
+  playerInput: {fileID: 661821764}
 --- !u!4 &1955988463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95d46e8156b4df643957d3bff3f25717, type: 3}

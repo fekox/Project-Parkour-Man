@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 129596649}
   - component: {fileID: 129596651}
   - component: {fileID: 129596650}
+  - component: {fileID: 129596652}
   m_Layer: 5
   m_Name: CoinsText
   m_TagString: Untagged
@@ -448,6 +449,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129596648}
   m_CullTransparentMesh: 1
+--- !u!114 &129596652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129596648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af36632d2af0d84ca634a4ec4b0ec35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 447478156}
 --- !u!1 &252215803
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +533,6 @@ GameObject:
   - component: {fileID: 447478155}
   - component: {fileID: 447478157}
   - component: {fileID: 447478156}
-  - component: {fileID: 447478158}
   m_Layer: 5
   m_Name: CoinsNumber
   m_TagString: Untagged
@@ -644,19 +657,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447478154}
   m_CullTransparentMesh: 1
---- !u!114 &447478158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447478154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af36632d2af0d84ca634a4ec4b0ec35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 447478156}
 --- !u!1 &486099990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2055,6 @@ GameObject:
   - component: {fileID: 2000979136}
   - component: {fileID: 2000979139}
   - component: {fileID: 2000979138}
-  - component: {fileID: 2000979137}
   m_Layer: 5
   m_Name: TimeNumber
   m_TagString: Untagged
@@ -2083,19 +2082,6 @@ RectTransform:
   m_AnchoredPosition: {x: 103.9, y: -0.04}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2000979137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000979135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af36632d2af0d84ca634a4ec4b0ec35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 2000979138}
 --- !u!114 &2000979138
 MonoBehaviour:
   m_ObjectHideFlags: 0
