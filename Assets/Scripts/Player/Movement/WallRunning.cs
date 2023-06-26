@@ -8,6 +8,8 @@ public class WallRunning : MonoBehaviour
 {
     [Header("Wall Running")]
 
+    public float wallRunningSpeed;
+
     [SerializeField] private LayerMask wallR;
     
     [SerializeField] private LayerMask ground;
@@ -58,7 +60,7 @@ public class WallRunning : MonoBehaviour
     
     [Header("References")]
 
-    [SerializeField] private PlayerInputManager playerIntput;
+    [SerializeField] private PlayerInputManager playerInput;
 
     [SerializeField] private PlayerMovement playerMovement;
 
@@ -71,6 +73,11 @@ public class WallRunning : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+
+        if (playerInput._isWallrunning == true)
+        {
+           playerMovement.movementSpeed = wallRunningSpeed;
+        }
     }
 
     private void Update()
@@ -81,7 +88,7 @@ public class WallRunning : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerIntput._isWallrunning == true)
+        if (playerInput._isWallrunning == true)
         {
             WallRunnningMovement();
         }
@@ -101,7 +108,7 @@ public class WallRunning : MonoBehaviour
     {
         if ((wallLeft == true || wallRight == true) && playerMovement._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
-            if (playerIntput._isWallrunning == false)
+            if (playerInput._isWallrunning == false)
             {
                 StartWallRun();
             }
@@ -111,7 +118,7 @@ public class WallRunning : MonoBehaviour
                 wallRunTimer -= Time.deltaTime;
             }
 
-            if (wallRunTimer <= 0 && playerIntput._isWallrunning == true)
+            if (wallRunTimer <= 0 && playerInput._isWallrunning == true)
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
@@ -120,7 +127,7 @@ public class WallRunning : MonoBehaviour
 
         else if (exitingWall == true) 
         {
-            if (playerIntput._isWallrunning) 
+            if (playerInput._isWallrunning) 
             {
                 StopWallRun();
             }
@@ -139,8 +146,8 @@ public class WallRunning : MonoBehaviour
     }
     public void StartWallRun() 
     {
-        playerIntput._isWallrunning = true;
-        playerIntput._isFalling = false;
+        playerInput._isWallrunning = true;
+        playerInput._isFalling = false;
 
         wallRunTimer = maxWallRunTime;
 
@@ -183,7 +190,7 @@ public class WallRunning : MonoBehaviour
     }
     private void StopWallRun() 
     {
-        playerIntput._isWallrunning = false;
+        playerInput._isWallrunning = false;
     }
 
     public void WallJump() 

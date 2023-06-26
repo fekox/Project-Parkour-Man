@@ -12,7 +12,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private WallRunning playerWallrun;
 
-    private WallRunning playerWallJump;
+    private Running playerRunning;
 
     private Jumping playerJump;
 
@@ -30,14 +30,12 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool climbing;
 
-
-
     void Start()
     {
         playerMov = GetComponent<PlayerMovement>();
         playerLook = GetComponentInChildren<PlayerLook>();
+        playerRunning = GetComponent<Running>();
         playerWallrun = GetComponent<WallRunning>();
-        playerWallJump = GetComponent<WallRunning>();
         playerJump = GetComponent<Jumping>();
     }
 
@@ -47,7 +45,7 @@ public class PlayerInputManager : MonoBehaviour
 
         if(_isWallrunning == true)
         {
-            playerWallJump.WallJump();
+            playerWallrun.WallJump();
         }
     }
 
@@ -60,12 +58,12 @@ public class PlayerInputManager : MonoBehaviour
 
     public void OnSprintStart()
     {
-        playerMov.SprintStartLogic();   
+        playerRunning.SprintStartLogic();   
     }
 
     public void OnSprintFinish()
     {
-        playerMov.SprintFinishLogic();
+        playerRunning.SprintFinishLogic();
     }
 
     public void OnLook(InputValue inputValue)
