@@ -6,15 +6,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    private PlayerMovement plMov;
+    private PlayerMovement playerMov;
 
-    private PlayerLook plLook;
+    private PlayerLook playerLook;
 
-    private WallRunning plWallrun;
+    private WallRunning playerWallrun;
 
-    private WallRunning plWallJump;
+    private WallRunning playerWallJump;
 
-    private Jumping plJump;
+    private Jumping playerJump;
 
     [Header("Input Check")]
 
@@ -34,42 +34,42 @@ public class PlayerInputManager : MonoBehaviour
 
     void Start()
     {
-        plMov = GetComponent<PlayerMovement>();
-        plLook = GetComponentInChildren<PlayerLook>();
-        plWallrun = GetComponent<WallRunning>();
-        plWallJump = GetComponent<WallRunning>();
-        plJump = GetComponent<Jumping>();
+        playerMov = GetComponent<PlayerMovement>();
+        playerLook = GetComponentInChildren<PlayerLook>();
+        playerWallrun = GetComponent<WallRunning>();
+        playerWallJump = GetComponent<WallRunning>();
+        playerJump = GetComponent<Jumping>();
     }
 
     public void OnJump()
     {
-        plJump.JumpLogic();
+        playerJump.JumpLogic();
 
         if(_isWallrunning == true)
         {
-            plWallJump.WallJump();
+            playerWallJump.WallJump();
         }
     }
 
     public void OnMove(InputValue value)
     {
-        plMov.Movement(value);
-        plWallrun.CheckForWall();
-        plWallrun.WallRunLogic();
+        playerMov.Movement(value);
+        playerWallrun.CheckForWall();
+        playerWallrun.WallRunLogic();
     }
 
     public void OnSprintStart()
     {
-        plMov.SprintStartLogic();   
+        playerMov.SprintStartLogic();   
     }
 
     public void OnSprintFinish()
     {
-        plMov.SprintFinishLogic();
+        playerMov.SprintFinishLogic();
     }
 
     public void OnLook(InputValue inputValue)
     {
-        plLook.LookLogic(inputValue);
+        playerLook.LookLogic(inputValue);
     }
 }
