@@ -7,7 +7,7 @@ public class PlayLevel1Music : MonoBehaviour
     [SerializeField] private SFXPlayer sfxPlayer;
     [SerializeField] private MusicPlayer musicPlayer;
 
-    void Start()
+    private void Start()
     {
         sfxPlayer.PlaySFX("Narrator Level 1");
 

@@ -6,7 +6,12 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private int value;
 
-    [SerializeField] private SFXPlayer sfxPlayer;
+    private SFXPlayer sfxPlayer;
+
+    private void Start()
+    {
+        sfxPlayer = GetComponentInParent<SFXPlayer>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

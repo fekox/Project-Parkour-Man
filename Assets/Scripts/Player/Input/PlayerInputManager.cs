@@ -30,13 +30,14 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool climbing;
 
-    void Start()
+    private void Start()
     {
         playerMov = GetComponent<PlayerMovement>();
-        playerLook = GetComponentInChildren<PlayerLook>();
         playerRunning = GetComponent<Running>();
         playerWallrun = GetComponent<WallRunning>();
         playerJump = GetComponent<Jumping>();
+        playerLook = GetComponentInChildren<PlayerLook>();
+
     }
 
     public void OnJump()

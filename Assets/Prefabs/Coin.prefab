@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1289675347812774490}
   - component: {fileID: 1289675347812774489}
   - component: {fileID: 6107810414502826409}
-  - component: {fileID: 7942527857587347920}
+  - component: {fileID: 1816125134506393918}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -153,7 +153,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7942527857587347920
+--- !u!114 &1816125134506393918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 2986777795838914194}
+  audioManager: {fileID: 736662331488834875}
 --- !u!1 &1289675347821064875
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  sfxPlayer: {fileID: 305736869632288470}
 --- !u!1 &6945969826022865867
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,9 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6489356768807229286}
-  - component: {fileID: 2986777795838914194}
-  - component: {fileID: 305736869632288470}
-  - component: {fileID: 1529974199838492518}
+  - component: {fileID: 736662331488834875}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -312,7 +309,7 @@ Transform:
   m_Father: {fileID: 1289675347812774490}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2986777795838914194
+--- !u!114 &736662331488834875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,29 +328,3 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
---- !u!114 &305736869632288470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6945969826022865867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 2986777795838914194}
---- !u!114 &1529974199838492518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6945969826022865867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 2986777795838914194}

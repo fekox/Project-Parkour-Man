@@ -12598,6 +12598,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 6472699b637251144bf42f27aae9bbcc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &1123438068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16104,6 +16110,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6260396547484266254, guid: 173d44c1b004efe4580649b3572dd150, type: 3}
   m_PrefabInstance: {fileID: 1479976373}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481169835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 736662331488834875, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+  m_PrefabInstance: {fileID: 1289675346499674615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694988020560ff84bb2c07bc7cbe9c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493830176
 GameObject:
   m_ObjectHideFlags: 0
@@ -24096,6 +24113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 445306933}
     m_Modifications:
+    - target: {fileID: 305736869632288470, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1481169835}
     - target: {fileID: 1289675347812774490, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -24144,7 +24165,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1529974199838492518, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1481169835}
+    - target: {fileID: 1816125134506393918, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1481169835}
+    - target: {fileID: 6945969826022865867, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
 --- !u!1001 &5081637153219929526
 PrefabInstance:
