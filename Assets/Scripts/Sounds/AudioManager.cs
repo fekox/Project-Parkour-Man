@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds) 
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            //TODO: OOP - Should be handled by each sound instance
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
@@ -23,6 +24,8 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name) 
     {
+        //BUG: Could this lead to a NullRefExc?
+        //TODO: TP2 - Syntax - Fix formatting
        Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }

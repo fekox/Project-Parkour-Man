@@ -11,6 +11,7 @@ public class OpenLink : MonoBehaviour
 
     public void getLink(String linkName) 
     {
+        //TODO: Fix - Hardcoded value
         sfxPlayer.PlaySFX("Button");
 
         Application.OpenURL(linkName);

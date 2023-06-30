@@ -28,6 +28,8 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
+        //TODO: Fix - Should be event based
+        //TODO: TP2 - Syntax - Fix formatting
        var mouseX = mouseRot.x * mouseSensitivity * Time.deltaTime;
        var mouseY = mouseRot.y * mouseSensitivity * Time.deltaTime;
 
@@ -38,6 +40,7 @@ public class PlayerLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
+    //TODO: Fix - Using Input related logic outside of an input responsible class
     public void LookLogic(InputValue inputValue)
     {
         mouseRot = inputValue.Get<Vector2>();
