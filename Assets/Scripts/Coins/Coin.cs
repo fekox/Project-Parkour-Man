@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Documentation - Add summary
+/// <summary>
+/// The coin is destroyed when the player collides 
+/// with it and a pick up sound is played.
+/// </summary>
 public class Coin : MonoBehaviour
 {
     [SerializeField] private int value;
+
+    [SerializeField] private string playerTag;
+
+    [SerializeField] private string  coinSFX;
 
     private SFXPlayer sfxPlayer;
 
@@ -16,14 +23,12 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //TODO: Fix - Hardcoded value
-        if (other.gameObject.CompareTag("Player")) 
+        if (other.gameObject.CompareTag(playerTag)) 
         {
             Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
 
-            //TODO: Fix - Hardcoded value
-            sfxPlayer.PlaySFX("Coin");
+            sfxPlayer.PlaySFX(coinSFX);
         }
     }
 }

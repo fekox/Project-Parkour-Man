@@ -277,6 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  playerTag: Player
+  coinSFX: Coin
 --- !u!1 &6945969826022865867
 GameObject:
   m_ObjectHideFlags: 0

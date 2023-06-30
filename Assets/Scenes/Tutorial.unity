@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 393390815}
   currentCoins: 0
+  scorePlayerPref: Score
 --- !u!114 &33453535
 MonoBehaviour:
   m_ObjectHideFlags: 0
