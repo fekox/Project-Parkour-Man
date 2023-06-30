@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Fix - Unclear name
 public class PlayerDie : MonoBehaviour
 {
     [Header("References")]
@@ -18,10 +19,12 @@ public class PlayerDie : MonoBehaviour
 
     private void OnTriggerEnter(Collider pl)
     {
+        //TODO: Fix - Hardcoded value
         if (pl.gameObject.CompareTag("PlayerDie"))
         {
             narratorSound.StartSound();
 
+            //TODO: Fix - Hardcoded value
             sfxPlayer.PlaySFX("Player Die");
 
             player.transform.position = playerSpawn.transform.position;

@@ -21,6 +21,7 @@ public class AnimationStateController : MonoBehaviour
     {
         //Walking
 
+        //TODO: Fix - Should be event based
         if (playerInput._isWalkButtonPress == true) 
         {
             animator.SetBool("IsWalking", true);

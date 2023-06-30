@@ -15,6 +15,7 @@ public class TimerController : MonoBehaviour
     private int segs;
     private int mins;
 
+    //TODO: Fix - Repeated code - I'm not sure what class is the correct one, if ShowTimer or this one.
     void Update()
     {
         timerSeg += Time.deltaTime;

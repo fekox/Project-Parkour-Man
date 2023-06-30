@@ -13,6 +13,7 @@ public class PlayerWin : MonoBehaviour
 
     private bool startTimer = false;
 
+    //TODO: TP2 - Remove unused methods/variables/classes
     private float winTime = 0;
 
     private void Start()
@@ -22,8 +23,10 @@ public class PlayerWin : MonoBehaviour
 
     private void OnTriggerEnter(Collider p)
     {
+        //TODO: Fix - Hardcoded value
         if (p.gameObject.CompareTag("PlayerWin"))
         {
+            //TODO: Fix - Should be event based - You can have a class that listenes to the event onWin, same with playerDie
             narratorSound.WinSounds();
             startTimer = true;
         }
@@ -31,6 +34,7 @@ public class PlayerWin : MonoBehaviour
 
     private void Update()
     {
+        //TODO: Fix - Could be a coroutine
         if (startTimer == true)
         {
             winTimer -= Time.deltaTime;
@@ -38,6 +42,7 @@ public class PlayerWin : MonoBehaviour
 
         if (winTimer <= 0) 
         {
+            //TODO: Fix - Should be event based
             winMenu.WinMenuOn();
         }
     }

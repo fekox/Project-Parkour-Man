@@ -56,11 +56,13 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
+            //TODO: TP2 - SOLID
             if (playerInput._isFalling == false)
             {
                 playerInput._isWalkButtonPress = true;
             }
 
+            //TODO: TP2 - SOLID
             if(playerInput._isFalling == true) 
             {
                 playerInput._isWalkButtonPress = false;

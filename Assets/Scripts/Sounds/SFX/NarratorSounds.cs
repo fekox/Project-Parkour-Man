@@ -12,10 +12,12 @@ public class NarratorSounds : MonoBehaviour
     {
         int randNumber = UnityEngine.Random.Range(1, 6);
 
+        //TODO: TP2 - Strategy - Or simply have an array and play a random index
         switch (randNumber)
         {
             case 1:
                 
+                //TODO: Fix - Hardcoded value
                 sfxPlayer.PlaySFX("Die Narrator 1");
                 break;
 
@@ -44,13 +46,16 @@ public class NarratorSounds : MonoBehaviour
 
     public void WinSounds() 
     {
+        //TODO: Fix - Hardcoded value
         if (timerController.timerSeg <= 360f) 
         {
+            //TODO: Fix - Hardcoded value
             sfxPlayer.PlaySFX("Win in 5 mins");
         }
 
         else 
         {
+            //TODO: Fix - Hardcoded value
             sfxPlayer.PlaySFX("Win in 6 mins");
         }
     }

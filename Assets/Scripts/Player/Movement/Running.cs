@@ -29,6 +29,7 @@ public class Running : MonoBehaviour
     {
         if (playerMovement._currentMovement.magnitude >= 1f) 
         {
+            //TODO: TP2 - SOLID
             if (playerInput.climbing == true)
             {
                 playerInput._isSprintButtonPress = false;
@@ -75,6 +76,7 @@ public class Running : MonoBehaviour
 
     private void SprintReleased()
     {
+        //TODO: TP2 - FSM
         playerInput._isSprintButtonPress = false;
     }
 }

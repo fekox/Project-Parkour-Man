@@ -20,6 +20,7 @@ public class WallRunning : MonoBehaviour
 
     [SerializeField] private float wallJumpSideForce;
 
+    //TODO: TP2 - Remove unused methods/variables/classes
     [SerializeField] private float wallClimbSpeed;
 
     [SerializeField] private float maxWallRunTime;
@@ -44,6 +45,7 @@ public class WallRunning : MonoBehaviour
    
     [Header("Exiting")]
     
+    //TODO: TP2 - Syntax - Fix declaration order
     private bool exitingWall;
 
     [SerializeField] private float exitWallTime;
@@ -64,6 +66,7 @@ public class WallRunning : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
 
+    //TODO: TP2 - Syntax - Fix declaration order
     public Transform orientation;
 
     public PlayerLook playerLook;
@@ -108,6 +111,8 @@ public class WallRunning : MonoBehaviour
     {
         if ((wallLeft == true || wallRight == true) && playerMovement._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
+            //TODO: TP2 - SOLID
+            //TODO: TP2 - FSM
             if (playerInput._isWallrunning == false)
             {
                 StartWallRun();
@@ -151,10 +156,12 @@ public class WallRunning : MonoBehaviour
 
         wallRunTimer = maxWallRunTime;
 
+        //TODO: Fix - Should be in FixedUpdate
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
 
         if (wallLeft == true)
         {
+            //TODO: Fix - Hardcoded value
             playerLook.DoTilt(-5f);
         }
 
@@ -188,6 +195,7 @@ public class WallRunning : MonoBehaviour
             playerRigidbody.AddForce(transform.up * gravityCounterForce, ForceMode.Force);
         }
     }
+    //TODO: TP2 - FSM
     private void StopWallRun() 
     {
         playerInput._isWallrunning = false;
@@ -205,6 +213,7 @@ public class WallRunning : MonoBehaviour
 
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
 
+        //TODO: Fix - Should be on fixedUpdate
         playerRigidbody.AddForce(forceToApply, ForceMode.Impulse);
     }
 }

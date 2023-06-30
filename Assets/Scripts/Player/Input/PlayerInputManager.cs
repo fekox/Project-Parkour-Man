@@ -18,6 +18,8 @@ public class PlayerInputManager : MonoBehaviour
 
     [Header("Input Check")]
 
+    //TODO: TP2 - SOLID - These variables should be controlled by this class
+    //TODO: TP2 - FSM - Maybe an FSM is what could replace all these booleans
     public bool _isWalkButtonPress;
 
     public bool _isSprintButtonPress;

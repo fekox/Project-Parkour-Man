@@ -8,6 +8,7 @@ public class PlayMenuSound : MonoBehaviour
 
     void Start()
     {
+        //TODO: Fix - Repeated code
         musicPlayer.PlayMusic("Menu Music");
     }
 }

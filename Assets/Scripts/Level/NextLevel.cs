@@ -9,6 +9,7 @@ public class NextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider next)
     {
+        //TODO: Fix - Hardcoded value
         if (next.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(LevelName);

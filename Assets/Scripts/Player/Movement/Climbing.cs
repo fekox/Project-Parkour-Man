@@ -42,6 +42,7 @@ public class Climbing : MonoBehaviour
         WallCheck();
         ClimbingLogic();
 
+        //TODO: Fix - Should be event based
         if (playerInput.climbing == true) 
         {
             ClimbingMovement();
@@ -52,6 +53,7 @@ public class Climbing : MonoBehaviour
     {
         if (wallFront == true && wallLookAngle < maxWallLookAngle)
         {
+            //TODO: Fix - Should be event based
             if (playerInput.climbing == false && climbTimer > 0) 
             {
                 StartClimbing();       
@@ -102,6 +104,7 @@ public class Climbing : MonoBehaviour
 
     private void OnTriggerEnter(Collider player)
     {
+        //TODO: Fix - Hardcoded value
         if (player.gameObject.CompareTag("Ground"))
         {
             climbTimer = maxClimbTime;

@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public SFXPlayer sfxPlayer;
     public void Resume() 
     {
+        //TODO: Fix - Make const
         sfxPlayer.PlaySFX("Button");
 
         pauseMenuUI.SetActive(false);
@@ -22,6 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        //TODO: Fix - Make const
         sfxPlayer.PlaySFX("Button");
 
         pauseMenuUI.SetActive(true);
@@ -31,14 +33,17 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        //TODO: Fix - Make const
         sfxPlayer.PlaySFX("Button");
 
         Time.timeScale = 1.0f;
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame() 
     {
+        //TODO: Fix - Make const
         sfxPlayer.PlaySFX("Button");
 
         Application.Quit();

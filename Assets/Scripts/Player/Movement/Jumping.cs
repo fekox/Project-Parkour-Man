@@ -67,11 +67,13 @@ public class Jumping : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         playerInput._isJumpingButtonPress = true;
 
+        //TODO: TP2 - SOLID
         sfxPlayer.PlaySFX("Jump");
     }
 
     private void Update()
     {
+        //TODO: Fix - Could be a coroutine - You could set that bool to false when the coroutine ends or just set the state in the FSM
         if (playerInput._isJumpingButtonPress == true) 
         {
             jumpAnimationTimer -= Time.deltaTime;

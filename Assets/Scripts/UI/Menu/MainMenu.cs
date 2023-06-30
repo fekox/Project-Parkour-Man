@@ -17,8 +17,10 @@ public class MainMenu : MonoBehaviour
 
     public void PlayLevel()
     {
+        //TODO: Fix - Hardcoded value
         sfxPlayer.PlaySFX("Button");
 
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Level 1");
     }
 
@@ -26,6 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         sfxPlayer.PlaySFX("Button");
 
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Tutorial");
     }
 
@@ -33,6 +36,7 @@ public class MainMenu : MonoBehaviour
     {
         sfxPlayer.PlaySFX("Button");
 
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Credits");
 
     }
@@ -41,6 +45,7 @@ public class MainMenu : MonoBehaviour
     {
         sfxPlayer.PlaySFX("Button");
 
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Settings");
     }
 
@@ -55,6 +60,7 @@ public class MainMenu : MonoBehaviour
     {
         sfxPlayer.PlaySFX("Button");
 
+        //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Menu");
     }
 }
