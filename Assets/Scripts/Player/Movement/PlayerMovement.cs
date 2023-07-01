@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// Manages the player's movement mechanics.
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Setup")]
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInputManager playerInput;
 
     [SerializeField] private WallRunning wallRunning;
+
+    [SerializeField] private string groundTagName;
 
     private void OnValidate()
     {
@@ -87,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider player)
     {
-        if (player.gameObject.CompareTag("Ground"))
+        if (player.gameObject.CompareTag(groundTagName))
         {
             playerInput._isFalling = false;
         }
@@ -95,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider player)
     {
-        if (player.gameObject.CompareTag("Ground"))
+        if (player.gameObject.CompareTag(groundTagName))
         {
             playerInput._isFalling = true;
         }

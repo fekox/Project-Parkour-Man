@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Controls the player inputs that are executed.
+/// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
     private PlayerMovement playerMov;

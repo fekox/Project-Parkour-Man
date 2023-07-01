@@ -4,11 +4,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Manages the player's wall running mechanics.
+/// </summary>
 public class WallRunning : MonoBehaviour
 {
     [Header("Wall Running")]
-
-    public float wallRunningSpeed;
 
     [SerializeField] private LayerMask wallR;
     
@@ -20,12 +21,11 @@ public class WallRunning : MonoBehaviour
 
     [SerializeField] private float wallJumpSideForce;
 
-    //TODO: TP2 - Remove unused methods/variables/classes
-    [SerializeField] private float wallClimbSpeed;
-
     [SerializeField] private float maxWallRunTime;
 
     private float wallRunTimer;
+
+    public float wallRunningSpeed;
 
 
     [Header("Detection")]
@@ -44,11 +44,10 @@ public class WallRunning : MonoBehaviour
 
    
     [Header("Exiting")]
-    
-    //TODO: TP2 - Syntax - Fix declaration order
-    private bool exitingWall;
 
     [SerializeField] private float exitWallTime;
+
+    private bool exitingWall;
 
     private float exitWallTimer;
 
@@ -66,12 +65,16 @@ public class WallRunning : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
 
-    //TODO: TP2 - Syntax - Fix declaration order
+    [SerializeField] private int cameraTiltLeft;
+    
+    [SerializeField] private int cameraTilRight;
+
+    private Rigidbody playerRigidbody;
+
     public Transform orientation;
 
     public PlayerLook playerLook;
 
-    private Rigidbody playerRigidbody;
 
     private void Start()
     {
@@ -161,13 +164,12 @@ public class WallRunning : MonoBehaviour
 
         if (wallLeft == true)
         {
-            //TODO: Fix - Hardcoded value
-            playerLook.DoTilt(-5f);
+            playerLook.DoTilt(cameraTiltLeft);
         }
 
         if (wallRight == true)
         {
-            playerLook.DoTilt(5f);
+            playerLook.DoTilt(cameraTilRight);
         }
     }
     private void WallRunnningMovement()

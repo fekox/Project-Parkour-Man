@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the player's scaling mechanics.
+/// </summary>
 public class Climbing : MonoBehaviour
 {
     [Header("References")]
@@ -13,6 +16,8 @@ public class Climbing : MonoBehaviour
     [SerializeField] private PlayerInputManager playerInput;
 
     [SerializeField] private LayerMask climbingWall;
+
+    [SerializeField] private string groundTagName;
 
 
     [Header("Climbing")]
@@ -104,8 +109,7 @@ public class Climbing : MonoBehaviour
 
     private void OnTriggerEnter(Collider player)
     {
-        //TODO: Fix - Hardcoded value
-        if (player.gameObject.CompareTag("Ground"))
+        if (player.gameObject.CompareTag(groundTagName))
         {
             climbTimer = maxClimbTime;
         }

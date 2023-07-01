@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
+/// <summary>
+/// Manages the player's camera.
+/// </summary>
 public class PlayerLook : MonoBehaviour
 {
     [Header("Setup")]
@@ -40,7 +43,6 @@ public class PlayerLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-    //TODO: Fix - Using Input related logic outside of an input responsible class
     public void LookLogic(InputValue inputValue)
     {
         mouseRot = inputValue.Get<Vector2>();

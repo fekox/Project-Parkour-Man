@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the player's jumping mechanic.
+/// </summary>
 public class Jumping : MonoBehaviour
 {
     private const int maxFloorDistance = 10;
@@ -37,6 +40,8 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private PlayerInputManager playerInput;
 
+    [SerializeField] private string sfxName;
+
 
     [Header("SFX")]
 
@@ -67,8 +72,7 @@ public class Jumping : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         playerInput._isJumpingButtonPress = true;
 
-        //TODO: TP2 - SOLID
-        sfxPlayer.PlaySFX("Jump");
+        sfxPlayer.PlaySFX(sfxName);
     }
 
     private void Update()

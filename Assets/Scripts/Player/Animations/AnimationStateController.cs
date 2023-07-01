@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Control which player animations are played.
+/// </summary>
 public class AnimationStateController : MonoBehaviour
 {
     [Header("Setup")]

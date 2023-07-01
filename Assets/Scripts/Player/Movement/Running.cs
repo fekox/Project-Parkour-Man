@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Manages the player's running mechanics.
+/// </summary>
 public class Running : MonoBehaviour
 {
     [Header("Setup")]

@@ -7158,6 +7158,7 @@ MonoBehaviour:
   _currentMovement: {x: 0, y: 0, z: 0}
   playerInput: {fileID: 661821764}
   wallRunning: {fileID: 661821765}
+  groundTagName: Ground
 --- !u!114 &661821763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7218,7 +7219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127277322608d4241a046603e263d11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallRunningSpeed: 20
   wallR:
     serializedVersion: 2
     m_Bits: 128
@@ -7228,8 +7228,8 @@ MonoBehaviour:
   wallRunForce: 200
   wallJumpUpForce: 6
   wallJumpSideForce: 7
-  wallClimbSpeed: 3
   maxWallRunTime: 0.7
+  wallRunningSpeed: 20
   wallCheckDistance: 0.7
   minJumpHeight: 2
   wallLeft: 0
@@ -7239,6 +7239,8 @@ MonoBehaviour:
   gravityCounterForce: 2
   playerInput: {fileID: 661821764}
   playerMovement: {fileID: 661821762}
+  cameraTiltLeft: -5
+  cameraTilRight: 5
   orientation: {fileID: 661821759}
   playerLook: {fileID: 963194230}
 --- !u!114 &661821766
@@ -7259,6 +7261,7 @@ MonoBehaviour:
   climbingWall:
     serializedVersion: 2
     m_Bits: 256
+  groundTagName: Ground
   climbSpeed: 4
   maxClimbTime: 2.2
   detectionLength: 0.7
@@ -7285,6 +7288,7 @@ MonoBehaviour:
   maxJumpAnimation: 0.5
   playerMovement: {fileID: 661821762}
   playerInput: {fileID: 661821764}
+  sfxName: Jump
   sfxPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
