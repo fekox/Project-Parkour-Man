@@ -6374,7 +6374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567520322}
   - component: {fileID: 567520323}
-  - component: {fileID: 567520324}
+  - component: {fileID: 567520327}
   - component: {fileID: 567520325}
   - component: {fileID: 567520326}
   m_Layer: 0
@@ -6505,20 +6505,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &567520324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567520321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af92c9f29c418eb4aa940c3854eb6cb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1123438068}
-  musicPlayer: {fileID: 1123438069}
 --- !u!114 &567520325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6545,6 +6531,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7282b11750af4744caf7c957b32d394a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &567520327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567520321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e34cb82a9e0f44e97922d6d5f056b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxPlayer: {fileID: 1123438068}
+  musicPlayer: {fileID: 1123438069}
+  sfxName: Narrator Level 1
+  musicName: Music Level 1
 --- !u!1 &581275777
 GameObject:
   m_ObjectHideFlags: 0
