@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Load scenes in the win menu.
+/// </summary>
 public class WinMenu : MonoBehaviour
 {
+    [SerializeField] private string[] scenesName; 
+
     public void RestartGame()
     {
         Time.timeScale = 1.0f;
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(scenesName[0]);
     }
 
     public void WinMenuOn()
     {
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Win Menu");
+        SceneManager.LoadScene(scenesName[1]);
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1.0f;
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(scenesName[2]);
     }
 }

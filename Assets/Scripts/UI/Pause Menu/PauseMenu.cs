@@ -4,17 +4,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manage the pause menu.
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] private SoundsPlayer soundsPlayer;
+
+    [SerializeField] private string sfxName;
+
+    [SerializeField] private string loadSceneName;
+
     public bool gamePause = false;
 
     public GameObject pauseMenuUI;
 
-    [SerializeField] private SoundsPlayer soundsPlayer;
     public void Resume() 
     {
-        //TODO: Fix - Make const
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
@@ -23,8 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        //TODO: Fix - Make const
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
@@ -33,18 +39,16 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        //TODO: Fix - Make const
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         Time.timeScale = 1.0f;
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Menu");
+
+        SceneManager.LoadScene(loadSceneName);
     }
 
     public void QuitGame() 
     {
-        //TODO: Fix - Make const
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         Application.Quit();
     }

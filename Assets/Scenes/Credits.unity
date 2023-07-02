@@ -1489,6 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsPlayer: {fileID: 1946162881}
+  sfxName: Button
 --- !u!1 &761317773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,6 +3452,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundsPlayer: {fileID: 1946162881}
   firstSelected: {fileID: 53037833}
+  sfxName: Button
+  scenesNames:
+  - Level 1
+  - Tutorial
+  - Credits
+  - Menu
 --- !u!1 &1808766983
 GameObject:
   m_ObjectHideFlags: 0

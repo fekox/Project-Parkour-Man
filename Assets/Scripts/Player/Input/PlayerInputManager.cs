@@ -42,7 +42,6 @@ public class PlayerInputManager : MonoBehaviour
         playerWallrun = GetComponent<WallRunning>();
         playerJump = GetComponent<Jumping>();
         playerLook = GetComponentInChildren<PlayerLook>();
-
     }
 
     public void OnJump()

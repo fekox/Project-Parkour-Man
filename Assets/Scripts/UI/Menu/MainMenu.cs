@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Load scenes.
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private SoundsPlayer soundsPlayer;
 
     [SerializeField] private GameObject firstSelected;
+
+    [SerializeField] private string sfxName;
+
+    [SerializeField] private string[] scenesNames;
 
     private void Start()
     {
@@ -17,50 +24,37 @@ public class MainMenu : MonoBehaviour
 
     public void PlayLevel()
     {
-        //TODO: Fix - Hardcoded value
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(scenesNames[0]);
     }
 
     public void Tutorial()
     {
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(scenesNames[1]);
     }
 
     public void Credits() 
     {
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene(scenesNames[2]);
 
-    }
-
-    public void Settings() 
-    {
-        soundsPlayer.PlaySFX("Button");
-
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Settings");
     }
 
     public void Exit()
     {
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         Application.Quit();
     }
 
     public void ReturnMenu()
     {
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
-        //TODO: Fix - Hardcoded value
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(scenesNames[3]);
     }
 }

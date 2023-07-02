@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Open a link.
+/// </summary>
 public class OpenLink : MonoBehaviour
 {
     [SerializeField] private SoundsPlayer soundsPlayer;
 
+    [SerializeField] private string sfxName;
+
     public void getLink(String linkName) 
     {
-        //TODO: Fix - Hardcoded value
-        soundsPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX(sfxName);
 
         Application.OpenURL(linkName);
     }

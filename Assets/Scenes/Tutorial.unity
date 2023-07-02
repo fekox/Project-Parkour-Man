@@ -470,9 +470,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5a361af00f9184e902936b50c8b0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsPlayer: {fileID: 304135072}
+  sfxName: Button
+  loadSceneName: Menu
   gamePause: 0
   pauseMenuUI: {fileID: 782697758}
-  soundsPlayer: {fileID: 0}
 --- !u!114 &36251935
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Manage all input of the UI.
+/// </summary>
 public class UIInputManger : MonoBehaviour
 {
     [Header("References")]
