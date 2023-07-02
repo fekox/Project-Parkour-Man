@@ -4,6 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// 
+/// </summary>
 public class TimerController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
@@ -15,7 +19,6 @@ public class TimerController : MonoBehaviour
     private int segs;
     private int mins;
 
-    //TODO: Fix - Repeated code - I'm not sure what class is the correct one, if ShowTimer or this one.
     void Update()
     {
         timerSeg += Time.deltaTime;

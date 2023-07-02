@@ -1,62 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// When the player is dead a random sound is played.
+/// If the player win before 5 mins, he had a good ending sound 
+/// but if the player win after 5 mins, he had a bad ending spund.
+/// </summary>
 public class NarratorSounds : MonoBehaviour
 {
+    [Header("References")]
 
     [SerializeField] private TimerController timerController;
 
-    public SFXPlayer sfxPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
+
+    [Header("Setup")]
+
+    [SerializeField] private string[] sfxNames;
+
+    [SerializeField] private float timeToWin;
+
+    [Header("Sounds of good and bad end")]
+
+    [SerializeField] private string sxfNameGoodEnd;
+
+    [SerializeField] private string sxfNameBadEnd;
+
     public void StartSound()
     {
-        int randNumber = UnityEngine.Random.Range(1, 6);
+        int randNumber = UnityEngine.Random.Range(0, 5);
 
-        //TODO: TP2 - Strategy - Or simply have an array and play a random index
-        switch (randNumber)
+        for (int i = 0; i < 1; i++) 
         {
-            case 1:
-                
-                //TODO: Fix - Hardcoded value
-                sfxPlayer.PlaySFX("Die Narrator 1");
-                break;
-
-            case 2:
-
-                sfxPlayer.PlaySFX("Die Narrator 2");
-                break;
-
-            case 3:
-
-                sfxPlayer.PlaySFX("Die Narrator 3");
-                break;
-
-            case 4:
-
-                sfxPlayer.PlaySFX("Die Narrator 4");
-                break;
-
-            case 5:
-                
-                sfxPlayer.PlaySFX("Die Narrator 5");
-                break;
-
+            soundsPlayer.PlaySFX(sfxNames[randNumber]);
         }
     }
 
     public void WinSounds() 
     {
-        //TODO: Fix - Hardcoded value
-        if (timerController.timerSeg <= 360f) 
+        if (timerController.timerSeg <= timeToWin)
         {
-            //TODO: Fix - Hardcoded value
-            sfxPlayer.PlaySFX("Win in 5 mins");
+            soundsPlayer.PlaySFX(sxfNameGoodEnd);
         }
 
         else 
         {
-            //TODO: Fix - Hardcoded value
-            sfxPlayer.PlaySFX("Win in 6 mins");
+            soundsPlayer.PlaySFX(sxfNameBadEnd);
         }
     }
 }

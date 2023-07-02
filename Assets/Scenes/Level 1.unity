@@ -6518,7 +6518,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerController: {fileID: 33453535}
-  sfxPlayer: {fileID: 1123438068}
+  soundsPlayer: {fileID: 1123438068}
+  sfxNames:
+  - Die Narrator 1
+  - Die Narrator 2
+  - Die Narrator 3
+  - Die Narrator 4
+  - Die Narrator 5
+  timeToWin: 360
+  sxfNameGoodEnd: Win in 5 mins
+  sxfNameBadEnd: Win in 6 mins
 --- !u!114 &567520326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6543,8 +6552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e34cb82a9e0f44e97922d6d5f056b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1123438068}
-  musicPlayer: {fileID: 1123438069}
+  soundsPlayer: {fileID: 1123438068}
   sfxName: Narrator Level 1
   musicName: Music Level 1
 --- !u!1 &581275777
@@ -7289,7 +7297,7 @@ MonoBehaviour:
   playerMovement: {fileID: 661821762}
   playerInput: {fileID: 661821764}
   sfxName: Jump
-  sfxPlayer: {fileID: 1123438068}
+  soundsPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7305,7 +7313,9 @@ MonoBehaviour:
   player: {fileID: 661821755}
   playerSpawn: {fileID: 1470437962}
   narratorSound: {fileID: 567520325}
-  sfxPlayer: {fileID: 1123438068}
+  playerTagName: PlayerDie
+  sfxName: Player Die
+  soundsPlayer: {fileID: 1123438068}
 --- !u!114 &661821769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7321,6 +7331,7 @@ MonoBehaviour:
   winMenu: {fileID: 567520326}
   winTimer: 4
   narratorSound: {fileID: 567520325}
+  playerWinTag: PlayerWin
 --- !u!82 &661821770
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12504,7 +12515,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1123438066}
   - component: {fileID: 1123438067}
-  - component: {fileID: 1123438069}
   - component: {fileID: 1123438068}
   m_Layer: 0
   m_Name: Audio Manager
@@ -12540,7 +12550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694988020560ff84bb2c07bc7cbe9c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  soundsArray:
   - name: Jump
     clip: {fileID: 8300000, guid: 81eb70ac2110f3c40845d27a8a159f42, type: 3}
     volume: 1
@@ -12628,20 +12638,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123438064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 1123438067}
---- !u!114 &1123438069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123438064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
+  m_Script: {fileID: 11500000, guid: 94005c112e5caa04d9f8180614844c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1123438067}
@@ -13444,7 +13441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePause: 0
   pauseMenuUI: {fileID: 29404049}
-  sfxPlayer: {fileID: 1123438068}
+  soundsPlayer: {fileID: 1123438068}
 --- !u!114 &1194458215
 MonoBehaviour:
   m_ObjectHideFlags: 0

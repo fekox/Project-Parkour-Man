@@ -7,16 +7,15 @@ using UnityEngine;
 /// </summary>
 public class PlayLevelSounds : MonoBehaviour
 {
-    [SerializeField] private SFXPlayer sfxPlayer;
-    [SerializeField] private MusicPlayer musicPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     [SerializeField] private string sfxName;
     [SerializeField] private string musicName;
 
     private void Start()
     {
-        sfxPlayer.PlaySFX(sfxName);
+        soundsPlayer.PlaySFX(sfxName);
 
-        musicPlayer.PlayMusic(musicName);
+        soundsPlayer.PlayMusic(musicName);
     }
 }

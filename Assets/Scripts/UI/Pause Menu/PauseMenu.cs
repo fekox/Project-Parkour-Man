@@ -10,11 +10,11 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    public SFXPlayer sfxPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
     public void Resume() 
     {
         //TODO: Fix - Make const
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         //TODO: Fix - Make const
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         //TODO: Fix - Make const
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         Time.timeScale = 1.0f;
         //TODO: Fix - Hardcoded value
@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame() 
     {
         //TODO: Fix - Make const
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         Application.Quit();
     }

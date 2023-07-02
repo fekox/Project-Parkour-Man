@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Fix - Unclear name
-public class PlayerDie : MonoBehaviour
+/// <summary>
+/// The player respawn when he collide with a game object.
+/// </summary>
+public class PlayerRespawn : MonoBehaviour
 {
     [Header("References")]
 
@@ -13,19 +15,21 @@ public class PlayerDie : MonoBehaviour
 
     [SerializeField] private NarratorSounds narratorSound;
 
+    [SerializeField] private string playerTagName;
+
+    [SerializeField] private string sfxName;
+
     [Header("SFX Sounds")]
 
-    public SFXPlayer sfxPlayer; 
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     private void OnTriggerEnter(Collider pl)
     {
-        //TODO: Fix - Hardcoded value
-        if (pl.gameObject.CompareTag("PlayerDie"))
+        if (pl.gameObject.CompareTag(playerTagName))
         {
             narratorSound.StartSound();
 
-            //TODO: Fix - Hardcoded value
-            sfxPlayer.PlaySFX("Player Die");
+            soundsPlayer.PlaySFX(sfxName);
 
             player.transform.position = playerSpawn.transform.position;
         }

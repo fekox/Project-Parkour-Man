@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public SFXPlayer sfxPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     [SerializeField] private GameObject firstSelected;
 
@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     public void PlayLevel()
     {
         //TODO: Fix - Hardcoded value
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Level 1");
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Tutorial");
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void Credits() 
     {
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Credits");
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
 
     public void Settings() 
     {
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Settings");
@@ -51,14 +51,14 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         Application.Quit();
     }
 
     public void ReturnMenu()
     {
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         //TODO: Fix - Hardcoded value
         SceneManager.LoadScene("Menu");

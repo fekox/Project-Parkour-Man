@@ -14,12 +14,7 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private string  coinSFX;
 
-    private SFXPlayer sfxPlayer;
-
-    private void Start()
-    {
-        sfxPlayer = GetComponentInParent<SFXPlayer>();
-    }
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +23,7 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
 
-            sfxPlayer.PlaySFX(coinSFX);
+            soundsPlayer.PlaySFX(coinSFX);
         }
     }
 }

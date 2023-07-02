@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// When the player collide with a game object the win menu scene is loaded. 
+/// </summary>
 public class PlayerWin : MonoBehaviour
 {
     [SerializeField] private WinMenu winMenu;
@@ -10,21 +13,13 @@ public class PlayerWin : MonoBehaviour
 
     [SerializeField] NarratorSounds narratorSound;
 
+    [SerializeField] private string playerWinTag;
 
     private bool startTimer = false;
 
-    //TODO: TP2 - Remove unused methods/variables/classes
-    private float winTime = 0;
-
-    private void Start()
-    {
-        winTime = winTimer;   
-    }
-
     private void OnTriggerEnter(Collider p)
     {
-        //TODO: Fix - Hardcoded value
-        if (p.gameObject.CompareTag("PlayerWin"))
+        if (p.gameObject.CompareTag(playerWinTag))
         {
             //TODO: Fix - Should be event based - You can have a class that listenes to the event onWin, same with playerDie
             narratorSound.WinSounds();

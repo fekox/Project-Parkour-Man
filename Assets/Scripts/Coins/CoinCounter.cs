@@ -36,7 +36,6 @@ public class CoinCounter : MonoBehaviour
     {
         currentCoins += value;
         saveCoins = currentCoins;
-        //TODO: TP2 - SOLID - Not sure if this will be replaced by ShowCoins
         coinText.text = currentCoins.ToString();
 
         PlayerPrefs.SetInt(scorePlayerPref, saveCoins);

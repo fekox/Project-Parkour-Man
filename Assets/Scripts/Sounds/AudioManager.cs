@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using Unity.VisualScripting;
 
+/// <summary>
+/// Manage all game sounds.
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    public Sound[] soundsArray;
 
     private void Awake()
     {
-        foreach (Sound s in sounds) 
+        foreach (Sound sound in soundsArray) 
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            //TODO: OOP - Should be handled by each sound instance
-            s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
         }
     }
 
     public void Play(string name) 
     {
-        //BUG: Could this lead to a NullRefExc?
-        //TODO: TP2 - Syntax - Fix formatting
-       Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+       Sound newSound = Array.Find(soundsArray, sound => sound.name == name);
+        newSound.source.Play();
     }
 }

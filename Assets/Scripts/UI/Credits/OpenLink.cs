@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class OpenLink : MonoBehaviour
 {
-    private String linkName;
-
-    public SFXPlayer sfxPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     public void getLink(String linkName) 
     {
         //TODO: Fix - Hardcoded value
-        sfxPlayer.PlaySFX("Button");
+        soundsPlayer.PlaySFX("Button");
 
         Application.OpenURL(linkName);
     }

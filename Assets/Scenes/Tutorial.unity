@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePause: 0
   pauseMenuUI: {fileID: 782697758}
-  sfxPlayer: {fileID: 304135072}
+  soundsPlayer: {fileID: 0}
 --- !u!114 &36251935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,6 @@ GameObject:
   - component: {fileID: 304135071}
   - component: {fileID: 304135070}
   - component: {fileID: 304135072}
-  - component: {fileID: 304135073}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1912,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694988020560ff84bb2c07bc7cbe9c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  soundsArray:
   - name: Jump
     clip: {fileID: 8300000, guid: 81eb70ac2110f3c40845d27a8a159f42, type: 3}
     volume: 1
@@ -1961,20 +1960,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 304135069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 304135070}
---- !u!114 &304135073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304135069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
+  m_Script: {fileID: 11500000, guid: 94005c112e5caa04d9f8180614844c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 304135070}
@@ -2942,8 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e34cb82a9e0f44e97922d6d5f056b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 304135072}
-  musicPlayer: {fileID: 304135073}
+  soundsPlayer: {fileID: 304135072}
   sfxName: Tutorial Narrator
   musicName: Tutorial Music
 --- !u!1 &580624710
@@ -7693,7 +7678,7 @@ PrefabInstance:
     - target: {fileID: 1289675347821064854, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
       propertyPath: sfxM
       value: 
-      objectReference: {fileID: 304135072}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
 --- !u!1 &1636883733
@@ -9812,7 +9797,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2140734988}
   playerInput: {fileID: 2140734987}
   sfxName: Jump
-  sfxPlayer: {fileID: 304135072}
+  soundsPlayer: {fileID: 304135072}
 --- !u!114 &2140734985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10234,7 +10219,7 @@ PrefabInstance:
     - target: {fileID: 1289675347821064854, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
       propertyPath: sfxM
       value: 
-      objectReference: {fileID: 304135072}
+      objectReference: {fileID: 0}
     - target: {fileID: 2986777795838914194, guid: 4cb116d1afb06944d81787499f8e84fb, type: 3}
       propertyPath: sounds.Array.size
       value: 1

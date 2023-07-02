@@ -321,9 +321,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 129596649}
+  - component: {fileID: 129596652}
   - component: {fileID: 129596651}
   - component: {fileID: 129596650}
-  - component: {fileID: 129596652}
   m_Layer: 5
   m_Name: CoinsText
   m_TagString: Untagged
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58399a66d9699714f8a915eba1a32dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1314247429}
+  soundsPlayer: {fileID: 1314247432}
   firstSelected: {fileID: 1412410856}
 --- !u!114 &252215806
 MonoBehaviour:
@@ -1417,8 +1417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314247431}
   - component: {fileID: 1314247430}
-  - component: {fileID: 1314247429}
-  - component: {fileID: 1314247428}
+  - component: {fileID: 1314247432}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1426,32 +1425,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1314247428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314247427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 1314247430}
---- !u!114 &1314247429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314247427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 1314247430}
 --- !u!114 &1314247430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,7 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694988020560ff84bb2c07bc7cbe9c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  soundsArray:
   - name: Button
     clip: {fileID: 8300000, guid: 32c532cf19068224f8c84898cb93d7fc, type: 3}
     volume: 1
@@ -1492,6 +1465,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314247432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314247427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94005c112e5caa04d9f8180614844c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 1314247430}
 --- !u!1 &1318534795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,9 +1487,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1318534796}
+  - component: {fileID: 1318534799}
   - component: {fileID: 1318534798}
   - component: {fileID: 1318534797}
-  - component: {fileID: 1318534799}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -1642,6 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2000979138}
+  saveTimer: 0
 --- !u!1 &1412410856
 GameObject:
   m_ObjectHideFlags: 0

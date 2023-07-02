@@ -43,9 +43,9 @@ public class Jumping : MonoBehaviour
     [SerializeField] private string sfxName;
 
 
-    [Header("SFX")]
+    [Header("Sounds")]
 
-    [SerializeField] private SFXPlayer sfxPlayer;
+    [SerializeField] private SoundsPlayer soundsPlayer;
 
     private void OnValidate()
     {
@@ -72,7 +72,7 @@ public class Jumping : MonoBehaviour
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
         playerInput._isJumpingButtonPress = true;
 
-        sfxPlayer.PlaySFX(sfxName);
+        soundsPlayer.PlaySFX(sfxName);
     }
 
     private void Update()

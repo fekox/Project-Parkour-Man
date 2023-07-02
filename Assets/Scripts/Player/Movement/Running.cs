@@ -20,7 +20,6 @@ public class Running : MonoBehaviour
 
     private float maxSpeed;
 
-
     private void Start()
     {
         normalSpeed = playerMovement.movementSpeed;

@@ -1488,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310d5c8ed2465c945876074ebe9f65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1946162882}
+  soundsPlayer: {fileID: 1946162881}
 --- !u!1 &761317773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58399a66d9699714f8a915eba1a32dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1946162882}
+  soundsPlayer: {fileID: 1946162881}
   firstSelected: {fileID: 53037833}
 --- !u!1 &1808766983
 GameObject:
@@ -4172,8 +4172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e34cb82a9e0f44e97922d6d5f056b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPlayer: {fileID: 1946162882}
-  musicPlayer: {fileID: 1946162881}
+  soundsPlayer: {fileID: 1946162881}
   sfxName: Menu Music
   musicName: Menu Music
 --- !u!1 &1946162878
@@ -4186,7 +4185,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1946162880}
   - component: {fileID: 1946162879}
-  - component: {fileID: 1946162882}
   - component: {fileID: 1946162881}
   m_Layer: 0
   m_Name: Audio Manager
@@ -4207,7 +4205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694988020560ff84bb2c07bc7cbe9c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  soundsArray:
   - name: Button
     clip: {fileID: 8300000, guid: 32c532cf19068224f8c84898cb93d7fc, type: 3}
     volume: 1
@@ -4244,20 +4242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1946162878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361e9715b6e615d4ea67ccd60a46e550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 1946162879}
---- !u!114 &1946162882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946162878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7086a163cde24ae4e8b1db764545e8c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 94005c112e5caa04d9f8180614844c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1946162879}

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 
+/// <summary>
+/// Class to create a sound.
+/// </summary>
+
 [System.Serializable]
 public class Sound
 {
