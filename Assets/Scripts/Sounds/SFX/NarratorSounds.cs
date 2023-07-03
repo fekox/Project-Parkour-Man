@@ -28,6 +28,9 @@ public class NarratorSounds : MonoBehaviour
 
     [SerializeField] private string sxfNameBadEnd;
 
+    /// <summary>
+    /// A sound is played according to the number that comes out of the random.
+    /// </summary>
     public void StartSound()
     {
         int randNumber = UnityEngine.Random.Range(0, 5);
@@ -38,6 +41,10 @@ public class NarratorSounds : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If the player arrives before 5 minutes, the sound of the new end is played, 
+    /// otherwise the sound of the hand end is played.
+    /// </summary>
     public void WinSounds() 
     {
         if (timerController.timerSeg <= timeToWin)

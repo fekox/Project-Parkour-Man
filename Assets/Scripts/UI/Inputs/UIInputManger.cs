@@ -18,11 +18,18 @@ public class UIInputManger : MonoBehaviour
 
     UIInputs action;
 
+    /// <summary>
+    /// The action is assigned the UIInput.
+    /// </summary>
     private void Awake()
     {
         action = new UIInputs();
     }
 
+    /// <summary>
+    /// The component is assigned to the pause menu.
+    /// The action is set.
+    /// </summary>
     void Start()
     {
         pauseMenu = GetComponent<PauseMenu>();
@@ -30,6 +37,10 @@ public class UIInputManger : MonoBehaviour
         action.UI.Pause.performed += _ => IsPaused();
     }
 
+    /// <summary>
+    /// If the book of the pause menu is set to true, 
+    /// the pause is activated, otherwise it is deactivated.
+    /// </summary>
     private void IsPaused() 
     {
         if (pauseMenu.gamePause == true) 
@@ -45,21 +56,33 @@ public class UIInputManger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Action is active.
+    /// </summary>
     public void OnEnable() 
     {
         action.Enable();
     }
 
+    /// <summary>
+    /// Action is disable.
+    /// </summary>
     private void OnDisable()
     {
         action.Disable();
     }
 
+    /// <summary>
+    /// The game is paused.
+    /// </summary>
     public void PauseGame() 
     {
         pauseMenu.Pause();
     }
 
+    /// <summary>
+    /// The game is not paused.
+    /// </summary>
     public void ResumeGame() 
     {
         pauseMenu.Resume();

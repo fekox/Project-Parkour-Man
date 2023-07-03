@@ -13,6 +13,10 @@ public class NextLevel : MonoBehaviour
 
     [SerializeField] private string playerTag;
 
+    /// <summary>
+    /// When the player collides with the object the next scene is loaded.
+    /// </summary>
+    /// <param name="next"></param>
     private void OnTriggerEnter(Collider next)
     {
         if (next.gameObject.CompareTag(playerTag))

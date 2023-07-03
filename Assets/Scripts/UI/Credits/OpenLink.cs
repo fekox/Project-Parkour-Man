@@ -12,6 +12,10 @@ public class OpenLink : MonoBehaviour
 
     [SerializeField] private string sfxName;
 
+    /// <summary>
+    /// Open the link you give to the function.
+    /// </summary>
+    /// <param name="linkName"></param>
     public void getLink(String linkName) 
     {
         soundsPlayer.PlaySFX(sfxName);

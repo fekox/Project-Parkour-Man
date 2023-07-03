@@ -12,6 +12,9 @@ public class PlayLevelSounds : MonoBehaviour
     [SerializeField] private string sfxName;
     [SerializeField] private string musicName;
 
+    /// <summary>
+    /// Play the music and the sfx of the level.
+    /// </summary>
     private void Start()
     {
         soundsPlayer.PlaySFX(sfxName);

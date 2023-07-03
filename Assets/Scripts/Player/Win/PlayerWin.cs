@@ -17,19 +17,26 @@ public class PlayerWin : MonoBehaviour
 
     private bool startTimer = false;
 
+    /// <summary>
+    /// If the player collides with the game object, the timer starts 
+    /// and the narrator sound plays.
+    /// </summary>
+    /// <param name="p"></param>
     private void OnTriggerEnter(Collider p)
     {
         if (p.gameObject.CompareTag(playerWinTag))
         {
-            //TODO: Fix - Should be event based - You can have a class that listenes to the event onWin, same with playerDie
             narratorSound.WinSounds();
             startTimer = true;
         }
     }
 
+    /// <summary>
+    /// Start the counter to start the win menu.
+    /// If the counter is less than or equal to zero, the win menu scene is loaded.
+    /// </summary>
     private void Update()
     {
-        //TODO: Fix - Could be a coroutine
         if (startTimer == true)
         {
             winTimer -= Time.deltaTime;
@@ -37,7 +44,6 @@ public class PlayerWin : MonoBehaviour
 
         if (winTimer <= 0) 
         {
-            //TODO: Fix - Should be event based
             winMenu.WinMenuOn();
         }
     }

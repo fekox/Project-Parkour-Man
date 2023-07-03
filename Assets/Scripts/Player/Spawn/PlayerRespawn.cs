@@ -23,6 +23,12 @@ public class PlayerRespawn : MonoBehaviour
 
     [SerializeField] private SoundsPlayer soundsPlayer;
 
+
+    /// <summary>
+    /// If the player collides with the object the player returns to the starting 
+    /// position and the narrator sound is played along with the player die sound.
+    /// </summary>
+    /// <param name="pl"></param>
     private void OnTriggerEnter(Collider pl)
     {
         if (pl.gameObject.CompareTag(playerTagName))

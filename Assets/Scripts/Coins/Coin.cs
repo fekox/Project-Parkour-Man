@@ -16,6 +16,11 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private SoundsPlayer soundsPlayer;
 
+    /// <summary>
+    /// When the player collides with the coin it is destroyed 
+    /// and a pick up sound is played.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(playerTag)) 

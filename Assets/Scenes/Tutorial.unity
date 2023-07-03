@@ -6174,6 +6174,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1226735564}
   playerInput: {fileID: 2140734987}
+  playerMovement: {fileID: 2140734988}
+  playerRunning: {fileID: 2140734993}
+  playerJumping: {fileID: 2140734984}
+  playerClimbing: {fileID: 2140734985}
 --- !u!95 &1226735564
 Animator:
   serializedVersion: 5
@@ -9799,6 +9803,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2140734988}
   playerInput: {fileID: 2140734987}
   sfxName: Jump
+  isJumping: 0
   soundsPlayer: {fileID: 304135072}
 --- !u!114 &2140734985
 MonoBehaviour:
@@ -9815,6 +9820,7 @@ MonoBehaviour:
   orientation: {fileID: 2140734992}
   playerRigidbody: {fileID: 2140734989}
   playerInput: {fileID: 2140734987}
+  playerMovement: {fileID: 2140734988}
   climbingWall:
     serializedVersion: 2
     m_Bits: 256
@@ -9824,6 +9830,7 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRdius: 0.25
   maxWallLookAngle: 30
+  isClimbing: 0
 --- !u!114 &2140734986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9846,6 +9853,7 @@ MonoBehaviour:
   wallJumpUpForce: 6
   wallJumpSideForce: 7
   maxWallRunTime: 0.7
+  isWallrunning: 0
   wallRunningSpeed: 20
   wallCheckDistance: 0.7
   minJumpHeight: 2
@@ -9872,12 +9880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd37d06ad881e341ab9dd9dc3bbc75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isWalkButtonPress: 0
-  _isSprintButtonPress: 0
-  _isJumpingButtonPress: 0
-  _isWallrunning: 0
-  _isFalling: 0
-  climbing: 0
 --- !u!114 &2140734988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9892,11 +9894,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2140734989}
   playerCamera: {fileID: 2062337806}
+  isFalling: 0
   gravityModifier: 1.5
   movementSpeed: 5
   _currentMovement: {x: 0, y: 0, z: 0}
   playerInput: {fileID: 2140734987}
   wallRunning: {fileID: 2140734986}
+  playerMovement: {fileID: 2140734988}
   groundTagName: Ground
 --- !u!54 &2140734989
 Rigidbody:
@@ -10001,8 +10005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SprintSpeed: 10
+  isSprinting: 0
   playerMovement: {fileID: 2140734988}
   playerInput: {fileID: 2140734987}
+  playerClimb: {fileID: 2140734985}
 --- !u!1 &2145072393
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,12 @@ public class WallRunning : MonoBehaviour
 
     private float wallRunTimer;
 
+    private Vector3 forceToApply;
+
+    private Vector3 wallNormal;
+
+    public bool isWallrunning;
+
     public float wallRunningSpeed;
 
 
@@ -75,48 +81,67 @@ public class WallRunning : MonoBehaviour
 
     public PlayerLook playerLook;
 
-
+    /// <summary>
+    /// The rigid body component is set. 
+    /// Player movement speed has been set.
+    /// </summary>
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
 
-        if (playerInput._isWallrunning == true)
+        if (isWallrunning == true)
         {
            playerMovement.movementSpeed = wallRunningSpeed;
         }
     }
 
+    /// <summary>
+    /// Logic is executed check the walls and run along the wall.
+    /// </summary>
     private void Update()
     {
         CheckForWall();
         WallRunLogic();
     }
 
+    /// <summary>
+    /// If the player is running along the wall, the wall movement logic is executed.
+    /// </summary>
     private void FixedUpdate()
     {
-        if (playerInput._isWallrunning == true)
+        if (isWallrunning == true)
         {
             WallRunnningMovement();
         }
     }
+
+    /// <summary>
+    /// Check if the player has a wall to the right and if the 
+    /// player has a wall to the right using a raycast.
+    /// </summary>
     public void CheckForWall() 
     {                               
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wallR);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wallR);
     }
 
+    /// <summary>
+    /// Returns a raycast to find out if the player is on the ground or not.
+    /// </summary>
+    /// <returns></returns>
     private bool AboveGround() 
     {
         return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
     }
 
+    /// <summary>
+    /// Wall logic is executed.
+    /// </summary>
     public void WallRunLogic() 
     {
         if ((wallLeft == true || wallRight == true) && playerMovement._currentMovement.z > 0 && AboveGround() && exitingWall == false)
         {
-            //TODO: TP2 - SOLID
-            //TODO: TP2 - FSM
-            if (playerInput._isWallrunning == false)
+            if (isWallrunning == false)
             {
                 StartWallRun();
             }
@@ -126,7 +151,7 @@ public class WallRunning : MonoBehaviour
                 wallRunTimer -= Time.deltaTime;
             }
 
-            if (wallRunTimer <= 0 && playerInput._isWallrunning == true)
+            if (wallRunTimer <= 0 && isWallrunning == true)
             {
                 exitingWall = true;
                 exitWallTimer = exitWallTime;
@@ -135,7 +160,7 @@ public class WallRunning : MonoBehaviour
 
         else if (exitingWall == true) 
         {
-            if (playerInput._isWallrunning) 
+            if (isWallrunning) 
             {
                 StopWallRun();
             }
@@ -152,14 +177,17 @@ public class WallRunning : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// The wall run algorithm is executed.
+    /// </summary>
     public void StartWallRun() 
     {
-        playerInput._isWallrunning = true;
-        playerInput._isFalling = false;
+        isWallrunning = true;
+        playerMovement.isFalling = false;
 
         wallRunTimer = maxWallRunTime;
 
-        //TODO: Fix - Should be in FixedUpdate
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
 
         if (wallLeft == true)
@@ -172,6 +200,10 @@ public class WallRunning : MonoBehaviour
             playerLook.DoTilt(cameraTilRight);
         }
     }
+
+    /// <summary>
+    /// The wall movement algorithm was executed.
+    /// </summary>
     private void WallRunnningMovement()
     {
         playerRigidbody.useGravity = useGravity;
@@ -197,25 +229,30 @@ public class WallRunning : MonoBehaviour
             playerRigidbody.AddForce(transform.up * gravityCounterForce, ForceMode.Force);
         }
     }
-    //TODO: TP2 - FSM
+
+    /// <summary>
+    /// The wall execution bool is set to false.
+    /// </summary>
     private void StopWallRun() 
     {
-        playerInput._isWallrunning = false;
+        isWallrunning = false;
     }
 
+    /// <summary>
+    /// The wall-to-wall hopping algorithm is executed.
+    /// </summary>
     public void WallJump() 
     {
         exitingWall = true;
 
         exitWallTimer = exitWallTime;
 
-        Vector3 wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
+        wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
 
-        Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
+        forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpSideForce;
 
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, 0f, playerRigidbody.velocity.z);
 
-        //TODO: Fix - Should be on fixedUpdate
         playerRigidbody.AddForce(forceToApply, ForceMode.Impulse);
     }
 }

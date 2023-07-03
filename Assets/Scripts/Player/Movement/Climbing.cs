@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,13 @@ public class Climbing : MonoBehaviour
 
     [SerializeField] private PlayerInputManager playerInput;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
     [SerializeField] private LayerMask climbingWall;
 
     [SerializeField] private string groundTagName;
 
+    public event Action<bool> onClimbChange;
 
     [Header("Climbing")]
 
@@ -42,25 +46,33 @@ public class Climbing : MonoBehaviour
 
     private bool wallFront;
 
+    public bool isClimbing;
+
+    /// <summary>
+    /// Calls functions that check the player's distance from the wall, 
+    /// the scaling logic, and movement while the player climbs.
+    /// </summary>
     private void Update()
     {
         WallCheck();
         ClimbingLogic();
 
-        //TODO: Fix - Should be event based
-        if (playerInput.climbing == true) 
+        if (isClimbing == true) 
         {
             ClimbingMovement();
         }
     }
 
+    /// <summary>
+    /// Execute wall-climbing logic.
+    /// </summary>
     private void ClimbingLogic() 
     {
         if (wallFront == true && wallLookAngle < maxWallLookAngle)
         {
-            //TODO: Fix - Should be event based
-            if (playerInput.climbing == false && climbTimer > 0) 
+            if (isClimbing == false && climbTimer > 0) 
             {
+                onClimbChange?.Invoke(true);
                 StartClimbing();       
             }
 
@@ -77,13 +89,16 @@ public class Climbing : MonoBehaviour
 
         else
         {
-            if (playerInput.climbing == true || playerInput._isFalling == false)
+            if (isClimbing == true || playerMovement.isFalling == false)
             {
                 StopClimbing();
             }
         }
     }
 
+    /// <summary>
+    /// Check if the player has a wall in front of him.
+    /// </summary>
     private void WallCheck() 
     {
         wallFront = Physics.SphereCast(transform.position, sphereCastRdius, orientation.forward, out frontWallHit, detectionLength, climbingWall);
@@ -91,22 +106,36 @@ public class Climbing : MonoBehaviour
         wallLookAngle = Vector3.Angle(orientation.forward, -frontWallHit.normal);
     }
 
+    /// <summary>
+    /// The boolean is set to true so that the player starts to scale.
+    /// </summary>
     private void StartClimbing() 
     {
-        playerInput.climbing = true;
-        playerInput._isFalling = false;
+        isClimbing = true;
+        playerMovement.isFalling = false;
     }
 
+    /// <summary>
+    /// Make the algorithm so that the player starts to scale.
+    /// </summary>
     private void ClimbingMovement() 
     {
         playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, climbSpeed, playerRigidbody.velocity.z);       
     }
 
+    /// <summary>
+    /// The boolean is set to false and the climbing animation stoped.
+    /// </summary>
     private void StopClimbing() 
     {
-        playerInput.climbing = false;
+        onClimbChange?.Invoke(false);
+        isClimbing = false;
     }
 
+    /// <summary>
+    /// When the player collides with the object the scaling time is reset.
+    /// </summary>
+    /// <param name="player"></param>
     private void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.CompareTag(groundTagName))

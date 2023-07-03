@@ -19,6 +19,9 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    /// <summary>
+    /// Unpauses the game and plays a sound.
+    /// </summary>
     public void Resume() 
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -28,6 +31,9 @@ public class PauseMenu : MonoBehaviour
         gamePause = false;
     }
 
+    /// <summary>
+    /// Pauses the game and plays a sound.
+    /// </summary>
     public void Pause()
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -37,6 +43,9 @@ public class PauseMenu : MonoBehaviour
         gamePause = true;
     }
 
+    /// <summary>
+    /// A sound plays and the scene loads.
+    /// </summary>
     public void LoadMenu()
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -46,6 +55,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(loadSceneName);
     }
 
+    /// <summary>
+    /// A sound plays and the application is closed.
+    /// </summary>
     public void QuitGame() 
     {
         soundsPlayer.PlaySFX(sfxName);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,16 +43,25 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private string sfxName;
 
+    public bool isJumping;
+
+    public event Action<bool> onJumpChange;
 
     [Header("Sounds")]
 
     [SerializeField] private SoundsPlayer soundsPlayer;
 
+    /// <summary>
+    /// The component is assigned to the rigidbody.
+    /// </summary>
     private void OnValidate()
     {
         rigidBody ??= GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// Jump time is set.
+    /// </summary>
     void Start()
     {
         if (!rigidBody)
@@ -62,6 +72,10 @@ public class Jumping : MonoBehaviour
         jumpAnimationTimer = maxJumpAnimation;
     }
 
+    /// <summary>
+    /// If the coroutine is null it stops, otherwise the jump coroutine is executed.
+    /// Jump animation is played.
+    /// </summary>
     public void JumpLogic()
     {
         if (_jumpCoroutine != null)
@@ -70,26 +84,36 @@ public class Jumping : MonoBehaviour
         }
 
         _jumpCoroutine = StartCoroutine(JumpCoroutine());
-        playerInput._isJumpingButtonPress = true;
+        isJumping = true;
 
+        onJumpChange?.Invoke(true);
         soundsPlayer.PlaySFX(sfxName);
     }
 
+    /// <summary>
+    /// If the character is jumping, start the jumping animation timer.
+    /// If the animation time is less than 0, the character stops jumping 
+    /// and the jumping animation stops.
+    /// </summary>
     private void Update()
     {
-        //TODO: Fix - Could be a coroutine - You could set that bool to false when the coroutine ends or just set the state in the FSM
-        if (playerInput._isJumpingButtonPress == true) 
+        if (isJumping == true) 
         {
             jumpAnimationTimer -= Time.deltaTime;
         }
 
         if(jumpAnimationTimer <= 0) 
         {
-            playerInput._isJumpingButtonPress = false;
+            isJumping = false;
             jumpAnimationTimer = maxJumpAnimation;
+            onJumpChange?.Invoke(false);
         }
     }
 
+    /// <summary>
+    /// The coroutine jump logic will be executed.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator JumpCoroutine()
     {
         if (!feetPivot)
@@ -128,12 +152,21 @@ public class Jumping : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns a raycast that is at the position of the player's feet to detect 
+    /// if the player can jump again or not
+    /// </summary>
+    /// <param name="currentFeetPosition"></param>
+    /// <returns></returns>
     private bool CanJumpInPosition(Vector3 currentFeetPosition)
     {
         return Physics.Raycast(currentFeetPosition, Vector3.down, out var hit, maxFloorDistance)
                && hit.distance <= minJumpDistance;
     }
 
+    /// <summary>
+    /// Draw the raycast that is at the player's feet.
+    /// </summary>
     private void OnDrawGizmosSelected()
     {
         if (!feetPivot)

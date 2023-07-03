@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,14 +14,27 @@ public class Running : MonoBehaviour
 
     [SerializeField] private float SprintSpeed;
 
-    [SerializeField] private PlayerMovement playerMovement;
-
-    [SerializeField] private PlayerInputManager playerInput;
-
     private float normalSpeed;
 
     private float maxSpeed;
 
+    public bool isSprinting;
+
+
+    [Header("References")]
+
+    [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private PlayerInputManager playerInput;
+
+    [SerializeField] private Climbing playerClimb;
+
+    public event Action<bool> onRunChange;
+
+    /// <summary>
+    /// The normal speed and the maximum 
+    /// speed of the player are set.
+    /// </summary>
     private void Start()
     {
         normalSpeed = playerMovement.movementSpeed;
@@ -27,16 +42,20 @@ public class Running : MonoBehaviour
         maxSpeed = normalSpeed + playerMovement.movementSpeed;
     }
 
+    /// <summary>
+    /// If the player is running his speed increases, if he 
+    /// stops running his speed decreases.
+    /// </summary>
     private void FixedUpdate()
     {
         if (playerMovement._currentMovement.magnitude >= 1f) 
         {
-            //TODO: TP2 - SOLID
-            if (playerInput.climbing == true)
+            if (playerClimb.isClimbing == true)
             {
-                playerInput._isSprintButtonPress = false;
+                isSprinting = false;
             }
-            if (playerInput._isSprintButtonPress == true || playerInput._isFalling == true)
+
+            if (isSprinting == true || playerMovement.isFalling == true)
             {
                 playerMovement.movementSpeed = SprintSpeed;
 
@@ -58,27 +77,41 @@ public class Running : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Start the running logic.
+    /// </summary>
     public void SprintStartLogic()
     {
-        if (playerInput._isWalkButtonPress == true)
-        {
-            SprintPressed();
-        }
+        SprintPressed();
     }
 
+    /// <summary>
+    /// Stops the running logic.
+    /// </summary>
     public void SprintFinishLogic()
     {
         SprintReleased();
     }
 
+    /// <summary>
+    /// If the run key is pressed down the player starts running
+    /// and starts the running animation.
+    /// </summary>
     private void SprintPressed()
     {
-        playerInput._isSprintButtonPress = true;
+        onRunChange?.Invoke(true);
+
+        isSprinting = true;
     }
 
+    /// <summary>
+    /// If the run key is released down the player stop running
+    /// and stops the running animation.
+    /// </summary>
     private void SprintReleased()
     {
-        //TODO: TP2 - FSM
-        playerInput._isSprintButtonPress = false;
+        onRunChange?.Invoke(false);
+
+        isSprinting = false;
     }
 }

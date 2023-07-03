@@ -19,6 +19,9 @@ public class CoinCounter : MonoBehaviour
 
     public static CoinCounter instance;
 
+    /// <summary>
+    /// If the instance is null instantiate the object, otherwise the object is destroy.
+    /// </summary>
     private void Awake()
     {
         if (instance == null) 
@@ -32,6 +35,10 @@ public class CoinCounter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Added a coin to the player's current coins and is displayed on the hud.
+    /// </summary>
+    /// <param name="value"></param>
     public void IncreaseCoins(int value) 
     {
         currentCoins += value;

@@ -17,6 +17,10 @@ public class ShowCoins : MonoBehaviour
 
     private int defaultValue = 0;
 
+
+    /// <summary>
+    /// The coins that the player collected are saved in the playerpref.
+    /// </summary>
     void Start()
     {
         saveCoins = PlayerPrefs.GetInt(scorePlayerPref, defaultValue);

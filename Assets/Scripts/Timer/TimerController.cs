@@ -19,6 +19,9 @@ public class TimerController : MonoBehaviour
     private int segs;
     private int mins;
 
+    /// <summary>
+    /// Shows the time the player got in the win menu.
+    /// </summary>
     void Update()
     {
         timerSeg += Time.deltaTime;

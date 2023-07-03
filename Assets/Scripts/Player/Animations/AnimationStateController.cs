@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -15,72 +17,94 @@ public class AnimationStateController : MonoBehaviour
 
     [SerializeField] private PlayerInputManager playerInput;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private Running playerRunning;
+
+    [SerializeField] private Jumping playerJumping;
+
+    [SerializeField] private Climbing playerClimbing;
+
+
+    /// <summary>
+    /// Assign the component to the animator.
+    /// </summary>
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+    /// <summary>
+    /// The falling animation is activated and deactivated.
+    /// </summary>
     void Update()
     {
-        //Walking
-
-        //TODO: Fix - Should be event based
-        if (playerInput._isWalkButtonPress == true) 
-        {
-            animator.SetBool("IsWalking", true);
-        }
-
-        if (playerInput._isWalkButtonPress == false)
-        {
-            animator.SetBool("IsWalking", false);
-        }
-
-        //Running
-
-        if (playerInput._isWalkButtonPress == true && playerInput._isSprintButtonPress == true) 
-        {
-            animator.SetBool("IsRunning", true);
-        }
-
-        if (playerInput._isSprintButtonPress == false)
-        {
-            animator.SetBool("IsRunning", false);
-        }
-
-        //Jumping
-
-        if (playerInput._isJumpingButtonPress == true)
-        {
-            animator.SetBool("IsJumping", true);
-        }
-
-        if (playerInput._isJumpingButtonPress == false)
-        {
-            animator.SetBool("IsJumping", false);
-        }
-
-        //Falling
-
-        if (playerInput._isFalling == true) 
+        if (playerMovement.isFalling == true) 
         {
             animator.SetBool("IsFalling", true);
         }
 
-        if (playerInput._isFalling == false)
+        if (playerMovement.isFalling == false)
         {
             animator.SetBool("IsFalling", false);
         }
+    }
 
-        //Climbing
+    /// <summary>
+    /// Enable events.
+    /// </summary>
+    private void OnEnable()
+    {
+        playerMovement.onWalkMovementChange += HandleMovementChange;
+        playerRunning.onRunChange += HandleRunningChange;
+        playerJumping.onJumpChange += HandleJumpingChange;
+        playerClimbing.onClimbChange += HandleClimbingChange;
+    }
 
-        if (playerInput.climbing == true)
-        {
-            animator.SetBool("IsClimbing", true);
-        }
+    /// <summary>
+    /// Turn the walking animation on or off.
+    /// </summary>
+    /// <param name="isWalking"></param>
+    private void HandleMovementChange(bool isWalking) 
+    {
+        animator.SetBool("IsWalking", isWalking);
+    }
 
-        if (playerInput.climbing == false)
-        {
-            animator.SetBool("IsClimbing", false);
-        }
+    /// <summary>
+    /// Turn the running animation on or off.
+    /// </summary>
+    /// <param name="isRunning"></param>
+    private void HandleRunningChange(bool isRunning) 
+    {
+        animator.SetBool("IsRunning", isRunning);
+    }
+
+    /// <summary>
+    /// Turn the jumping animation on or off.
+    /// </summary>
+    /// <param name="isJumping"></param>
+    private void HandleJumpingChange(bool isJumping) 
+    {
+        animator.SetBool("IsJumping", isJumping);
+    }
+
+    /// <summary>
+    /// Turn the climbing animation on or off.
+    /// </summary>
+    /// <param name="isClimbing"></param>
+    private void HandleClimbingChange(bool isClimbing)
+    {
+        animator.SetBool("IsClimbing", isClimbing);
+    }
+
+    /// <summary>
+    ///  Disable events.
+    /// </summary>
+    private void OnDisable()
+    {
+        playerMovement.onWalkMovementChange -= HandleMovementChange;
+        playerRunning.onRunChange -= HandleRunningChange;
+        playerJumping.onJumpChange -= HandleJumpingChange;
+        playerClimbing.onClimbChange -= HandleClimbingChange;
     }
 }

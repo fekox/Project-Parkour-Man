@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
+    [Header("References")]
+
     private PlayerMovement playerMov;
 
     private PlayerLook playerLook;
@@ -19,22 +21,9 @@ public class PlayerInputManager : MonoBehaviour
 
     private Jumping playerJump;
 
-    [Header("Input Check")]
-
-    //TODO: TP2 - SOLID - These variables should be controlled by this class
-    //TODO: TP2 - FSM - Maybe an FSM is what could replace all these booleans
-    public bool _isWalkButtonPress;
-
-    public bool _isSprintButtonPress;
-
-    public bool _isJumpingButtonPress;
-
-    public bool _isWallrunning;
-
-    public bool _isFalling;
-
-    public bool climbing;
-
+    /// <summary>
+    /// Assign the components.
+    /// </summary>
     private void Start()
     {
         playerMov = GetComponent<PlayerMovement>();
@@ -44,16 +33,24 @@ public class PlayerInputManager : MonoBehaviour
         playerLook = GetComponentInChildren<PlayerLook>();
     }
 
+    /// <summary>
+    /// Functions are called to execute the jump mechanics.
+    /// </summary>
     public void OnJump()
     {
         playerJump.JumpLogic();
 
-        if(_isWallrunning == true)
+        if(playerWallrun.isWallrunning == true)
         {
             playerWallrun.WallJump();
         }
     }
 
+    /// <summary>
+    /// Functions are called to execute the movement mechanics.
+    /// The movement function receives an input.
+    /// </summary>
+    /// <param name="value"></param>
     public void OnMove(InputValue value)
     {
         playerMov.Movement(value);
@@ -61,16 +58,26 @@ public class PlayerInputManager : MonoBehaviour
         playerWallrun.WallRunLogic();
     }
 
+    /// <summary>
+    /// Function are called to execute the run mechanic.
+    /// </summary>
     public void OnSprintStart()
     {
         playerRunning.SprintStartLogic();   
     }
 
+    /// <summary>
+    /// Function are called to end the run mechanic.
+    /// </summary>
     public void OnSprintFinish()
     {
         playerRunning.SprintFinishLogic();
     }
 
+    /// <summary>
+    /// Function are called to execute the camera look mechanic.
+    /// </summary>
+    /// <param name="inputValue"></param>
     public void OnLook(InputValue inputValue)
     {
         playerLook.LookLogic(inputValue);

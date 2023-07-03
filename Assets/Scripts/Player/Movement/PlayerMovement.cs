@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform playerCamera;
 
+    public bool isFalling;
+
 
     [Header("Movement")]
 
@@ -32,13 +34,23 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private WallRunning wallRunning;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
     [SerializeField] private string groundTagName;
 
+    public event Action<bool> onWalkMovementChange;
+
+    /// <summary>
+    /// The component is added to the rigibody.
+    /// </summary>
     private void OnValidate()
     {
         rigidBody ??= GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// The movement speed of the player is set.
+    /// </summary>
     private void Start()
     {
         if (!rigidBody)
@@ -46,12 +58,16 @@ public class PlayerMovement : MonoBehaviour
             enabled = false;
         }
 
-        if(playerInput._isWallrunning == true) 
+        if(wallRunning.isWallrunning == true) 
         {
             movementSpeed = wallRunning.wallRunningSpeed;
         }
     }
 
+    /// <summary>
+    /// The algorithm for the movement of the player to follow 
+    /// the camera is executed.
+    /// </summary>
     private void FixedUpdate()
     {
         if(_currentMovement.magnitude >= 1f) 
@@ -61,17 +77,10 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
-            //TODO: TP2 - SOLID
-            if (playerInput._isFalling == false)
+            onWalkMovementChange?.Invoke(!playerMovement.isFalling);
+            
+            if(playerMovement.isFalling == true) 
             {
-                playerInput._isWalkButtonPress = true;
-            }
-
-            //TODO: TP2 - SOLID
-            if(playerInput._isFalling == true) 
-            {
-                playerInput._isWalkButtonPress = false;
-
                 rigidBody.AddForce(Vector3.down * gravityModifier, ForceMode.Acceleration);
             }
         }
@@ -80,29 +89,43 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(0f, rigidBody.velocity.y, 0f);
 
-            playerInput._isWalkButtonPress = false;
+            onWalkMovementChange?.Invoke(false);
         }
     }
 
+    /// <summary>
+    /// The player movement algorithm is executed.
+    /// </summary>
+    /// <param name="value"></param>
     public void Movement(InputValue value)
     {
         var movementInput = value.Get<Vector2>();
         _currentMovement = new Vector3(movementInput.x, 0, movementInput.y);
     }
 
+    /// <summary>
+    /// When the player collides with the ground, the 
+    /// boolean player falling is set to false.
+    /// </summary>
+    /// <param name="player"></param>
     private void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.CompareTag(groundTagName))
         {
-            playerInput._isFalling = false;
+            playerMovement.isFalling = false;
         }
     }
 
+    /// <summary>
+    /// When the player stops colliding with the ground, the 
+    /// boolean player drop is set to true.
+    /// </summary>
+    /// <param name="player"></param>
     private void OnTriggerExit(Collider player)
     {
         if (player.gameObject.CompareTag(groundTagName))
         {
-            playerInput._isFalling = true;
+            playerMovement.isFalling = true;
         }
     }
 }

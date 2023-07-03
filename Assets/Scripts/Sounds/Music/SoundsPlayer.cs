@@ -9,11 +9,19 @@ public class SoundsPlayer : MonoBehaviour
 {
     [SerializeField] private AudioManager audioManager;
 
+    /// <summary>
+    /// The sound that is given to the function is played.
+    /// </summary>
+    /// <param name="name"></param>
     public void PlayMusic(string name)
     {
         audioManager.Play(name);
     }
 
+    /// <summary>
+    /// The music that is given to the function is played.
+    /// </summary>
+    /// <param name="name"></param>
     public void PlaySFX(string name)
     {
         audioManager.Play(name);

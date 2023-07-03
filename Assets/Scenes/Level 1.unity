@@ -539,7 +539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: -5}
+  m_AnchoredPosition: {x: -8, y: -5.0000305}
   m_SizeDelta: {x: -806, y: -321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29404051
@@ -6540,6 +6540,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7282b11750af4744caf7c957b32d394a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenesName:
+  - Level 1
+  - Win Menu
+  - Menu
 --- !u!114 &567520327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7161,11 +7165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 661821761}
   playerCamera: {fileID: 963194228}
+  isFalling: 0
   gravityModifier: 1.5
   movementSpeed: 5
   _currentMovement: {x: 0, y: 0, z: 0}
   playerInput: {fileID: 661821764}
   wallRunning: {fileID: 661821765}
+  playerMovement: {fileID: 661821762}
   groundTagName: Ground
 --- !u!114 &661821763
 MonoBehaviour:
@@ -7209,12 +7215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd37d06ad881e341ab9dd9dc3bbc75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isWalkButtonPress: 0
-  _isSprintButtonPress: 0
-  _isJumpingButtonPress: 0
-  _isWallrunning: 0
-  _isFalling: 0
-  climbing: 0
 --- !u!114 &661821765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7237,6 +7237,7 @@ MonoBehaviour:
   wallJumpUpForce: 6
   wallJumpSideForce: 7
   maxWallRunTime: 0.7
+  isWallrunning: 0
   wallRunningSpeed: 20
   wallCheckDistance: 0.7
   minJumpHeight: 2
@@ -7266,6 +7267,7 @@ MonoBehaviour:
   orientation: {fileID: 661821759}
   playerRigidbody: {fileID: 661821761}
   playerInput: {fileID: 661821764}
+  playerMovement: {fileID: 661821762}
   climbingWall:
     serializedVersion: 2
     m_Bits: 256
@@ -7275,6 +7277,7 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRdius: 0.25
   maxWallLookAngle: 30
+  isClimbing: 0
 --- !u!114 &661821767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,6 +7300,7 @@ MonoBehaviour:
   playerMovement: {fileID: 661821762}
   playerInput: {fileID: 661821764}
   sfxName: Jump
+  isJumping: 0
   soundsPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
 MonoBehaviour:
@@ -7441,8 +7445,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SprintSpeed: 10
+  isSprinting: 0
   playerMovement: {fileID: 661821762}
   playerInput: {fileID: 661821764}
+  playerClimb: {fileID: 661821766}
 --- !u!1001 &665424632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21625,6 +21631,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1955988460}
   playerInput: {fileID: 661821764}
+  playerMovement: {fileID: 661821762}
+  playerRunning: {fileID: 661821771}
+  playerJumping: {fileID: 661821767}
+  playerClimbing: {fileID: 661821766}
 --- !u!4 &1955988463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95d46e8156b4df643957d3bff3f25717, type: 3}

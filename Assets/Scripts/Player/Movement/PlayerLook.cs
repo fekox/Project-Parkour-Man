@@ -24,15 +24,19 @@ public class PlayerLook : MonoBehaviour
 
     private float xRotation;
 
+    /// <summary>
+    /// The cursor is set to locked.
+    /// </summary>
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    /// <summary>
+    /// The camera follows the cursor.
+    /// </summary>
     void Update()
     {
-        //TODO: Fix - Should be event based
-        //TODO: TP2 - Syntax - Fix formatting
        var mouseX = mouseRot.x * mouseSensitivity * Time.deltaTime;
        var mouseY = mouseRot.y * mouseSensitivity * Time.deltaTime;
 
@@ -43,11 +47,20 @@ public class PlayerLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
+    /// <summary>
+    /// LookLogic receives an input so that it 
+    /// can execute the camera movement logic.
+    /// </summary>
+    /// <param name="inputValue"></param>
     public void LookLogic(InputValue inputValue)
     {
         mouseRot = inputValue.Get<Vector2>();
     }
 
+    /// <summary>
+    /// The camera tilts.
+    /// </summary>
+    /// <param name="zTilt"></param>
     public void DoTilt(float zTilt) 
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.35f);

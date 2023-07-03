@@ -17,11 +17,17 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private string[] scenesNames;
 
+    /// <summary>
+    /// A first menu option is set as selected.
+    /// </summary>
     private void Start()
     {
         EventSystem.current.SetSelectedGameObject(firstSelected);
     }
 
+    /// <summary>
+    /// A sound plays and the scene loads.
+    /// </summary>
     public void PlayLevel()
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -29,6 +35,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(scenesNames[0]);
     }
 
+    /// <summary>
+    /// A sound plays and the scene loads.
+    /// </summary>
     public void Tutorial()
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -36,14 +45,19 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(scenesNames[1]);
     }
 
+    /// <summary>
+    /// A sound plays and the scene loads.
+    /// </summary>
     public void Credits() 
     {
         soundsPlayer.PlaySFX(sfxName);
 
         SceneManager.LoadScene(scenesNames[2]);
-
     }
 
+    /// <summary>
+    /// A sound plays and the application is closed.
+    /// </summary>
     public void Exit()
     {
         soundsPlayer.PlaySFX(sfxName);
@@ -51,6 +65,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    /// <summary>
+    /// A sound plays and the scene loads.
+    /// </summary>
     public void ReturnMenu()
     {
         soundsPlayer.PlaySFX(sfxName);
