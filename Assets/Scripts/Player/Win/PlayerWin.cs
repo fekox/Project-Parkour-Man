@@ -9,9 +9,9 @@ public class PlayerWin : MonoBehaviour
 {
     [SerializeField] private WinMenu winMenu;
 
-    [SerializeField] private float winTimer;
+    [SerializeField] private NarratorSounds narratorSound;
 
-    [SerializeField] NarratorSounds narratorSound;
+    [SerializeField] private float winTimer;
 
     [SerializeField] private string playerWinTag;
 
@@ -27,7 +27,7 @@ public class PlayerWin : MonoBehaviour
         if (p.gameObject.CompareTag(playerWinTag))
         {
             narratorSound.WinSounds();
-            startTimer = true;
+            startTimer = true;   
         }
     }
 
