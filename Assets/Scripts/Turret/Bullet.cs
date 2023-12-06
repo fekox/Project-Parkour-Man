@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private string playerTag = "Player";
 
+    [SerializeField] private string bulletColliderTag = "BulletCollider";
+
     [Header("Setup")]
     
     [SerializeField] private float speed = 70f;
@@ -21,7 +23,7 @@ public class Bullet : MonoBehaviour
     /// Sets the target.
     /// </summary>
     /// <param name="_target"></param>
-    public void Seek(Transform _target)
+    public void SetTarget(Transform _target)
     {
         target = _target;
     }
@@ -29,7 +31,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Moves the bullet and destroys it if the target is null.
     /// </summary>
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
@@ -44,20 +46,34 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Destroy de bullet.
     /// </summary>
-    void HitTarget()
+    private void HitTarget()
     {
         Destroy(gameObject);
     }
 
     /// <summary>
+    /// Destroy de bullet.
+    /// </summary>
+    private void HitBulletCollider() 
+    {
+        Destroy(gameObject);
+    }
+
+
+    /// <summary>
     /// When the bullet collides with the plumber with the bullet collision it is destroyed.
     /// </summary>
     /// <param name="bullet"></param>
-    void OnTriggerEnter(Collider bullet)
+    private void OnTriggerEnter(Collider bullet)
     {
         if (bullet.gameObject.CompareTag(playerTag)) 
         {
             HitTarget();
+        }
+
+        if (bullet.gameObject.CompareTag(bulletColliderTag)) 
+        {
+            HitBulletCollider();
         }
     }
 }

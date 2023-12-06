@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controls the player inputs that are executed.
@@ -81,5 +82,16 @@ public class PlayerInputManager : MonoBehaviour
     public void OnLook(InputValue inputValue)
     {
         playerLook.LookLogic(inputValue);
+    }
+
+    /// <summary>
+    /// Load the next scene.
+    /// </summary>
+    public void OnNextLevel() 
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = currentScene + 1;
+
+        SceneManager.LoadScene(nextScene);
     }
 }
