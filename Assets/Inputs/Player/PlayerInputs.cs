@@ -98,6 +98,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FeatherFall"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8510775-a1ff-46fc-8e71-122b92f36693"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -364,6 +373,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Flash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""564290ce-a5d1-42dd-b804-edf3f023163c"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FeatherFall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5128b865-ff43-4ce7-817a-57e02ddacdb0"",
+                    ""path"": ""<DualShockGamepad>/dpad/up"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FeatherFall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -380,6 +411,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_World_NextLevel = m_World.FindAction("NextLevel", throwIfNotFound: true);
         m_World_GodMode = m_World.FindAction("GodMode", throwIfNotFound: true);
         m_World_Flash = m_World.FindAction("Flash", throwIfNotFound: true);
+        m_World_FeatherFall = m_World.FindAction("FeatherFall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -449,6 +481,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_World_NextLevel;
     private readonly InputAction m_World_GodMode;
     private readonly InputAction m_World_Flash;
+    private readonly InputAction m_World_FeatherFall;
     public struct WorldActions
     {
         private @PlayerInputs m_Wrapper;
@@ -461,6 +494,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @NextLevel => m_Wrapper.m_World_NextLevel;
         public InputAction @GodMode => m_Wrapper.m_World_GodMode;
         public InputAction @Flash => m_Wrapper.m_World_Flash;
+        public InputAction @FeatherFall => m_Wrapper.m_World_FeatherFall;
         public InputActionMap Get() { return m_Wrapper.m_World; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -494,6 +528,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Flash.started += instance.OnFlash;
             @Flash.performed += instance.OnFlash;
             @Flash.canceled += instance.OnFlash;
+            @FeatherFall.started += instance.OnFeatherFall;
+            @FeatherFall.performed += instance.OnFeatherFall;
+            @FeatherFall.canceled += instance.OnFeatherFall;
         }
 
         private void UnregisterCallbacks(IWorldActions instance)
@@ -522,6 +559,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Flash.started -= instance.OnFlash;
             @Flash.performed -= instance.OnFlash;
             @Flash.canceled -= instance.OnFlash;
+            @FeatherFall.started -= instance.OnFeatherFall;
+            @FeatherFall.performed -= instance.OnFeatherFall;
+            @FeatherFall.canceled -= instance.OnFeatherFall;
         }
 
         public void RemoveCallbacks(IWorldActions instance)
@@ -549,5 +589,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnNextLevel(InputAction.CallbackContext context);
         void OnGodMode(InputAction.CallbackContext context);
         void OnFlash(InputAction.CallbackContext context);
+        void OnFeatherFall(InputAction.CallbackContext context);
     }
 }

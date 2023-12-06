@@ -29,6 +29,8 @@ public class PlayerInputManager : MonoBehaviour
 
     private PlayerInputs flashAction;
 
+    private PlayerInputs featherFallAction;
+
     /// <summary>
     /// The action is assigned the UIInput.
     /// </summary>
@@ -36,6 +38,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         godModeAction = new PlayerInputs();
         flashAction = new PlayerInputs();
+        featherFallAction = new PlayerInputs();
     }
 
 
@@ -53,6 +56,7 @@ public class PlayerInputManager : MonoBehaviour
 
         godModeAction.World.GodMode.performed += _ => IsGodMode();
         flashAction.World.Flash.performed += _ => IsFlash();
+        featherFallAction.World.FeatherFall.performed += _ => IsFeatherFall();
     }
 
     /// <summary>
@@ -62,6 +66,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         godModeAction.Enable();
         flashAction.Enable();
+        featherFallAction.Enable();
     }
 
     /// <summary>
@@ -71,6 +76,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         godModeAction.Disable();
         flashAction.Disable();
+        featherFallAction.Disable();
     }
 
     /// <summary>
@@ -163,6 +169,22 @@ public class PlayerInputManager : MonoBehaviour
         else
         {
             cheatsManager.FlashActive();
+        }
+    }
+
+    /// <summary>
+    /// Chenks is the feather fall mode is on or off.
+    /// </summary>
+    private void IsFeatherFall()
+    {
+        if (cheatsManager.featherFall == true)
+        {
+            cheatsManager.FeatherFallDesactive();
+        }
+
+        else
+        {
+            cheatsManager.FeatherFallActive();
         }
     }
 }

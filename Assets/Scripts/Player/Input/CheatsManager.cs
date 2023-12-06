@@ -8,8 +8,11 @@ public class CheatsManager : MonoBehaviour
     [Header("Cheat: God Mode")]
     public bool godMode = false;
 
-    [Header("Cheat: flash")]
+    [Header("Cheat: Flash")]
     public bool flash = false;
+
+    [Header("Cheat: Feather Fall")]
+    public bool featherFall = false;
 
     /// <summary>
     /// Active the god mode.
@@ -41,5 +44,21 @@ public class CheatsManager : MonoBehaviour
     public void FlashDesactive() 
     {
         flash = false;
+    }
+
+    /// <summary>
+    /// Active the feather fall.
+    /// </summary>
+    public void FeatherFallActive()
+    {
+        featherFall = true;
+    }
+
+    /// <summary>
+    /// Desactive the feather fall.
+    /// </summary>
+    public void FeatherFallDesactive()
+    {
+        featherFall = false;
     }
 }

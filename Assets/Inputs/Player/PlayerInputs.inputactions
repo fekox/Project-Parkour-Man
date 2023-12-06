@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FeatherFall",
+                    "type": "Button",
+                    "id": "f8510775-a1ff-46fc-8e71-122b92f36693",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -340,6 +349,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Flash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "564290ce-a5d1-42dd-b804-edf3f023163c",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FeatherFall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5128b865-ff43-4ce7-817a-57e02ddacdb0",
+                    "path": "<DualShockGamepad>/dpad/up",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FeatherFall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
