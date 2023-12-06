@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -22,6 +23,19 @@ public class PlayerInputManager : MonoBehaviour
 
     private Jumping playerJump;
 
+    private CheatsManager cheatsManager;
+
+    private PlayerInputs godModeAction;
+
+    /// <summary>
+    /// The action is assigned the UIInput.
+    /// </summary>
+    private void Awake()
+    {
+        godModeAction = new PlayerInputs();
+    }
+
+
     /// <summary>
     /// Assign the components.
     /// </summary>
@@ -32,6 +46,9 @@ public class PlayerInputManager : MonoBehaviour
         playerWallrun = GetComponent<WallRunning>();
         playerJump = GetComponent<Jumping>();
         playerLook = GetComponentInChildren<PlayerLook>();
+        cheatsManager = GetComponent<CheatsManager>();
+
+        godModeAction.World.GodMode.performed += _ => IsGodMode();
     }
 
     /// <summary>
@@ -93,5 +110,37 @@ public class PlayerInputManager : MonoBehaviour
         int nextScene = currentScene + 1;
 
         SceneManager.LoadScene(nextScene);
+    }
+
+    /// <summary>
+    /// Checks is the god mode is on or off.
+    /// </summary>
+    private void IsGodMode() 
+    {
+        if (cheatsManager.godMode == true) 
+        {
+            cheatsManager.GodModeDesactive();
+        }
+        
+        else 
+        {
+            cheatsManager.GodModeActive();
+        }
+    }
+
+    /// <summary>
+    /// Action is active.
+    /// </summary>
+    public void OnEnable()
+    {
+        godModeAction.Enable();
+    }
+
+    /// <summary>
+    /// Action is disable.
+    /// </summary>
+    private void OnDisable()
+    {
+        godModeAction.Disable();
     }
 }

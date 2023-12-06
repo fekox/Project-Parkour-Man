@@ -19,13 +19,15 @@ public class PlayerLose : MonoBehaviour
 
     [SerializeField] private int removeLife;
 
+    [SerializeField] private CheatsManager cheatManager;
+
     /// <summary>
     /// If the player collides with the ground and their lives are less than or equal to 0, the lose menu scene is loaded.
     /// </summary>
     /// <param name="ground"></param>
     private void OnTriggerEnter(Collider ground)
     {
-        if (ground.gameObject.CompareTag(playerLoseTag)) 
+        if (ground.gameObject.CompareTag(playerLoseTag) && cheatManager.godMode == false) 
         {
             lifeCounter.SubtractLife(removeLife);
 

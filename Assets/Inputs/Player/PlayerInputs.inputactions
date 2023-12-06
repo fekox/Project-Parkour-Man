@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GodMode",
+                    "type": "Button",
+                    "id": "8e75174c-006e-43bd-84c8-619069c982a2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -278,6 +287,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cdf929b-3456-4f72-8727-defa8f0b9792",
+                    "path": "<Keyboard>/f10",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc2e13e0-2461-4fe6-af32-0005b1aea2a2",
+                    "path": "<DualShockGamepad>/dpad/down",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GodMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

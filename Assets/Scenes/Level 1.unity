@@ -7145,6 +7145,7 @@ GameObject:
   - component: {fileID: 661821768}
   - component: {fileID: 661821769}
   - component: {fileID: 661821772}
+  - component: {fileID: 661821773}
   - component: {fileID: 661821763}
   - component: {fileID: 661821770}
   m_Layer: 0
@@ -7558,6 +7559,20 @@ MonoBehaviour:
   lifeCounter: {fileID: 33453538}
   playerLoseTag: PlayerDie
   removeLife: 1
+  cheatManager: {fileID: 661821773}
+--- !u!114 &661821773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661821755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df81a1054cde0c478c1902b5de61fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  godMode: 0
 --- !u!1001 &665424632
 PrefabInstance:
   m_ObjectHideFlags: 0
