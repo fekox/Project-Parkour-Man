@@ -19,11 +19,11 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Movement")]
 
-    [SerializeField] private float mouseSensitivity = 30f;
+    [SerializeField] private float cameraSensitivity = 0f;
 
-    [SerializeField] private float joystickSensitivity = 130f;
+    private float mouseSensitivity = 30f;
 
-    private float cameraSensitivity = 0f;
+    private float joystickSensitivity = 130f;
 
     private Vector2 mouseRot;
 
@@ -45,12 +45,12 @@ public class PlayerLook : MonoBehaviour
             {
                 if (currentJoystickNames.Length > 0 && !IsDefaultJoystickName(currentJoystickNames[0]))
                 {
-                    Debug.Log("Se ha conectado un joystick.");
+                    SetCameraSensitivity(joystickSensitivity);
                 }
 
                 else
                 {
-                    Debug.Log("No hay joysticks conectados.");
+                    SetCameraSensitivity(mouseSensitivity);
                 }
 
                 joystickNames = currentJoystickNames;
@@ -142,5 +142,14 @@ public class PlayerLook : MonoBehaviour
         string unknown = "Unknown";
 
         return string.IsNullOrEmpty(name) || name.Equals(unknown);
+    }
+
+    /// <summary>
+    /// Set the camera sensitivity.
+    /// </summary>
+    /// <param name="newSensitivity"></param>
+    private void SetCameraSensitivity(float newSensitivity) 
+    {
+        cameraSensitivity = newSensitivity;
     }
 }
