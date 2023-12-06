@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System.Runtime.CompilerServices;
 
 /// <summary>
 /// Manages the player's camera.
@@ -18,33 +19,62 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Movement")]
 
-    [SerializeField] private float mouseSensitivity = 100f;
+    [SerializeField] private float mouseSensitivity = 30f;
+
+    [SerializeField] private float joystickSensitivity = 130f;
+
+    private float cameraSensitivity = 0f;
 
     private Vector2 mouseRot;
+
+    private string[] joystickNames;
 
     private float xRotation;
 
     /// <summary>
-    /// The cursor is set to locked.
+    /// Checks if a controller is conected. 
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator CheckController()
+    {
+        while (true) 
+        {
+            string[] currentJoystickNames = Input.GetJoystickNames();
+
+            if (!JoystickNamesAreEqual(joystickNames, currentJoystickNames))
+            {
+                if (currentJoystickNames.Length > 0 && !IsDefaultJoystickName(currentJoystickNames[0]))
+                {
+                    Debug.Log("Se ha conectado un joystick.");
+                }
+
+                else
+                {
+                    Debug.Log("No hay joysticks conectados.");
+                }
+
+                joystickNames = currentJoystickNames;
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    /// <summary>
+    /// Calls the coroutine and the cursor is set to locked.
     /// </summary>
     void Start()
     {
+        StartCoroutine(CheckController());
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
-    /// The camera follows the cursor.
+    /// Do the camera movement logic.
     /// </summary>
     void Update()
     {
-       var mouseX = mouseRot.x * mouseSensitivity * Time.deltaTime;
-       var mouseY = mouseRot.y * mouseSensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -70f, 70f);
-     
-        camHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        CameraMovement();
     }
 
     /// <summary>
@@ -64,5 +94,53 @@ public class PlayerLook : MonoBehaviour
     public void DoTilt(float zTilt) 
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.35f);
+    }
+
+    /// <summary>
+    /// The camera follows the cursor.
+    /// </summary>
+    private void CameraMovement() 
+    {
+        var mouseX = mouseRot.x * cameraSensitivity * Time.deltaTime;
+        var mouseY = mouseRot.y * cameraSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -70f, 70f);
+
+        camHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    /// <summary>
+    /// Detects whether the name of the connected joysticks is the same as the default one or not.
+    /// </summary>
+    private bool JoystickNamesAreEqual(string[] arr1, string[] arr2)
+    {
+        if (arr1 == null || arr2 == null || arr1.Length != arr2.Length) 
+        {
+            return false;
+        }
+
+        for (int i = 0; i < arr1.Length; i++)
+        {
+            if (arr1[i] != arr2[i]) 
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Detects if there is a default or null joystic connected.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private bool IsDefaultJoystickName(string name)
+    {
+        string unknown = "Unknown";
+
+        return string.IsNullOrEmpty(name) || name.Equals(unknown);
     }
 }
