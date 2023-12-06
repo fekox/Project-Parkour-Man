@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume() 
     {
         soundsPlayer.PlaySFX(sfxName);
-
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         gamePause = false;
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         soundsPlayer.PlaySFX(sfxName);
-
+        Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         gamePause = true;
@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         soundsPlayer.PlaySFX(sfxName);
+        Cursor.lockState = CursorLockMode.None;
 
         Time.timeScale = 1.0f;
 
