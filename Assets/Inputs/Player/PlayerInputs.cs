@@ -89,6 +89,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flash"",
+                    ""type"": ""Button"",
+                    ""id"": ""0179f84f-b260-4db2-911e-bf4b08965f14"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -333,6 +342,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c39c5368-1d14-47ec-8f70-a1aa438cebac"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a476bd9-244b-410c-81fa-034ef538054e"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +379,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_World_SprintFinish = m_World.FindAction("SprintFinish", throwIfNotFound: true);
         m_World_NextLevel = m_World.FindAction("NextLevel", throwIfNotFound: true);
         m_World_GodMode = m_World.FindAction("GodMode", throwIfNotFound: true);
+        m_World_Flash = m_World.FindAction("Flash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -416,6 +448,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_World_SprintFinish;
     private readonly InputAction m_World_NextLevel;
     private readonly InputAction m_World_GodMode;
+    private readonly InputAction m_World_Flash;
     public struct WorldActions
     {
         private @PlayerInputs m_Wrapper;
@@ -427,6 +460,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @SprintFinish => m_Wrapper.m_World_SprintFinish;
         public InputAction @NextLevel => m_Wrapper.m_World_NextLevel;
         public InputAction @GodMode => m_Wrapper.m_World_GodMode;
+        public InputAction @Flash => m_Wrapper.m_World_Flash;
         public InputActionMap Get() { return m_Wrapper.m_World; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -457,6 +491,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @GodMode.started += instance.OnGodMode;
             @GodMode.performed += instance.OnGodMode;
             @GodMode.canceled += instance.OnGodMode;
+            @Flash.started += instance.OnFlash;
+            @Flash.performed += instance.OnFlash;
+            @Flash.canceled += instance.OnFlash;
         }
 
         private void UnregisterCallbacks(IWorldActions instance)
@@ -482,6 +519,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @GodMode.started -= instance.OnGodMode;
             @GodMode.performed -= instance.OnGodMode;
             @GodMode.canceled -= instance.OnGodMode;
+            @Flash.started -= instance.OnFlash;
+            @Flash.performed -= instance.OnFlash;
+            @Flash.canceled -= instance.OnFlash;
         }
 
         public void RemoveCallbacks(IWorldActions instance)
@@ -508,5 +548,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSprintFinish(InputAction.CallbackContext context);
         void OnNextLevel(InputAction.CallbackContext context);
         void OnGodMode(InputAction.CallbackContext context);
+        void OnFlash(InputAction.CallbackContext context);
     }
 }

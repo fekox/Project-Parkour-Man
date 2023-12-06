@@ -27,12 +27,15 @@ public class PlayerInputManager : MonoBehaviour
 
     private PlayerInputs godModeAction;
 
+    private PlayerInputs flashAction;
+
     /// <summary>
     /// The action is assigned the UIInput.
     /// </summary>
     private void Awake()
     {
         godModeAction = new PlayerInputs();
+        flashAction = new PlayerInputs();
     }
 
 
@@ -49,6 +52,25 @@ public class PlayerInputManager : MonoBehaviour
         cheatsManager = GetComponent<CheatsManager>();
 
         godModeAction.World.GodMode.performed += _ => IsGodMode();
+        flashAction.World.Flash.performed += _ => IsFlash();
+    }
+
+    /// <summary>
+    /// Action is active.
+    /// </summary>
+    public void OnEnable()
+    {
+        godModeAction.Enable();
+        flashAction.Enable();
+    }
+
+    /// <summary>
+    /// Action is disable.
+    /// </summary>
+    private void OnDisable()
+    {
+        godModeAction.Disable();
+        flashAction.Disable();
     }
 
     /// <summary>
@@ -129,18 +151,18 @@ public class PlayerInputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Action is active.
+    /// Chenks is the flash mode is on or off.
     /// </summary>
-    public void OnEnable()
+    private void IsFlash() 
     {
-        godModeAction.Enable();
-    }
+        if (cheatsManager.flash == true)
+        {
+            cheatsManager.FlashDesactive();
+        }
 
-    /// <summary>
-    /// Action is disable.
-    /// </summary>
-    private void OnDisable()
-    {
-        godModeAction.Disable();
+        else
+        {
+            cheatsManager.FlashActive();
+        }
     }
 }

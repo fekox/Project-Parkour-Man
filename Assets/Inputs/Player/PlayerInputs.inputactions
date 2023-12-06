@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Flash",
+                    "type": "Button",
+                    "id": "0179f84f-b260-4db2-911e-bf4b08965f14",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -309,6 +318,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "GodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c39c5368-1d14-47ec-8f70-a1aa438cebac",
+                    "path": "<Keyboard>/f11",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a476bd9-244b-410c-81fa-034ef538054e",
+                    "path": "<DualShockGamepad>/dpad/right",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
