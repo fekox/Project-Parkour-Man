@@ -16,7 +16,7 @@ public class UIInputManger : MonoBehaviour
 
     [SerializeField] private GameObject resumeButton;
 
-    UIInputs action;
+    private UIInputs action;
 
     /// <summary>
     /// The action is assigned the UIInput.
@@ -32,8 +32,6 @@ public class UIInputManger : MonoBehaviour
     /// </summary>
     void Start()
     {
-        pauseMenu = GetComponent<PauseMenu>();
-
         action.UI.Pause.performed += _ => IsPaused();
     }
 
@@ -46,7 +44,6 @@ public class UIInputManger : MonoBehaviour
         if (pauseMenu.gamePause == true) 
         {
             ResumeGame();
-            EventSystem.current.SetSelectedGameObject(null);
         }
 
         else 
