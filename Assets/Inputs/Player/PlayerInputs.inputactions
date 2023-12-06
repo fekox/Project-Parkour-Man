@@ -152,15 +152,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "5ae261e3-f55a-42f0-b45c-379483866441",
-                    "path": "<DualShockGamepad>/leftStick",
+                    "name": "Joystick",
+                    "id": "9caf8c4a-76fe-4c16-a9fa-49e7736f0d5c",
+                    "path": "2DVector",
                     "interactions": "",
-                    "processors": "StickDeadzone(min=0.2,max=0.8)",
+                    "processors": "StickDeadzone(min=0.1,max=1)",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "e55a6d0a-6a16-437f-88bf-c962cc78db2c",
+                    "path": "<DualShockGamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "170fc165-3a7a-4cdf-9518-c1a16ef31229",
+                    "path": "<DualShockGamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "23afd8e3-77e8-4643-a12f-49b8602d5ef9",
+                    "path": "<DualShockGamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "26673f49-093d-4c0c-94f5-d7f935b16485",
+                    "path": "<DualShockGamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -199,7 +243,7 @@
                     "name": "",
                     "id": "d4f6b551-35a5-4f91-b54c-8af626542606",
                     "path": "<DualShockGamepad>/leftShoulder",
-                    "interactions": "Press(pressPoint=0.9,behavior=1)",
+                    "interactions": "Press(pressPoint=1,behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "SprintFinish",
