@@ -7146,6 +7146,7 @@ GameObject:
   - component: {fileID: 661821769}
   - component: {fileID: 661821772}
   - component: {fileID: 661821773}
+  - component: {fileID: 661821774}
   - component: {fileID: 661821763}
   - component: {fileID: 661821770}
   m_Layer: 0
@@ -7265,7 +7266,6 @@ MonoBehaviour:
   _currentMovement: {x: 0, y: 0, z: 0}
   playerInput: {fileID: 661821764}
   wallRunning: {fileID: 661821765}
-  playerMovement: {fileID: 661821762}
   groundTagName: Ground
   cheatsManager: {fileID: 661821773}
 --- !u!114 &661821763
@@ -7580,6 +7580,21 @@ MonoBehaviour:
   godMode: 0
   flash: 0
   featherFall: 0
+--- !u!114 &661821774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661821755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe1a8bb43ac0a44e8e74c5458dcd4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyMovementSpeed: 8
+  GoUp: 0
+  GoDown: 0
 --- !u!1001 &665424632
 PrefabInstance:
   m_ObjectHideFlags: 0

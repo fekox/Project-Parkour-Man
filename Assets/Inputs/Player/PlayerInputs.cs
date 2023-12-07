@@ -107,6 +107,42 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpMovementPress"",
+                    ""type"": ""Button"",
+                    ""id"": ""047b9ddd-e461-454b-9bbe-49b7cd9a3371"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpMovementRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""a38fa12d-f1cb-4fbd-955e-13c3a17391ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DownMovementPress"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc5b9a8c-69ca-41f7-99ce-d7653145ae3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DownMovementRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""72b40c4e-ea55-4898-ab1e-90c210d3bf87"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -395,6 +431,116 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""FeatherFall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67aa033b-c295-44d2-8bb5-cb0fb9fc46f3"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpMovementPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e621c740-7e21-4971-86a3-329b2251f386"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpMovementPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd09e8d6-3d7f-4e5b-b7c9-4c21a4cf3ff7"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6c4ecdc-baaf-4c10-abb4-39a028b73f8c"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef655b8f-2b57-425b-9cae-de718de30caf"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""928123ba-46b9-48df-882c-bbbf9816de30"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpMovementRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a20ad454-7e19-4826-b549-4c0f1929fcf3"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpMovementRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""448b2e0b-533f-46bc-adc4-7627b9578f29"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c23a3a6-f67d-4ad6-9257-e2af57b47885"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94d2619d-b29e-415b-8dad-c48051eb6064"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DownMovementRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -412,6 +558,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_World_GodMode = m_World.FindAction("GodMode", throwIfNotFound: true);
         m_World_Flash = m_World.FindAction("Flash", throwIfNotFound: true);
         m_World_FeatherFall = m_World.FindAction("FeatherFall", throwIfNotFound: true);
+        m_World_UpMovementPress = m_World.FindAction("UpMovementPress", throwIfNotFound: true);
+        m_World_UpMovementRelease = m_World.FindAction("UpMovementRelease", throwIfNotFound: true);
+        m_World_DownMovementPress = m_World.FindAction("DownMovementPress", throwIfNotFound: true);
+        m_World_DownMovementRelease = m_World.FindAction("DownMovementRelease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -482,6 +632,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_World_GodMode;
     private readonly InputAction m_World_Flash;
     private readonly InputAction m_World_FeatherFall;
+    private readonly InputAction m_World_UpMovementPress;
+    private readonly InputAction m_World_UpMovementRelease;
+    private readonly InputAction m_World_DownMovementPress;
+    private readonly InputAction m_World_DownMovementRelease;
     public struct WorldActions
     {
         private @PlayerInputs m_Wrapper;
@@ -495,6 +649,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @GodMode => m_Wrapper.m_World_GodMode;
         public InputAction @Flash => m_Wrapper.m_World_Flash;
         public InputAction @FeatherFall => m_Wrapper.m_World_FeatherFall;
+        public InputAction @UpMovementPress => m_Wrapper.m_World_UpMovementPress;
+        public InputAction @UpMovementRelease => m_Wrapper.m_World_UpMovementRelease;
+        public InputAction @DownMovementPress => m_Wrapper.m_World_DownMovementPress;
+        public InputAction @DownMovementRelease => m_Wrapper.m_World_DownMovementRelease;
         public InputActionMap Get() { return m_Wrapper.m_World; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -531,6 +689,18 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @FeatherFall.started += instance.OnFeatherFall;
             @FeatherFall.performed += instance.OnFeatherFall;
             @FeatherFall.canceled += instance.OnFeatherFall;
+            @UpMovementPress.started += instance.OnUpMovementPress;
+            @UpMovementPress.performed += instance.OnUpMovementPress;
+            @UpMovementPress.canceled += instance.OnUpMovementPress;
+            @UpMovementRelease.started += instance.OnUpMovementRelease;
+            @UpMovementRelease.performed += instance.OnUpMovementRelease;
+            @UpMovementRelease.canceled += instance.OnUpMovementRelease;
+            @DownMovementPress.started += instance.OnDownMovementPress;
+            @DownMovementPress.performed += instance.OnDownMovementPress;
+            @DownMovementPress.canceled += instance.OnDownMovementPress;
+            @DownMovementRelease.started += instance.OnDownMovementRelease;
+            @DownMovementRelease.performed += instance.OnDownMovementRelease;
+            @DownMovementRelease.canceled += instance.OnDownMovementRelease;
         }
 
         private void UnregisterCallbacks(IWorldActions instance)
@@ -562,6 +732,18 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @FeatherFall.started -= instance.OnFeatherFall;
             @FeatherFall.performed -= instance.OnFeatherFall;
             @FeatherFall.canceled -= instance.OnFeatherFall;
+            @UpMovementPress.started -= instance.OnUpMovementPress;
+            @UpMovementPress.performed -= instance.OnUpMovementPress;
+            @UpMovementPress.canceled -= instance.OnUpMovementPress;
+            @UpMovementRelease.started -= instance.OnUpMovementRelease;
+            @UpMovementRelease.performed -= instance.OnUpMovementRelease;
+            @UpMovementRelease.canceled -= instance.OnUpMovementRelease;
+            @DownMovementPress.started -= instance.OnDownMovementPress;
+            @DownMovementPress.performed -= instance.OnDownMovementPress;
+            @DownMovementPress.canceled -= instance.OnDownMovementPress;
+            @DownMovementRelease.started -= instance.OnDownMovementRelease;
+            @DownMovementRelease.performed -= instance.OnDownMovementRelease;
+            @DownMovementRelease.canceled -= instance.OnDownMovementRelease;
         }
 
         public void RemoveCallbacks(IWorldActions instance)
@@ -590,5 +772,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnGodMode(InputAction.CallbackContext context);
         void OnFlash(InputAction.CallbackContext context);
         void OnFeatherFall(InputAction.CallbackContext context);
+        void OnUpMovementPress(InputAction.CallbackContext context);
+        void OnUpMovementRelease(InputAction.CallbackContext context);
+        void OnDownMovementPress(InputAction.CallbackContext context);
+        void OnDownMovementRelease(InputAction.CallbackContext context);
     }
 }

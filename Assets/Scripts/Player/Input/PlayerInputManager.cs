@@ -31,6 +31,8 @@ public class PlayerInputManager : MonoBehaviour
 
     private PlayerInputs featherFallAction;
 
+    private FlyMovement playerFlyMovement;
+
     /// <summary>
     /// The action is assigned the UIInput.
     /// </summary>
@@ -53,6 +55,7 @@ public class PlayerInputManager : MonoBehaviour
         playerJump = GetComponent<Jumping>();
         playerLook = GetComponentInChildren<PlayerLook>();
         cheatsManager = GetComponent<CheatsManager>();
+        playerFlyMovement = GetComponentInChildren<FlyMovement>();
 
         godModeAction.World.GodMode.performed += _ => IsGodMode();
         flashAction.World.Flash.performed += _ => IsFlash();
@@ -84,7 +87,10 @@ public class PlayerInputManager : MonoBehaviour
     /// </summary>
     public void OnJump()
     {
-        playerJump.JumpLogic();
+        if(cheatsManager.featherFall == false) 
+        {
+            playerJump.JumpLogic();
+        }
 
         if(playerWallrun.isWallrunning == true)
         {
@@ -185,6 +191,50 @@ public class PlayerInputManager : MonoBehaviour
         else
         {
             cheatsManager.FeatherFallActive();
+        }
+    }
+
+    /// <summary>
+    /// Move the player up when he is on cheat mode.
+    /// </summary>
+    public void OnUpMovementPress() 
+    {
+        if (cheatsManager.featherFall == true)
+        {
+            playerFlyMovement.GoUp = true;
+        }
+    }
+
+    /// <summary>
+    /// Stop moving the player Up.
+    /// </summary>
+    public void OnUpMovementRelease()
+    {
+        if (cheatsManager.featherFall == true)
+        {
+            playerFlyMovement.GoUp = false;
+        }
+    }
+
+    /// <summary>
+    /// Move the player down when he is on cheat mode.
+    /// </summary>
+    public void OnDownMovementPress() 
+    {
+        if (cheatsManager.featherFall == true)
+        {
+            playerFlyMovement.GoDown = true;
+        }
+    }
+
+    /// <summary>
+    /// Stop moving the player down.
+    /// </summary>
+    public void OnDownMovementRelease()
+    {
+        if (cheatsManager.featherFall == true)
+        {
+            playerFlyMovement.GoDown = false;
         }
     }
 }

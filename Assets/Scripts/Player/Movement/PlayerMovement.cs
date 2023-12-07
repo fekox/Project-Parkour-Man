@@ -38,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private WallRunning wallRunning;
 
-    [SerializeField] private PlayerMovement playerMovement;
-
     [SerializeField] private string groundTagName;
 
     [SerializeField] private CheatsManager cheatsManager;
@@ -83,9 +81,9 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rigidBody.velocity = moveDir * movementSpeed + Vector3.up * rigidBody.velocity.y;
 
-            onWalkMovementChange?.Invoke(!playerMovement.isFalling);
-            
-            if(playerMovement.isFalling == true) 
+            onWalkMovementChange?.Invoke(!isFalling);
+
+            if (isFalling == true && cheatsManager.featherFall == false)
             {
                 rigidBody.AddForce(Vector3.down * gravityModifier, ForceMode.Acceleration);
             }
@@ -108,6 +106,16 @@ public class PlayerMovement : MonoBehaviour
         {
             SetMovementSpeed(maxMovementSpeed);
         }
+
+        if(cheatsManager.featherFall == true) 
+        {
+            rigidBody.useGravity = false;
+        }
+
+        if (cheatsManager.featherFall == false)
+        {
+            rigidBody.useGravity = true;
+        }
     }
 
     /// <summary>
@@ -129,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (player.gameObject.CompareTag(groundTagName))
         {
-            playerMovement.isFalling = false;
+            isFalling = false;
         }
     }
 
@@ -142,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (player.gameObject.CompareTag(groundTagName))
         {
-            playerMovement.isFalling = true;
+            isFalling = true;
         }
     }
 
