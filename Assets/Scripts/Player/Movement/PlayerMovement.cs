@@ -104,6 +104,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the player movemente speed depending if flash cheat is active or not. 
+    /// </summary>
     private void Update()
     {
         if (cheatsManager.flash == true) 
@@ -153,6 +156,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets player speed.
+    /// </summary>
+    /// <param name="newSpeed"></param>
     private void SetMovementSpeed(float newSpeed) 
     {
         movementSpeed = newSpeed;

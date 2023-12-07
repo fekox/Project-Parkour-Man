@@ -51,14 +51,6 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /// <summary>
-    /// Destroy de bullet.
-    /// </summary>
-    private void HitBulletCollider() 
-    {
-        Destroy(gameObject);
-    }
-
 
     /// <summary>
     /// When the bullet collides with the plumber with the bullet collision it is destroyed.
@@ -73,7 +65,7 @@ public class Bullet : MonoBehaviour
 
         if (bullet.gameObject.CompareTag(bulletColliderTag)) 
         {
-            HitBulletCollider();
+            HitTarget();
         }
     }
 }
