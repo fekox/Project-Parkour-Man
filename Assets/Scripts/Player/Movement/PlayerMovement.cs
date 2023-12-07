@@ -68,11 +68,6 @@ public class PlayerMovement : MonoBehaviour
         {
             enabled = false;
         }
-
-        if(wallRunning.isWallrunning == true) 
-        {
-            movementSpeed = wallRunning.wallRunningSpeed;
-        }
     }
 
     /// <summary>
@@ -112,11 +107,6 @@ public class PlayerMovement : MonoBehaviour
         if (cheatsManager.flash == true) 
         {
             SetMovementSpeed(maxMovementSpeed);
-        }
-
-        else 
-        {
-            SetMovementSpeed(normalMovementSpeed);
         }
     }
 

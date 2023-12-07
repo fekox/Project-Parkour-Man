@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         EventSystem.current.SetSelectedGameObject(firstSelected);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     /// <summary>

@@ -9646,6 +9646,7 @@ GameObject:
   - component: {fileID: 2140734986}
   - component: {fileID: 2140734985}
   - component: {fileID: 2140734984}
+  - component: {fileID: 2140734994}
   - component: {fileID: 2140734981}
   - component: {fileID: 2140734980}
   m_Layer: 0
@@ -9803,6 +9804,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2140734988}
   playerInput: {fileID: 2140734987}
   sfxName: Jump
+  cheatsManager: {fileID: 2140734994}
   isJumping: 0
   soundsPlayer: {fileID: 304135072}
 --- !u!114 &2140734985
@@ -9902,6 +9904,7 @@ MonoBehaviour:
   wallRunning: {fileID: 2140734986}
   playerMovement: {fileID: 2140734988}
   groundTagName: Ground
+  cheatsManager: {fileID: 2140734994}
 --- !u!54 &2140734989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10009,6 +10012,21 @@ MonoBehaviour:
   playerMovement: {fileID: 2140734988}
   playerInput: {fileID: 2140734987}
   playerClimb: {fileID: 2140734985}
+--- !u!114 &2140734994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140734979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df81a1054cde0c478c1902b5de61fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  godMode: 0
+  flash: 0
+  featherFall: 0
 --- !u!1 &2145072393
 GameObject:
   m_ObjectHideFlags: 0
