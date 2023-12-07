@@ -7267,6 +7267,7 @@ MonoBehaviour:
   wallRunning: {fileID: 661821765}
   playerMovement: {fileID: 661821762}
   groundTagName: Ground
+  cheatsManager: {fileID: 661821773}
 --- !u!114 &661821763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7394,6 +7395,7 @@ MonoBehaviour:
   playerMovement: {fileID: 661821762}
   playerInput: {fileID: 661821764}
   sfxName: Jump
+  cheatsManager: {fileID: 661821773}
   isJumping: 0
   soundsPlayer: {fileID: 1123438068}
 --- !u!114 &661821768
@@ -7573,6 +7575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 0
+  flash: 0
+  featherFall: 0
 --- !u!1001 &665424632
 PrefabInstance:
   m_ObjectHideFlags: 0

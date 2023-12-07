@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ public class Jumping : MonoBehaviour
 
     [SerializeField] private float maxJumpAnimation = 0.5f;
 
+    private float maxJumpForce;
+    private float normalJumpForce;
+
     private Coroutine _jumpCoroutine;
 
     private float jumpAnimationTimer;
@@ -42,6 +46,8 @@ public class Jumping : MonoBehaviour
     [SerializeField] private PlayerInputManager playerInput;
 
     [SerializeField] private string sfxName;
+
+    [SerializeField] private CheatsManager cheatsManager;
 
     public bool isJumping;
 
@@ -64,6 +70,11 @@ public class Jumping : MonoBehaviour
     /// </summary>
     void Start()
     {
+        int auxNumber = 3;
+
+        normalJumpForce = jumpForce;
+        maxJumpForce = jumpForce * auxNumber;
+
         if (!rigidBody)
         {
             enabled = false;
@@ -108,6 +119,8 @@ public class Jumping : MonoBehaviour
             jumpAnimationTimer = maxJumpAnimation;
             onJumpChange?.Invoke(false);
         }
+
+        CheckJumpForce();
     }
 
     /// <summary>
@@ -173,5 +186,30 @@ public class Jumping : MonoBehaviour
             return;
         Gizmos.color = Color.red;
         Gizmos.DrawLine(feetPivot.position, feetPivot.position + Vector3.down * minJumpDistance);
+    }
+
+    /// <summary>
+    /// Sets the jump force depending on whether the flash cheat is on or off.
+    /// </summary>
+    private void CheckJumpForce() 
+    {
+        if (cheatsManager.flash == true)
+        {
+            SetJumpForce(maxJumpForce);
+        }
+
+        if (cheatsManager.flash == false)
+        {
+            SetJumpForce(normalJumpForce);
+        }
+    }
+
+    /// <summary>
+    /// Sets jump force.
+    /// </summary>
+    /// <param name="newForce"></param>
+    private void SetJumpForce(float newForce) 
+    {
+        jumpForce = newForce;
     }
 }

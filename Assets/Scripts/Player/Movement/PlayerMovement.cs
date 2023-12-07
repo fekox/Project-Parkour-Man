@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float gravityModifier;
 
+    private float normalMovementSpeed;
+
+    private float maxMovementSpeed;
+
     public float movementSpeed;
 
     public Vector3 _currentMovement;
@@ -37,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private string groundTagName;
+
+    [SerializeField] private CheatsManager cheatsManager;
 
     public event Action<bool> onWalkMovementChange;
 
@@ -53,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        int auxNumber = 3;
+
+        normalMovementSpeed = movementSpeed;
+        maxMovementSpeed = movementSpeed * auxNumber;
+
         if (!rigidBody)
         {
             enabled = false;
@@ -93,6 +104,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (cheatsManager.flash == true) 
+        {
+            SetMovementSpeed(maxMovementSpeed);
+        }
+
+        else 
+        {
+            SetMovementSpeed(normalMovementSpeed);
+        }
+    }
+
     /// <summary>
     /// The player movement algorithm is executed.
     /// </summary>
@@ -127,5 +151,10 @@ public class PlayerMovement : MonoBehaviour
         {
             playerMovement.isFalling = true;
         }
+    }
+
+    private void SetMovementSpeed(float newSpeed) 
+    {
+        movementSpeed = newSpeed;
     }
 }
