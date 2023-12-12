@@ -32,6 +32,10 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
 
+    private TurretsFactory turretFactory;
+
+    private EnemyInterface enemyInterface;
+
     private Transform target;
 
     public SoundsPlayer soundsPlayer;
@@ -44,6 +48,10 @@ public class Turret : MonoBehaviour
     void Start()
     {
         InvokeRepeating(functionTime, 0f, 0.5f);
+
+        turretFactory = new TurretsFactory();
+
+        enemyInterface = turretFactory.CreateTurret(target, range, fireRate, fireCountDown, soundsPlayer, coinSFX);
     }
 
     /// <summary>
@@ -86,14 +94,14 @@ public class Turret : MonoBehaviour
             return;
         }
 
-        Vector3 dir = target.transform.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 direction = target.transform.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(turret.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         turret.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountDown <= 0f)
         {
-            shoot();
+            Shoot();
             fireCountDown = 1f / fireRate;
         }
 
@@ -103,7 +111,7 @@ public class Turret : MonoBehaviour
     /// <summary>
     /// Turret Shot system.
     /// </summary>
-    void shoot()
+    void Shoot()
     {
         GameObject bulletGameObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGameObject.GetComponent<Bullet>();
@@ -123,7 +131,7 @@ public class Turret : MonoBehaviour
     {
         if (turret.gameObject.CompareTag(playerTag))
         {
-            soundsPlayer.PlaySFX(coinSFX);
+            enemyInterface.DestroyEnemy();
 
             onDeath.Invoke(gameObject);
         }
