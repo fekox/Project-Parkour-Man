@@ -106,7 +106,7 @@ public class ObjectPoolManager : MonoBehaviour
     /// <param name="turret"></param>
     private void OnReturnTurretToPool(GameObject turret)
     {
-        DestroyTurret auxTurret = turret.GetComponent<DestroyTurret>();
+        Turret auxTurret = turret.GetComponent<Turret>();
 
         turret.gameObject.SetActive(false);
 
@@ -134,7 +134,7 @@ public class ObjectPoolManager : MonoBehaviour
     /// <param name="turret"></param>
     private void OnTakeTurretFromPool(GameObject turret)
     {
-        DestroyTurret auxTurret = turret.GetComponent<DestroyTurret>();
+        Turret auxTurret = turret.GetComponent<Turret>();
 
         auxTurret.soundsPlayer.audioManager = audioSource;
 

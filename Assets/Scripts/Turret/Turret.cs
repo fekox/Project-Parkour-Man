@@ -8,29 +8,35 @@ using UnityEngine.Events;
 /// </summary>
 public class Turret : MonoBehaviour
 {
-    [Header("References")]
-
+    [Header("Setup")]
+   
     [SerializeField] private float range = 15f;
 
     [SerializeField] private float fireRate = 1f;
 
     [SerializeField] private float fireCountDown = 0.5f;
 
-    [Header("Setup")]
-
-    [SerializeField] private Transform turret;
-
-    [SerializeField] private Transform firePoint;
+    [SerializeField] private float rotationSpeed = 10f;
 
     [SerializeField] private string playerTag = "Player";
 
     [SerializeField] private string functionTime = "UpdateTarget";
 
-    [SerializeField] private float turnSpeed = 10f;
+    [SerializeField] private string coinSFX;
+
+    [Header("References")]
+
+    [SerializeField] private Transform turret;
+
+    [SerializeField] private Transform firePoint;
 
     [SerializeField] private GameObject bulletPrefab;
 
     private Transform target;
+
+    public SoundsPlayer soundsPlayer;
+
+    public UnityEvent<GameObject> onDeath;
 
     /// <summary>
     /// Ivokes the Update Target Function
@@ -82,7 +88,7 @@ public class Turret : MonoBehaviour
 
         Vector3 dir = target.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(turret.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(turret.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
         turret.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountDown <= 0f)
@@ -107,6 +113,20 @@ public class Turret : MonoBehaviour
             bullet.SetTarget(target);
         }
 
+    }
+
+    /// <summary>
+    /// When the player collides with the turret, the turret is destroyed.
+    /// </summary>
+    /// <param name="bullet"></param>
+    private void OnTriggerEnter(Collider turret)
+    {
+        if (turret.gameObject.CompareTag(playerTag))
+        {
+            soundsPlayer.PlaySFX(coinSFX);
+
+            onDeath.Invoke(gameObject);
+        }
     }
 
     /// <summary>

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2423865267129224244}
   - component: {fileID: 214345184003033360}
   - component: {fileID: 7118794177246985376}
-  - component: {fileID: 4560883578468028381}
   - component: {fileID: 2900197379885383641}
+  - component: {fileID: 46503541655552002}
   m_Layer: 0
   m_Name: Heavy Turret
   m_TagString: Untagged
@@ -162,24 +162,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4560883578468028381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3660131873129673669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8d4318e9002cd4695c4b4e9eb4c849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Player
-  coinSFX: Coin
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  soundsPlayer: {fileID: 2900197379885383641}
 --- !u!114 &2900197379885383641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +175,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
+--- !u!114 &46503541655552002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660131873129673669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12e7fa97b1c5024e9dde294e9810844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  fireRate: 0.7
+  fireCountDown: 0.1
+  rotationSpeed: 10
+  playerTag: Player
+  functionTime: UpdateTarget
+  coinSFX: Coin
+  turret: {fileID: 3660131873129836517}
+  firePoint: {fileID: 3660131873545737627}
+  bulletPrefab: {fileID: 1496467297852950718, guid: 3c256457fbaa41e4c954f6ccd535f503, type: 3}
+  soundsPlayer: {fileID: 2900197379885383641}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3660131873129673681
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +544,6 @@ GameObject:
   - component: {fileID: 3660131873129836539}
   - component: {fileID: 3660131873126445019}
   - component: {fileID: 3660131873127410971}
-  - component: {fileID: 3660131873127410970}
   - component: {fileID: 7797441656948421848}
   m_Layer: 6
   m_Name: TurretHead
@@ -617,27 +624,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3660131873127410970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3660131873129673691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12e7fa97b1c5024e9dde294e9810844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 0.7
-  fireCountDown: 0.1
-  turret: {fileID: 3660131873129836517}
-  firePoint: {fileID: 3660131873545737627}
-  playerTag: Player
-  functionTime: UpdateTarget
-  turnSpeed: 10
-  bulletPrefab: {fileID: 1496467297852950718, guid: 3c256457fbaa41e4c954f6ccd535f503, type: 3}
 --- !u!65 &7797441656948421848
 BoxCollider:
   m_ObjectHideFlags: 0
