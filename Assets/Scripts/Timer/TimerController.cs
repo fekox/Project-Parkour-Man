@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 /// <summary>
 /// Shows the time on the screen in the level 1.
 /// </summary>

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.LowLevel;
 
+/// <summary>
+/// Controls inputs for cheats.
+/// </summary>
 public class CheatsManager : MonoBehaviour
 {
     [Header("Cheat: God Mode")]

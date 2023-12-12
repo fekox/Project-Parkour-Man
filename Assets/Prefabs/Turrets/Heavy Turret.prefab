@@ -187,13 +187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12e7fa97b1c5024e9dde294e9810844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 0.7
+  range: 13
+  fireRate: 1
   fireCountDown: 0.1
   rotationSpeed: 10
   playerTag: Player
-  functionTime: UpdateTarget
-  coinSFX: Coin
+  functionName: UpdateTarget
+  coinSFX: Destroy_Turret
   turret: {fileID: 3660131873129836517}
   firePoint: {fileID: 3660131873545737627}
   bulletPrefab: {fileID: 1496467297852950718, guid: 3c256457fbaa41e4c954f6ccd535f503, type: 3}

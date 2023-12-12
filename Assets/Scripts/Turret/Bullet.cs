@@ -51,7 +51,6 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     /// <summary>
     /// When the bullet collides with the plumber with the bullet collision it is destroyed.
     /// </summary>
