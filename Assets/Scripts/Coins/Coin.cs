@@ -21,12 +21,15 @@ public class Coin : MonoBehaviour
     [Header("References")]
     private CoinsFactory coinsFactory;
 
-    private PickUpInterface coin;
+    private PickUp coin;
 
     public SoundsPlayer soundsPlayer;
 
     public UnityEvent<GameObject> onDeath;
 
+    /// <summary>
+    /// Create the coins factory an sets the coins.
+    /// </summary>
     private void Start()
     {
         coinsFactory = new CoinsFactory();
@@ -43,7 +46,9 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag(playerTag)) 
         {
-            coin.CollectObject();
+            CoinCounter.instance.IncreaseCoins(value);
+
+            soundsPlayer.PlaySFX(coinSFX);
 
             onDeath.Invoke(gameObject);
         }

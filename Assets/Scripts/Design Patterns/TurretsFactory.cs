@@ -1,43 +1,44 @@
 using UnityEngine;
 
-public interface EnemyInterface 
-{
-    void DestroyEnemy();
-}
-
-public class Enemy : EnemyInterface 
+/// <summary>
+/// Class to create enemy, check targets and destroy enemies.
+/// </summary>
+public class Enemy 
 {
     private Transform target;
+    private Transform turret;
 
     private float range;
-    private float fireRate;
-    private float fireCountDown;
 
     private SoundsPlayer soundsPlayer;
+
+    private string playerTag;
     private string coinSFX;
 
-    public Enemy(Transform target, float range, float fireRate, float fireCountDown, SoundsPlayer soundsPlayer, string coinSFX)
+    /// <summary>
+    /// Enemy Builder.
+    /// </summary>
+    public Enemy(Transform target, Transform turret, float range, SoundsPlayer soundsPlayer, string playerTag, string coinSFX)
     {
         this.target = target;
+        this.turret = turret;
 
         this.range = range;
-        this.fireRate = fireRate;
-        this.fireCountDown = fireCountDown;
 
         this.soundsPlayer = soundsPlayer;
-        this.coinSFX = coinSFX;
-    }
 
-    public void DestroyEnemy() 
-    {
-        soundsPlayer.PlaySFX(coinSFX);
+        this.playerTag = playerTag;
+        this.coinSFX = coinSFX;
     }
 }
 
+/// <summary>
+/// Creates the turret and return it.
+/// </summary>
 public class TurretsFactory
 {
-    public EnemyInterface CreateTurret(Transform target, float range, float fireRate, float fireCountDown, SoundsPlayer soundsPlayer, string coinSFX) 
+    public Enemy CreateTurret(Transform target, Transform turret, float range, SoundsPlayer soundsPlayer, string playerTag, string coinSFX) 
     {
-        return new Enemy(target, range, fireRate, fireCountDown, soundsPlayer, coinSFX);
+        return new Enemy(target, turret, range, soundsPlayer, playerTag, coinSFX);
     }
 }

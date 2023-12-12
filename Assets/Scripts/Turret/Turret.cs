@@ -20,7 +20,7 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private string playerTag = "Player";
 
-    [SerializeField] private string functionTime = "UpdateTarget";
+    [SerializeField] private string functionName = "UpdateTarget";
 
     [SerializeField] private string coinSFX;
 
@@ -34,7 +34,7 @@ public class Turret : MonoBehaviour
 
     private TurretsFactory turretFactory;
 
-    private EnemyInterface enemyInterface;
+    private Enemy enemyTurret;
 
     private Transform target;
 
@@ -47,11 +47,11 @@ public class Turret : MonoBehaviour
     /// </summary>
     void Start()
     {
-        InvokeRepeating(functionTime, 0f, 0.5f);
+        InvokeRepeating(functionName, 0f, 0.5f);
 
         turretFactory = new TurretsFactory();
 
-        enemyInterface = turretFactory.CreateTurret(target, range, fireRate, fireCountDown, soundsPlayer, coinSFX);
+        enemyTurret = turretFactory.CreateTurret(target, turret, range, soundsPlayer, playerTag, coinSFX);
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ public class Turret : MonoBehaviour
 
         foreach (GameObject player in PlayerTarget)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            float distanceToPlayer = Vector3.Distance(turret.transform.position, player.transform.position);
             if (distanceToPlayer < shortestDistance)
             {
                 shortestDistance = distanceToPlayer;
@@ -131,7 +131,7 @@ public class Turret : MonoBehaviour
     {
         if (turret.gameObject.CompareTag(playerTag))
         {
-            enemyInterface.DestroyEnemy();
+            soundsPlayer.PlaySFX(coinSFX);
 
             onDeath.Invoke(gameObject);
         }
