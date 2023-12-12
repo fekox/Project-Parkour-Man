@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// The coin is destroyed when the player collides 
@@ -14,7 +15,11 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private string  coinSFX;
 
-    [SerializeField] private SoundsPlayer soundsPlayer;
+    public SoundsPlayer soundsPlayer;
+
+    public UnityEvent<GameObject> onDeath;
+
+    public UnityEvent<GameObject>onGet;
 
     /// <summary>
     /// When the player collides with the coin it is destroyed 
@@ -25,10 +30,11 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag(playerTag)) 
         {
-            Destroy(gameObject);
             CoinCounter.instance.IncreaseCoins(value);
 
             soundsPlayer.PlaySFX(coinSFX);
+
+            onDeath.Invoke(gameObject);
         }
     }
 }

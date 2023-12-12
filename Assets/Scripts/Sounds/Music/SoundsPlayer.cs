@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class SoundsPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioManager audioManager;
+    public AudioManager audioManager;
 
     /// <summary>
     /// The sound that is given to the function is played.

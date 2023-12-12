@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Sets turret movement when aiming, view range and firing.
@@ -35,6 +36,7 @@ public class Turret : MonoBehaviour
     {
         InvokeRepeating(functionTime, 0f, 0.5f);
     }
+
     void UpdateTarget()
     {
         GameObject[] PlayerTarget = GameObject.FindGameObjectsWithTag(playerTag);
@@ -61,6 +63,7 @@ public class Turret : MonoBehaviour
             target = null;
         }
     }
+
     void Update()
     {
         if (target == null) 
@@ -81,6 +84,7 @@ public class Turret : MonoBehaviour
 
         fireCountDown -= Time.deltaTime;
     }
+
     void shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -92,6 +96,7 @@ public class Turret : MonoBehaviour
         }
 
     }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

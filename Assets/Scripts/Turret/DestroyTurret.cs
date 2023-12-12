@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DestroyTurret : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";
+
+    [SerializeField] private string coinSFX;
+
+    public SoundsPlayer soundsPlayer;
+
+    public UnityEvent<GameObject> onDeath;
 
     /// <summary>
     /// When the player collides with the turret, the turret is destroyed.
@@ -14,7 +21,9 @@ public class DestroyTurret : MonoBehaviour
     {
         if (turret.gameObject.CompareTag(playerTag))
         {
-            Destroy(gameObject);
+            soundsPlayer.PlaySFX(coinSFX);
+
+            onDeath.Invoke(gameObject);
         }
     }
 }
