@@ -189,7 +189,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33453536}
-  - component: {fileID: 33453535}
   - component: {fileID: 33453534}
   m_Layer: 0
   m_Name: Player HUD
@@ -213,20 +212,6 @@ MonoBehaviour:
   coinText: {fileID: 393390815}
   currentCoins: 0
   scorePlayerPref: Score
---- !u!114 &33453535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33453533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058933dd3b1869844b32235151222c44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 0}
-  timerSeg: 0
 --- !u!4 &33453536
 Transform:
   m_ObjectHideFlags: 0
