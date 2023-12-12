@@ -17,12 +17,20 @@ public class CheatsManager : MonoBehaviour
     [Header("Cheat: Feather Fall")]
     public bool featherFall = false;
 
+    [Header("References")]
+    [SerializeField] private GameObject godModeImage;
+
+    [SerializeField] private GameObject flashImage;
+
+    [SerializeField] private GameObject featherFallImage;
+
     /// <summary>
     /// Active the god mode.
     /// </summary>
     public void GodModeActive()
     {
-        godMode = true;   
+        godMode = true;
+        godModeImage.SetActive(true);
     }
 
     /// <summary>
@@ -31,6 +39,7 @@ public class CheatsManager : MonoBehaviour
     public void GodModeDesactive()
     {
         godMode = false;
+        godModeImage.SetActive(false);
     }
 
     /// <summary>
@@ -39,6 +48,7 @@ public class CheatsManager : MonoBehaviour
     public void FlashActive() 
     {
         flash = true;
+        flashImage.SetActive(true);
     }
 
     /// <summary>
@@ -47,6 +57,7 @@ public class CheatsManager : MonoBehaviour
     public void FlashDesactive() 
     {
         flash = false;
+        flashImage.SetActive(false);
     }
 
     /// <summary>
@@ -55,6 +66,7 @@ public class CheatsManager : MonoBehaviour
     public void FeatherFallActive()
     {
         featherFall = true;
+        featherFallImage.SetActive(true);
     }
 
     /// <summary>
@@ -63,5 +75,6 @@ public class CheatsManager : MonoBehaviour
     public void FeatherFallDesactive()
     {
         featherFall = false;
+        featherFallImage.SetActive(false);
     }
 }
