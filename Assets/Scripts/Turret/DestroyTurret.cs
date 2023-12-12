@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Destroy turret system.
+/// </summary>
 public class DestroyTurret : MonoBehaviour
 {
     [SerializeField] private string playerTag = "Player";

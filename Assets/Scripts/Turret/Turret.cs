@@ -32,11 +32,17 @@ public class Turret : MonoBehaviour
 
     private Transform target;
 
+    /// <summary>
+    /// Ivokes the Update Target Function
+    /// </summary>
     void Start()
     {
         InvokeRepeating(functionTime, 0f, 0.5f);
     }
 
+    /// <summary>
+    /// The distance at which the player is from the turret is calculated.To know if the player is in the attack area or not.
+    /// </summary>
     void UpdateTarget()
     {
         GameObject[] PlayerTarget = GameObject.FindGameObjectsWithTag(playerTag);
@@ -64,6 +70,9 @@ public class Turret : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If the player is in the attack area the turret looks at the player constantly.
+    /// </summary>
     void Update()
     {
         if (target == null) 
@@ -85,10 +94,13 @@ public class Turret : MonoBehaviour
         fireCountDown -= Time.deltaTime;
     }
 
+    /// <summary>
+    /// Turret Shot system.
+    /// </summary>
     void shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        GameObject bulletGameObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGameObject.GetComponent<Bullet>();
 
         if (bullet != null)
         {
@@ -97,6 +109,9 @@ public class Turret : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Draw the gizmos to see the attack area of the turret.
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

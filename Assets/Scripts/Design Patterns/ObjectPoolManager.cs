@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Pool;
 
+/// <summary>
+/// ObjectPool for the coins and the turrets.
+/// </summary>
 public class ObjectPoolManager : MonoBehaviour
 {
     [Header("Objects")]
@@ -30,6 +33,9 @@ public class ObjectPoolManager : MonoBehaviour
 
     private int currentTurretPosition;
 
+    /// <summary>
+    /// Sets the pools.
+    /// </summary>
     private void Awake()
     {
         coinsPool = new ObjectPool<GameObject>(GetCoin, OnTakeCoinFromPool, OnReturnCoinToPool, OnDestroyCoinPoolObject, true, maxCoinsInPool);
@@ -37,6 +43,9 @@ public class ObjectPoolManager : MonoBehaviour
         turretsPool = new ObjectPool<GameObject>(GetTurret, OnTakeTurretFromPool, OnReturnTurretToPool, OnDestroyTurretPoolObject, true, maxTurretsInPool);
     }
 
+    /// <summary>
+    /// Coins and turrets are positioned in the level.
+    /// </summary>
     private void Start()
     {
         for (int i = 0; i < coinsPositions.Length; i++) 
@@ -50,6 +59,10 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates an instance of a coin, positions it, increments a position in the array of coin positions, and then returns the coin.
+    /// </summary>
+    /// <returns></returns>
     public GameObject GetCoin()
     {
         var auxCoin = Instantiate(coinPrefab, Vector3.zero, Quaternion.identity);
@@ -60,6 +73,10 @@ public class ObjectPoolManager : MonoBehaviour
         return auxCoin;
     }
 
+    /// <summary>
+    /// Creates an instance of a turret, positions it, increments a position in the array of turrets positions, and then returns the turret.
+    /// </summary>
+    /// <returns></returns>
     public GameObject GetTurret()
     {
         var auxTurret = Instantiate(turretPrefab);
@@ -70,6 +87,10 @@ public class ObjectPoolManager : MonoBehaviour
         return auxTurret;
     }
 
+    /// <summary>
+    /// When the coin returns to the coin pool the game object is deactivated.
+    /// </summary>
+    /// <param name="coin"></param>
     private void OnReturnCoinToPool(GameObject coin)
     {
         Coin auxCoint = coin.GetComponent<Coin>();
@@ -79,6 +100,10 @@ public class ObjectPoolManager : MonoBehaviour
         auxCoint.onDeath.RemoveListener(OnReturnCoinToPool);
     }
 
+    /// <summary>
+    /// When the turret returns to the coin pool the game object is deactivated.
+    /// </summary>
+    /// <param name="turret"></param>
     private void OnReturnTurretToPool(GameObject turret)
     {
         DestroyTurret auxTurret = turret.GetComponent<DestroyTurret>();
@@ -88,6 +113,10 @@ public class ObjectPoolManager : MonoBehaviour
         auxTurret.onDeath.RemoveListener(OnReturnTurretToPool);
     }
 
+    /// <summary>
+    /// When a coin is taken from the pool the game object is activated.
+    /// </summary>
+    /// <param name="coin"></param>
     private void OnTakeCoinFromPool(GameObject coin)
     {
         Coin auxCoin = coin.GetComponentInChildren<Coin>();
@@ -99,6 +128,10 @@ public class ObjectPoolManager : MonoBehaviour
         auxCoin.onDeath.AddListener(OnReturnCoinToPool);
     }
 
+    /// <summary>
+    /// When a turret is taken from the pool the game object is activated.
+    /// </summary>
+    /// <param name="turret"></param>
     private void OnTakeTurretFromPool(GameObject turret)
     {
         DestroyTurret auxTurret = turret.GetComponent<DestroyTurret>();
@@ -110,11 +143,19 @@ public class ObjectPoolManager : MonoBehaviour
         auxTurret.onDeath.AddListener(OnReturnTurretToPool);
     }
 
+    /// <summary>
+    /// Destroy one coin from the pool object.
+    /// </summary>
+    /// <param name="coin"></param>
     private void OnDestroyCoinPoolObject(GameObject coin)
     {
         Destroy(coin.transform.parent.gameObject);
     }
 
+    /// <summary>
+    /// Destroy one turret from the pool object.
+    /// </summary>
+    /// <param name="turret"></param>
     private void OnDestroyTurretPoolObject(GameObject turret)
     {
         Destroy(turret.transform.parent.gameObject);
