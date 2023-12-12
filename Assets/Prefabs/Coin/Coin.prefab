@@ -275,13 +275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91384512e0c65946be4643756a23831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
   playerTag: Player
+  value: 1
   coinSFX: Coin
+  pickUpPrefab: {fileID: 1289675347812774491}
   soundsPlayer: {fileID: 2748501607255864665}
   onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onGet:
     m_PersistentCalls:
       m_Calls: []

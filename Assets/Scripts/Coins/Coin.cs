@@ -9,17 +9,30 @@ using UnityEngine.Events;
 /// </summary>
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private int value;
-
+    [Header("Setup")]
     [SerializeField] private string playerTag;
 
-    [SerializeField] private string  coinSFX;
+    [SerializeField] private int value;
+
+    [SerializeField] private string coinSFX;
+
+    [SerializeField] private GameObject pickUpPrefab;
+
+    [Header("References")]
+    private CoinsFactory coinsFactory;
+
+    private PickUpInterface coin;
 
     public SoundsPlayer soundsPlayer;
 
     public UnityEvent<GameObject> onDeath;
 
-    public UnityEvent<GameObject>onGet;
+    private void Start()
+    {
+        coinsFactory = new CoinsFactory();
+
+        coin = coinsFactory.CreateCoin(value, soundsPlayer, coinSFX);
+    }
 
     /// <summary>
     /// When the player collides with the coin it is destroyed 
@@ -30,9 +43,7 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag(playerTag)) 
         {
-            CoinCounter.instance.IncreaseCoins(value);
-
-            soundsPlayer.PlaySFX(coinSFX);
+            coin.CollectObject();
 
             onDeath.Invoke(gameObject);
         }
