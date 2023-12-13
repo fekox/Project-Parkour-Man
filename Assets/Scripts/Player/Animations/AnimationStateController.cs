@@ -67,7 +67,9 @@ public class AnimationStateController : MonoBehaviour
     /// <param name="isWalking"></param>
     private void HandleMovementChange(bool isWalking) 
     {
-        animator.SetBool("IsWalking", isWalking);
+        string animationName = "IsWalking";
+
+        animator.SetBool(animationName, isWalking);
     }
 
     /// <summary>
@@ -76,7 +78,9 @@ public class AnimationStateController : MonoBehaviour
     /// <param name="isRunning"></param>
     private void HandleRunningChange(bool isRunning) 
     {
-        animator.SetBool("IsRunning", isRunning);
+        string animationName = "IsRunning";
+
+        animator.SetBool(animationName, isRunning);
     }
 
     /// <summary>
@@ -85,7 +89,9 @@ public class AnimationStateController : MonoBehaviour
     /// <param name="isJumping"></param>
     private void HandleJumpingChange(bool isJumping) 
     {
-        animator.SetBool("IsJumping", isJumping);
+        string animationName = "IsJumping";
+
+        animator.SetBool(animationName, isJumping);
     }
 
     /// <summary>
@@ -94,7 +100,9 @@ public class AnimationStateController : MonoBehaviour
     /// <param name="isClimbing"></param>
     private void HandleClimbingChange(bool isClimbing)
     {
-        animator.SetBool("IsClimbing", isClimbing);
+        string animationName = "IsClimbing";
+
+        animator.SetBool(animationName, isClimbing);
     }
 
     /// <summary>
