@@ -12,19 +12,21 @@ public class ShowTimer : MonoBehaviour
 
     private float saveTimer;
 
-    private int segs;
-    private int mins;
+    private int seconds;
+    private int minutes;
 
     /// <summary>
     /// Increase time counter in the hud in seconds and minutes.
     /// </summary>
     private void Update()
     {
+        int oneMinute = 60;
+
         saveTimer = PlayerPrefs.GetFloat("Time");
 
-        segs = (int)saveTimer % 60;
-        mins = (int)saveTimer / 60;
+        seconds = (int)saveTimer % oneMinute;
+        minutes = (int)saveTimer / oneMinute;
 
-        timerText.text = string.Format("{00:00}:{1:00}", mins, segs);
+        timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
     }
 }
