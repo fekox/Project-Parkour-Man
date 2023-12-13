@@ -64,7 +64,7 @@ public class Climbing : MonoBehaviour
     }
 
     /// <summary>
-    /// Execute wall-climbing logic.
+    /// Execute wall climbing logic.
     /// </summary>
     private void ClimbingLogic() 
     {

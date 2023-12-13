@@ -129,6 +129,8 @@ public class Jumping : MonoBehaviour
     /// <returns></returns>
     private IEnumerator JumpCoroutine()
     {
+        float lineDuration = 5f;
+
         if (!feetPivot)
         {
             yield break;
@@ -148,7 +150,7 @@ public class Jumping : MonoBehaviour
 
             if (!canNormalJump && canCoyoteJump)
             {
-                Debug.DrawLine(currentFeetPosition, coyoteTimeFeetPosition, Color.green, 5f);
+                Debug.DrawLine(currentFeetPosition, coyoteTimeFeetPosition, Color.green, lineDuration);
             }
 
             if (canNormalJump || canCoyoteJump)
