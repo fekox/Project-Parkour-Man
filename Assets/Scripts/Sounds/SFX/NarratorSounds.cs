@@ -33,12 +33,11 @@ public class NarratorSounds : MonoBehaviour
     /// </summary>
     public void StartSound()
     {
-        int randNumber = UnityEngine.Random.Range(0, 5);
+        int maxRange = 5;
 
-        for (int i = 0; i < 1; i++) 
-        {
-            soundsPlayer.PlaySFX(sfxNames[randNumber]);
-        }
+        int randNumber = UnityEngine.Random.Range(0, maxRange);
+
+        soundsPlayer.PlaySFX(sfxNames[randNumber]);        
     }
 
     /// <summary>
