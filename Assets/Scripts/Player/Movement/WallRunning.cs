@@ -221,7 +221,9 @@ public class WallRunning : MonoBehaviour
 
         if ((wallLeft == false && playerMovement._currentMovement.x > 0) && (wallRight == false && playerMovement._currentMovement.x < 0))
         {
-            playerRigidbody.AddForce(-wallNormal * 100, ForceMode.Force);
+            int speed = 100;
+
+            playerRigidbody.AddForce(-wallNormal * speed, ForceMode.Force);
         }
 
         if (useGravity == true) 
