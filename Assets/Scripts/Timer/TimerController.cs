@@ -15,22 +15,24 @@ public class TimerController : MonoBehaviour
 
     private float saveTimerSeg;
 
-    private int segs;
-    private int mins;
+    private int seconds;
+    private int minutes;
 
     /// <summary>
     /// Shows the time the player got in the win menu.
     /// </summary>
     void Update()
     {
+        int oneMinute = 60;
+
         timerSeg += Time.deltaTime;
         
         saveTimerSeg = timerSeg;
 
-        segs = (int)timerSeg % 60;
-        mins = (int)timerSeg / 60;
+        seconds = (int)timerSeg % oneMinute;
+        minutes = (int)timerSeg / oneMinute;
 
-        timerText.text = string.Format("{00:00}:{1:00}", mins, segs);
+        timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
         PlayerPrefs.SetFloat("Time", saveTimerSeg);
     }
 }
