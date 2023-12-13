@@ -93,7 +93,9 @@ public class PlayerLook : MonoBehaviour
     /// <param name="zTilt"></param>
     public void DoTilt(float zTilt) 
     {
-        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.35f);
+        float duration = 0.35f;
+
+        transform.DOLocalRotate(new Vector3(0, 0, zTilt), duration);
     }
 
     /// <summary>
@@ -101,11 +103,14 @@ public class PlayerLook : MonoBehaviour
     /// </summary>
     private void CameraMovement() 
     {
+        float maxClamp = 70f;
+        float minClamp = -70f;
+
         var mouseX = mouseRot.x * cameraSensitivity * Time.deltaTime;
         var mouseY = mouseRot.y * cameraSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -70f, 70f);
+        xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp);
 
         camHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
