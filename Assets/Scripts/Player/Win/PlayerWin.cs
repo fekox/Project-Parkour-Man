@@ -22,9 +22,9 @@ public class PlayerWin : MonoBehaviour
     /// and the narrator sound plays.
     /// </summary>
     /// <param name="p"></param>
-    private void OnTriggerEnter(Collider p)
+    private void OnTriggerEnter(Collider player)
     {
-        if (p.gameObject.CompareTag(playerWinTag))
+        if (player.gameObject.CompareTag(playerWinTag))
         {
             narratorSound.WinSounds();
             startTimer = true;   
