@@ -47,7 +47,9 @@ public class Turret : MonoBehaviour
     /// </summary>
     void Start()
     {
-        InvokeRepeating(functionName, 0f, 0.5f);
+        float repeatRate = 0.5f;
+
+        InvokeRepeating(functionName, 0f, repeatRate);
 
         turretFactory = new TurretsFactory();
 
